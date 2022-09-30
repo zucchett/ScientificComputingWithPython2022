@@ -23,7 +23,7 @@ The following instructions need to be followed any time a new local repository i
 
    * Clone your (forked) repository (i.e. create a local repository cloned from your remote repository)
 
-   `git clone https://<YourToken>@github.com/<YourUsername>/HighLevelProgramming2021.git`
+   `git clone https://<YourToken>@github.com/<YourUsername>/ScientificComputingWithPython2022.git`
 
    where <YourUsername> it your GitHub username and <YourToken> is the token as copied from the GitHub webpage. A new directory will appear in your current directory. Get into it:
 
@@ -39,7 +39,7 @@ The following instructions need to be followed any time a new local repository i
 
    * Define the central HighLevelProgramming repo as the upstream repository:
 
-   `git remote add upstream https://github.com/zucchett/HighLevelProgramming2021.git`
+   `git remote add upstream https://github.com/zucchett/ScientificComputingWithPython2022.git`
 
    * Check that the previous commands succeeded:
 
