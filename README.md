@@ -27,7 +27,7 @@ The following instructions need to be followed any time a new local repository i
 
    where <YourUsername> it your GitHub username and <YourToken> is the token as copied from the GitHub webpage. A new directory will appear in your current directory. Get into it:
 
-   `cd HighLevelProgramming2021/`
+   `cd ScientificComputingWithPython2022/`
 
    * Configure your username and email:
 
@@ -37,7 +37,7 @@ The following instructions need to be followed any time a new local repository i
 
    Your git configuration is stored in `~/.gitconfig`, a file that you can always edit by hand.
 
-   * Define the central HighLevelProgramming repo as the upstream repository:
+   * Define the central ScientificComputingWithPython repo as the upstream repository:
 
    `git remote add upstream https://github.com/zucchett/ScientificComputingWithPython2022.git`
 
