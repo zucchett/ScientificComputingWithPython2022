@@ -1,0 +1,7 @@
+*.pyc
+
+# Emacs ignores
+*~
+\#*\#
+auto-save-list
+tramp
