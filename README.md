@@ -1,4 +1,5 @@
 # Scientific Computing With Python
+2022
 
 This is the official repository of the course, and contains the Jupyter Notebooks guiding students through the world of data analysis with python.
 The notebooks will be added few hours before each lecture or exercise.
