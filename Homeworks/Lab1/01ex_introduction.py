@@ -118,18 +118,32 @@ print("#####################EX6#####################")
 
 #ex6
 
-#try to cast the input to an integer, if not possible -> error message
-try:
+print("Do you want sum integer/float(type 1) values or strings?(type 2)")
 
-	x = int(input("Set the value of x: ")) 
-except:
-	print("incorrect format of the input for x")
+control = input("type you choice: ")
+
+correct = 0
+if(control == "1"):
+	try:
+		x = float(input("x: "))
+		y = float(input("y: "))
+		correct = 1
+	except:
+		print("Only integer or float are admited")
+		
+elif(control == "2"):
+
+	x = input("x: ")
+	y = input("y: ")
+	correct = 1
 	
-try:
+else:
+	print("Not admited choice")
 
-	y = int(input("Set the value of y: "))
-except:
-	print("incorrect format of the input for y")
+if(correct !=0):
+	result = x + y
+	print("The sum of the two values is = " + str(result))
+
 
 print("#####################EX7#####################")
 
@@ -159,23 +173,23 @@ print("#####################EX9#####################")
 
 #ex9
 
-abc_list = []
-c = 99
+abc_list = [] 
 
-while(c>0):
+c = 99 #maximum value for c
 
-	for a in range(c):
+while(c>0): #c can not be 0, the idea is to find a,b starting from an initial integer value for c and decreasing it at each iteration
+
+	for b in range(c): #b<c
 	
-		b = math.sqrt(c**2 - a**2)
+		a = math.sqrt(c**2 - b**2)
 
-		condition1 = (b - int(b)) == 0
+		condition1 = (a - int(a)) == 0 #is it an integer?
 		
-		condition2 = ((a*b) % 12 == 0 and (a*b*c) % 60 == 0)
+		if(condition1 and a>0 and a<b): #a must be in [0,b), b and c are integer for sure and >0 thanks to the definition of the cycle 
 		
-		if(condition1 and condition2 and b > 0 and a < b and a > 0):
-			abc_list.append((a,int(b),c))
+			abc_list.append((int(a),b,c)) #saving the values
 
-	c = c - 1
+	c = c - 1 #next value for c
 
 
 print(abc_list)
