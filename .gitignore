@@ -1,4 +1,11 @@
 #Jupyter Notebook cache folders
+
 /.ipynb_checkpoints
 /Homeworks/Lab*/.ipynb_checkpoints
 /Lectures/.ipynb_checkpoints
+
+#Media files
+
+*.jpeg
+*.png
+
