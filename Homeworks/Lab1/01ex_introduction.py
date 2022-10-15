@@ -67,29 +67,31 @@ s1 = "Write a program that prints the numbers from 1 to 100. But for multiples o
 
 s2 = "The quick brown fox jumps over the lazy dog"
 
-#ignoring different in capitalization
+#ignoring differences in capitalization
 s1 = s1.upper()  
 s2 = s2.upper() 
 
 print(s1)
 
-tuples1=[] #empty list
-for char in s1: #for each char in the string 
+tuples1=set() #empty set used to avoit duplicates
 
+for char in s1: #for each char in the string 
+	
 	count = s1.count(char) #count the number of occurrences
 	
-	tuples1.append((char,count)) #add a tuple with (char, count) to the list
+	tuples1.add((char,count)) #add a tuple with (char, count) to the list 
 	
 print("\nCounter for string 1 = " + str(tuples1))
 
 print("\n\n")
 print(s2)
-tuples2=[]
-for char in s2: #same for string 2
+tuples2=set() #same for string 2
 
+
+for char in s2: 
 	count = s2.count(char)
 	
-	tuples2.append((char,count))
+	tuples2.add((char,count))
 	
 print("\nCounter for string 2 = " + str(tuples2))
 
