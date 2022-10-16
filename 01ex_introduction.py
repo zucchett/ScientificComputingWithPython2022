@@ -128,3 +128,26 @@ except:
     print(a+' '+b)
 
 
+#Es 7
+print('Exercise 7')
+
+out1 = []
+
+for i in range(11):
+    out1.append(pow(i,3))
+
+print(out1)
+
+
+out2 = [pow(x,3) for x in range(11)]
+
+#Es 8
+print('Exercise 8')
+
+print([(x, y) for x in range(3) for y in range(4)])
+
+#Es 9                                         QUA IL PROBLEMA è CHE TI RITROVI ANCHE CON I MULTIPLI DELLE TERNE PITAGORICHE NON SOLO LE BASI (tipo 6 8 10)
+print('Exercise 9')
+
+pitagorean_triples = [(x, y, z) for x in range(101) for y in range(101) for z in range(101) if (x!=0 and y!=0 and z!=0 and (pow(x,2)+pow(y,2)==pow(z,2)) and x<y)]
+print(pitagorean_triples)
