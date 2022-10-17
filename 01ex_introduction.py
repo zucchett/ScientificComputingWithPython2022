@@ -8,7 +8,7 @@ printEs1=False
 printEs2=False
 printEs3=False
 printEs4=False
-printEs5=False
+printEs5=True
 printEs6=False
 printEs7=False
 printEs8=False
@@ -118,43 +118,81 @@ if(printEs4):
 #***************************************************Ex 1.5
 if(printEs5):
 
-    def get_unique_numbers(numbers):
-        unique_list = []
-
-        for i in numbers:
-            if i in unique_list:
-
-                continue
-            else:
-                unique_list.append(i)
-        return unique_list
-
     l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
     85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
     1, 84, 84, 36, 66, 9, 89, 50, 42, 91, 50, 95, 90, 98, 39, 16, 82, 31, 92, 41,
     45, 30, 66, 70, 34, 85, 94, 5, 3, 36, 72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
     
-    unique_numbers = list(set(l))
-    print("With Set:")
-    print(unique_numbers)
+    #unique_numbers = list(set(l))
+    #print("With Set:")
+    #print(unique_numbers)
+    #print("unique numbers are: "+str(len(unique_numbers)))
 
-    print("With Other:")
-    res=get_unique_numbers(l)
-    res.sort()
-    print(res)
+    unique_list = {}
+    not_unique_list={}
+    value={}
 
-    print("unique numbers are: "+str(len(res))+" of "+str(len(l)))
+    for i in l:
+        if not i in not_unique_list:
+            if l.count == 1:
+                unique_list[i] = l.count(i)
+            else:
+                not_unique_list[i] = l.count(i)
 
+    print(unique_list)
 #***************************************************Ex 1.6
+if(printEs6):
 
+    x = input("Please enter first integer, float or string value: ")
+    y = input("Please enter second integer, float or string value: ")
+    
+    try:
+        res=float(x)+float(y)
+        print(res)
+    except:
+        try:
+            res=int(x)+int(y)
+            print(res)
+        except:
+            print(x+y)
+   
 #***************************************************Ex 1.7
+if(printEs7):
+    listCubicLoop=[]
+    for i in range(10):
+        listCubicLoop.append(i**3)
+    print("With loop:\n"+str(listCubicLoop))
+
+    listCubicCompr = [i**3 for i in range(10)]
+    print("With comprehension:\n"+str(listCubicCompr))
 
 #***************************************************Ex 1.8
+if(printEs8):
+    a = []
+    for i in range(3):
+        for j in range(4):
+            a.append((i, j))
+    print("With for:\n"+str(a))
+
+    a_compr = [(x, y) for x in range(3) for y in range(4)]
+    print("With list comprehension:\n"+str(a_compr))
 
 #***************************************************Ex 1.9
+if(printEs9):
+    listPy=[]
+    c=0
+
+    a_compr = [((a,b,int(math.sqrt( a * a + b * b)))) for a in range(15) for b in range(a) if (c<100 and c % 1 == 0)]
+
+    for b in range(100):
+                for a in range(1, b):
+                    c = math.sqrt( a * a + b * b)
+                    if c % 1 == 0:
+                        if(c<100):
+                            listPy.append((a,b,int(c)))
+                            #print(a, b, int(c))
+    print(a_compr)
 
 #***************************************************Ex 1.10
 
 #***************************************************Ex 1.11
-
-
