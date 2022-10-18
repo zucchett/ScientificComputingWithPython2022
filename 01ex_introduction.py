@@ -8,13 +8,13 @@ printEs1=False
 printEs2=False
 printEs3=False
 printEs4=False
-printEs5=True
+printEs5=False
 printEs6=False
 printEs7=False
 printEs8=False
 printEs9=False
 printEs10=False
-printEs11=False
+printEs11=True
 
 
 #***************************************************Ex 1.1
@@ -128,18 +128,18 @@ if(printEs5):
     #print(unique_numbers)
     #print("unique numbers are: "+str(len(unique_numbers)))
 
-    unique_list = {}
-    not_unique_list={}
-    value={}
+    unique_numbers = {}
+    not_unique_numbers={}
 
     for i in l:
-        if not i in not_unique_list:
-            if l.count == 1:
-                unique_list[i] = l.count(i)
+        if not i in not_unique_numbers:
+            if l.count(i) == 1:
+                unique_numbers[i] = l.count(i)
             else:
-                not_unique_list[i] = l.count(i)
-
-    print(unique_list)
+                not_unique_numbers[i] = l.count(i)
+    print("Unique numbers are: " +str(len(unique_numbers)))
+    print(unique_numbers)
+    
 #***************************************************Ex 1.6
 if(printEs6):
 
@@ -181,8 +181,10 @@ if(printEs8):
 if(printEs9):
     listPy=[]
     c=0
-
-    a_compr = [((a,b,int(math.sqrt( a * a + b * b)))) for a in range(15) for b in range(a) if (c<100 and c % 1 == 0)]
+    a_compr=[0]
+    n=99
+    #a_compr=[(a,b,c) for a in range(n+1) for b in range(a) for c in range(b) if a*a == b*b + c*c]
+    a_compr=[(a,b,c) for c in range(n+1) for b in range(c) for a in range(b) if (a*a + b*b == c*c)]
 
     for b in range(100):
                 for a in range(1, b):
@@ -190,9 +192,31 @@ if(printEs9):
                     if c % 1 == 0:
                         if(c<100):
                             listPy.append((a,b,int(c)))
-                            #print(a, b, int(c))
-    print(a_compr)
+
+    #print(a_compr)
+    #print(len(a_compr))
+    #print(listPy)
+    #print(len(listPy))
+
+    tuplaResut = (tuple(a_compr))
+    print(tuplaResut)
 
 #***************************************************Ex 1.10
-
+if(printEs10):
+    print("test")
 #***************************************************Ex 1.11
+if(printEs11):
+    a,b = 1,1
+    fibonacciSequence=[]
+
+    for i in range(20):
+        if(i==0):
+            fibonacciSequence.append(1)
+        elif(i==1):
+           fibonacciSequence.append(1)
+        else:
+            c=a+b
+            a=b
+            b=c
+            fibonacciSequence.append(c)
+    print("First 20 numbers of the Fibonacci sequence:\n"+str(fibonacciSequence))
