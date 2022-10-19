@@ -173,26 +173,11 @@ print("#####################EX9#####################")
 
 #ex9
 
-abc_list = [] 
-
-c = 99 #maximum value for c
-
-while(c>0): #c can not be 0, the idea is to find a,b starting from an initial integer value for c and decreasing it at each iteration
-
-	for b in range(c): #b<c
-	
-		a = math.sqrt(c**2 - b**2)
-
-		condition1 = (a - int(a)) == 0 #is it an integer?
-		
-		if(condition1 and a>0 and a<b): #a must be in [0,b), b and c are integer for sure and >0 thanks to the definition of the cycle 
-		
-			abc_list.append((int(a),b,c)) #saving the values
-
-	c = c - 1 #next value for c
+#c can not be 0, the idea is to find a,b starting from an initial integer value for c and decreasing it at each iteration
+#int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2) = is a an integer?
+#b>math.sqrt(c**2-b**2): b can be only > a
 	
 abc_list = [(math.sqrt(c**2-b**2),b,c) for c in range(99) for b in range (1,c,1) if (int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2)==0 and b>math.sqrt(c**2-b**2))]
-
 
 print(abc_list)
 
