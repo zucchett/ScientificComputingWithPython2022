@@ -7,19 +7,19 @@ import re
 printEs1=False
 printEs2=False
 printEs3=False
-printEs4=False
+printEs4=True
 printEs5=False
 printEs6=False
 printEs7=False
 printEs8=False
 printEs9=False
 printEs10=False
-printEs11=True
+printEs11=False
 
 
 #***************************************************Ex 1.1
 if(printEs1):
-
+    print("***************************************************Ex 1.1")
     listaTest=[]
     for x in range(1,101,1):
         if (x%3==0 and x%5==0):
@@ -49,6 +49,7 @@ if(printEs1):
 
 #***************************************************Ex 1.2
 if(printEs2):
+    print("***************************************************Ex 1.2")
     x = input('insert X: ')
     y = input('insert Y: ')
 
@@ -58,7 +59,7 @@ if(printEs2):
 
 #***************************************************Ex 1.3
 if(printEs3):
-
+    print("***************************************************Ex 1.3")
     def computingDistance(u,v):
         return math.sqrt((v[0]-u[0])**2+((v[1]-u[1]))**2)
     
@@ -73,40 +74,19 @@ if(printEs3):
 
 #***************************************************Ex 1.4
 if(printEs4):
+    print("***************************************************Ex 1.4")
     def countingLetters(m):
 
         print("STRINGA:\n"+m+"\n")
 
-        s = m.lower()   
+        s = m.lower() 
+        occ={}  
 
-        print("a: "+str(s.count('a')))
-        print("b: "+str(s.count('b')))
-        print("c: "+str(s.count('c')))
-        print("d: "+str(s.count('d')))
-        print("e: "+str(s.count('e')))
-        print("f: "+str(s.count('f')))
-        print("g: "+str(s.count('g')))
-        print("h: "+str(s.count('h')))
-        print("i: "+str(s.count('i')))
-        print("j: "+str(s.count('j')))
-        print("k: "+str(s.count('k')))
-        print("l: "+str(s.count('l')))
-        print("m: "+str(s.count('m')))
-        print("n: "+str(s.count('n')))
-        print("o: "+str(s.count('o')))
-        print("p: "+str(s.count('p')))
-        print("q: "+str(s.count('q')))
-        print("r: "+str(s.count('r')))
-        print("s: "+str(s.count('s')))
-        print("t: "+str(s.count('t')))
-        print("u: "+str(s.count('u')))
-        print("v: "+str(s.count('v')))
-        print("w: "+str(s.count('w')))
-        print("x: "+str(s.count('x')))
-        print("y: "+str(s.count('y')))
-        print("z: "+str(s.count('z')))
+        for char in s:
+            occ[char]=s.count(char)
+        print(f"Occurs: {occ}")
 
-
+        
     s1 = "Write a program that prints the numbers from 1 to 100. \
     But for multiples of three print Hello instead of the number and for the multiples of five print World. \
     For numbers Which are multiples of both three and five print HelloWorld."
@@ -117,6 +97,7 @@ if(printEs4):
 
 #***************************************************Ex 1.5
 if(printEs5):
+    print("***************************************************Ex 1.5")
 
     l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
     85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
@@ -142,6 +123,7 @@ if(printEs5):
     
 #***************************************************Ex 1.6
 if(printEs6):
+    print("***************************************************Ex 1.6")
 
     x = input("Please enter first integer, float or string value: ")
     y = input("Please enter second integer, float or string value: ")
@@ -150,14 +132,11 @@ if(printEs6):
         res=float(x)+float(y)
         print(res)
     except:
-        try:
-            res=int(x)+int(y)
-            print(res)
-        except:
-            print(x+y)
+        print("ERROR: Sum is not possible!")
    
 #***************************************************Ex 1.7
 if(printEs7):
+    print("***************************************************Ex 1.7")
     listCubicLoop=[]
     for i in range(10):
         listCubicLoop.append(i**3)
@@ -168,6 +147,7 @@ if(printEs7):
 
 #***************************************************Ex 1.8
 if(printEs8):
+    print("***************************************************Ex 1.8")
     a = []
     for i in range(3):
         for j in range(4):
@@ -179,44 +159,57 @@ if(printEs8):
 
 #***************************************************Ex 1.9
 if(printEs9):
+    print("***************************************************Ex 1.9")
+
     listPy=[]
-    c=0
-    a_compr=[0]
-    n=99
-    #a_compr=[(a,b,c) for a in range(n+1) for b in range(a) for c in range(b) if a*a == b*b + c*c]
-    a_compr=[(a,b,c) for c in range(n+1) for b in range(c) for a in range(b) if (a*a + b*b == c*c)]
+    c, m = 0, 2
+ 
+    while c < 99 :
+        
+        for n in range(1, m) :
+            a = m * m - n * n
+            b = 2 * m * n
+            c = m * m + n * n
 
-    for b in range(100):
-                for a in range(1, b):
-                    c = math.sqrt( a * a + b * b)
-                    if c % 1 == 0:
-                        if(c<100):
-                            listPy.append((a,b,int(c)))
+            if c > 99 :
+                break
 
-    #print(a_compr)
-    #print(len(a_compr))
-    #print(listPy)
-    #print(len(listPy))
-
-    tuplaResut = (tuple(a_compr))
-    print(tuplaResut)
+            listPy.append((a,b,c))
+ 
+        m = m + 1
+    
+    tuplaPy = (tuple(listPy))
+    print(tuplaPy)
 
 #***************************************************Ex 1.10
 if(printEs10):
-    print("test")
+    print("***************************************************Ex 1.10")
+
+    numbers=[5,16,458,102,27,65,31,2,48,124,57]
+    print("Original numbers:\n"+str(numbers))
+    norm=0
+
+    for i in numbers:
+        norm = norm + i**2
+
+    norm = math.sqrt(norm)
+
+    for n in range(len(numbers)):
+        numbers[n] = numbers[n]/norm
+    
+    print("Normalize numbers:\n"+str(numbers))
+
+    sum=0
+    for s in range(len(numbers)):
+        sum = sum+numbers[s]**2
+    print("The sum of the normalized number are:\n"+str(sum))
+
 #***************************************************Ex 1.11
 if(printEs11):
-    a,b = 1,1
-    fibonacciSequence=[]
+    print("***************************************************Ex 1.11")
+
+    fibSeq=[1,1]
 
     for i in range(20):
-        if(i==0):
-            fibonacciSequence.append(1)
-        elif(i==1):
-           fibonacciSequence.append(1)
-        else:
-            c=a+b
-            a=b
-            b=c
-            fibonacciSequence.append(c)
-    print("First 20 numbers of the Fibonacci sequence:\n"+str(fibonacciSequence))
+        fibSeq.append(fibSeq[len(fibSeq)-1]+fibSeq[len(fibSeq)-2])
+    print("First 20 numbers of the Fibonacci sequence:\n"+str(fibSeq))
