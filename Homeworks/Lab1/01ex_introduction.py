@@ -190,6 +190,8 @@ while(c>0): #c can not be 0, the idea is to find a,b starting from an initial in
 			abc_list.append((int(a),b,c)) #saving the values
 
 	c = c - 1 #next value for c
+	
+abc_list = [(math.sqrt(c**2-b**2),b,c) for c in range(99) for b in range (1,c,1) if (int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2)==0 and b>math.sqrt(c**2-b**2))]
 
 
 print(abc_list)
