@@ -151,3 +151,25 @@ print('Exercise 9')
 
 pitagorean_triples = [(x, y, z) for x in range(101) for y in range(101) for z in range(101) if (x!=0 and y!=0 and z!=0 and (pow(x,2)+pow(y,2)==pow(z,2)) and x<y)]
 print(pitagorean_triples)
+
+
+#Es 10
+vector = input('Enter vector elements with a space between them ').split()
+N = sum([float(x) for x in vector])
+normalized_vector = [float(x)/N for x in vector]
+print(normalized_vector)
+
+
+#Es 11
+
+
+seq = []
+for i in range(20):
+    if (i==0):
+        seq.append(0)
+    elif (i==1):
+        seq.append(1)
+    else:
+        seq.append(seq[i-1] + seq[i-2])
+
+print(seq)
