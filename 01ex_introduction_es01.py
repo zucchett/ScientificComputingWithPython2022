@@ -1,38 +1,11 @@
-"""
-First version : creating at the same time the list "HelloWorld" and the tuple
-"""
-#Declaration of tuple
-my_tuple = ()
-#To modify an item to tuple = convert tuple to list
-l = list(my_tuple)
-
-#For each number in a range of 100 numbers
-for i in range(1,101,1):
-    #multiples of three AND five
-    if (i%3==0 and i%5==0):
-        print("HelloWorld")
-        l.append(i)
-        my_tuple = tuple(l)
-    #multiples of three
-    elif i%3==0:
-        print("Hello")
-        l.append("Python")
-        my_tuple = tuple(l)
-    #multiples of five
-    elif i%5==0:
-        print ("World")
-        l.append("Works")
-        my_tuple = tuple(l)
-    #if not, just print the number
-    else:
-        print(i)
-        l.append(i)
-        my_tuple = tuple(l)
-
-print(my_tuple)
+import math
 
 """
-Second version : creating the list "HelloWorld" and from this list, 
+Exercice 1 : THE HELLOWORLD REPLACEMENT
+"""
+print("Exercice 1 : THE HELLOWORLD REPLACEMENT \n")
+"""
+Creating the list "HelloWorld" and from this list, changing words and puting it into a tuple
 """
 
 #Fonction to create the list "HelloWorld"
@@ -53,11 +26,12 @@ def listHelloWorld(x) :
         else:  
             list.append(i)
     return (list)
-
+print("The HelloWorld list : ")
 list_hello = listHelloWorld(100)
-#print(list_hello)
+print(list_hello)
+print("\n")
 
-
+#Declaration of a tuple
 my_tuple = ()
 #To modify an item to tuple = convert tuple to list
 l = list(my_tuple)
@@ -73,9 +47,16 @@ for i in range(1,len(list_hello),1):
 
 #converting the list_hello to a tuple
 my_tuple = tuple(list_hello)
+print("The HelloWorld subsitute : ")
 print(my_tuple)
-        
+
+"""
+Exercice 2 : THE SWAMP
+"""
+print("\nExercice 2 : THE SWAMP \n") 
+
 def swapping(a,b):
+    print("Value of x :", a, "and y : ", b)
     #Python syntac to swaps value
     a, b = b, a
     print("Swapping...")
@@ -85,14 +66,23 @@ x=input("Enter x:\n")
 y=input("Enter y:\n")
 swapping(x,y)
 
-import math
+"""
+Exercice 3 : COMPUTING THE DISTANCE
+"""
+print("\nExercice 3 : COMPUTING THE DISTANCE \n") 
 
 def computing_distance(u,v):
+    #using math.sqrt() for the square root
     return math.sqrt( ((u[0]-v[0])**2) + ((u[1]-v[1])**2) )
     
 u = (3,0)
 v = (0,4)
-computing_distance(u,v)
+print("if u=(3,0) and v=(0,4), the distance is : ", computing_distance(u,v), "\n")
+
+"""
+Exercice 4 : COUNTING LETTERS
+"""
+print("\nExercice 4 : COUNTING LETTERS \n") 
 
 s1 = "Write a program that prints the numbers from 1 to 100. \
 But for multiples of three print Hello instead of the number and for the multiples of five print World. \
@@ -112,10 +102,17 @@ def counting_letters(s):
         else:
         #else, we add it to the dictionnary with a value of 1
             letters[i] = 1
+    print("Counting letters....")                
     print(letters)
 
 counting_letters(s1)
 counting_letters(s2)
+
+"""
+Exercice 5 : ISOLATING THE UNIQUE
+"""
+print("\nExercice 5 : ISOLATING THE UNIQUE \n") 
+
 
 l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
  85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
@@ -141,20 +138,27 @@ def isolating_unique(l):
     for j in numbers:
         #We add it to the unique list
         list_count.append(j)
+    print("List of unique numbers : ")
     print(sorted(list_count))
-    print("Unique numbers :",len(list_count))
+    print("How many unique numbers?",len(list_count),"\n")
         
 
 isolating_unique(l)
 
+print("Same fonction but with Python data structures \n") 
 def isolating_unique_python(l):
     #Same fonction but with the Python data structures
     unique = set(l)
+    print("List of unique numbers : ")
     print(unique)
-    print("Unique numbers :",len(unique))
+    print("How many unique numbers?",len(unique))
     
 isolating_unique_python(l)
 
+"""
+Exercice 6 : CASTING
+"""
+print("\nExercice 6 : CASTING \n") 
 def casting(x,y):
     try:
         sum = x + y
