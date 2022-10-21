@@ -112,7 +112,22 @@ for element in unique: #count the occurrences of the not-duplicated element in t
 	
 	count.append((element, l.count(element)))
 
-print("Counter = "+str(count))
+print("Counter  using a set + a list = "+str(count))
+
+unique = {}
+
+for number in l:
+
+	if number not in unique.keys(): #first time i find that number=>counter seted to 1
+	
+		unique[number] = 1
+		
+	else: #if already exists => increase the counter
+	
+		unique[number] = unique[number] + 1
+	
+	
+print("Counter  using only a dictionary = "+str(unique))
 	
 print("#####################EX6#####################")
 
@@ -213,13 +228,13 @@ fib = [0, 1] #base case
 
 l = 2 
 
-while l < 20: #until there aren't 20 elements in the list
+while l <= 20: #until there aren't 21 elements in the list (i counted also the base case with F0 = 0)
 	
 	fib.append(fib[l-1] + fib[l-2]) #fib_i = fib_(i-1) + fib_(i-2)
 	l = len(fib) #update the list lenght
 
 	
-print("FIrst 20 number in the Fiboncci sequence = " + str(fib))
+print("First 20 number in the Fiboncci sequence = " + str(fib))
 
 
 		
