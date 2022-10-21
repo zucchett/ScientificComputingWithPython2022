@@ -100,19 +100,28 @@ print(square(5))
 print("#####################EX7#####################")
 #ex7
 
-def fibonacci(n):
+def fibonacci(n, sequence):
+
+	if n < 0:
+		return
+	if(n == 0):
+   		sequence.append(0)
+   		return	
 	
-	if (n == 1):
-		
-		print(str(0))
-		return int(0)
-		
-	if (n == 2):
+	if(n == 1):
+   		sequence.append(1)
+   		return	
 	
-		print(str(1))
-		return int(1)
-			
-	print(str(fibonacci(n-1) + fibonacci(n-2)))
+	if(n == 2):
+   		sequence.append(1)
+   		return	
+	
+	fibonacci(n-1,sequence)
+	l = len(sequence)
+	sequence.append((sequence[l-1] + sequence[l-2]))
+	return
 	
 	
-fibonacci(20)
+emptylist = []
+fibonacci(20, emptylist)
+print(emptylist)
