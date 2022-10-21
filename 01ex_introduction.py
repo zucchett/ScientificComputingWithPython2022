@@ -186,7 +186,7 @@ def exercise9():
 @benchmark(bench_data, "Exercise #10")
 def exercise10():
     # An example vector
-    vector = np.array([[1, 2, 3], [4, 5, 6], [7, 9, 9]])
+    vector = np.array([1, 2, 3, 4, 5, 6, 7, 9, 9])
 
     # Normalized vector
     norm_vector = vector / np.sqrt(np.sum(vector**2))
@@ -196,7 +196,7 @@ def exercise10():
     print(f"Normalized vector:\n{norm_vector}")
 
     # Check the squared summ of normalized vector, must be 1.0
-    ss = np.sqrt(np.sum(norm_vector**2))
+    ss = np.sum(norm_vector**2)
     print(f"Squared sum: {ss}")
 
 
