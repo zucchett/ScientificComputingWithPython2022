@@ -158,9 +158,83 @@ print("Execution time for the iterative version of fibonacci:", timeit.default_t
 	
 print("First 20 number in the Fiboncci sequence = " + str(fib))
 
+print("#####################EX10#####################")
+#ex10
+
+class polygon:
+
+	sides = []
+
+	def __init__(self, newSides):
+		
+		if(len(newSides) >=3):
+			self.sides = list(newSides)
+		else:
+			print("A polygon must have at least 3 sides!")
+	
 
 
+	def getSides(self):
+	
+		return self.sides
 
+
+	def setAllSides(self, newSides):
+		
+		i = 0
+		for side in newSides:
+		
+			self.sides[i] = side
+			i = i + 1 
+	
+			
+	def setSingleSide(self, newSide, position):
+		
+		self.sides[position] = newSide
+	
+		
+	def perimeter(self):
+
+		perimeter = 0
+		
+		for side in self.sides:
+			perimeter = perimeter +side
+		return perimeter 
+			
+			
+	def getOrderedSides(self, increasing):
+	
+		copy = [side for side in self.sides]
+		copy.sort(reverse = (not increasing))
+		return tuple(copy)
+		
+				
+pol = polygon([10,15,20])
+
+		
+print("The sides list of the polygon is: "  + str(pol.getSides()))
+print("\n\n")
+newSides = [9,14,21]
+print("I want set the sides to "+ str(newSides))
+print("\n")
+pol.setAllSides(newSides)
+print("   After execution of the method setAllSides: " +str(pol.getSides()))
+print("\n\n")
+print("I want set the new component to [16,11,18] using the setSingleSide method")
+print("\n")
+pol.setSingleSide(16,0)
+print("   After execution of the method setSIngleSide for the first component: " +str(pol.getSides()))
+print("\n")
+pol.setSingleSide(11,1)
+print("   After execution of the method setSIngleSide for the second component: " +str(pol.getSides()))
+print("\n")
+pol.setSingleSide(18,2)
+print("   After execution of the method setSIngleSide for the last component: " +str(pol.getSides()))
+print("\n\n")
+print("The perimeter of the polygon is: " + str(pol.perimeter()))
+print("\n\n")
+print("The list of sides in increasing order is: "+str(pol.getOrderedSides(increasing = True)))
+print("The list of sides in decreasing order is: "+str(pol.getOrderedSides(increasing = False)))
 
 
 
