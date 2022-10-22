@@ -13,6 +13,8 @@ alist = [1, 2, 3]
 ans = f(alist, 5)
 print(ans)
 print(alist) # alist has not been changed
+print("\n\n")
+
 
 print("#####################EX2#####################")
 #ex2
@@ -24,6 +26,8 @@ print("Ans with original code: " + str(ans))
 ans = [x**2 for x in range(10) if(x**2 % 2 == 1)] #create a list with the square of the number in [0,10) only if the square%2 = 1
 
 print("Ans with list comprehension: " + str(ans))
+print("\n\n")
+
 
 print("#####################EX3#####################")
 #ex3
@@ -38,6 +42,8 @@ def myfilter(words, n):
 	return filtered_words
 	
 print("Filtered words (shorter than " + str(n) +"): " + str(myfilter(words,n)))
+print("\n\n")
+
 
 print("#####################EX4#####################")
 #ex4
@@ -50,6 +56,8 @@ def counter(lang):
 	return length
 	
 print(counter(lang))
+print("\n\n")
+
 
 print("#####################EX5#####################")
 #ex5
@@ -62,6 +70,8 @@ language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 language_scores.sort(key = sorting) #sort using the first element of the tuples
 
 print(language_scores)
+print("\n\n")
+
 
 print("#####################EX6#####################")
 #ex6
@@ -81,6 +91,8 @@ def xPower6(x):
 x = 2
 
 print(xPower6(x))
+print("\n\n")
+
 
 print("#####################EX7#####################")
 #ex7
@@ -96,6 +108,8 @@ def square(x):
     return x*x
     
 print(square(5))
+print("\n\n")
+
 
 print("#####################EX8 and EX9#####################")
 #ex8 and ex9
@@ -157,6 +171,8 @@ while l <= 20: #until there aren't 22 elements in the list (i counted also the b
 print("Execution time for the iterative version of fibonacci:", timeit.default_timer() - start_time)
 	
 print("First 20 number in the Fiboncci sequence = " + str(fib))
+print("\n\n")
+
 
 print("#####################EX10#####################")
 #ex10
@@ -167,7 +183,7 @@ class polygon:
 
 	def __init__(self, newSides):
 		
-		if(len(newSides) >=3):
+		if(len(newSides) >=3): #checking the number of sides
 			self.sides = list(newSides)
 		else:
 			print("A polygon must have at least 3 sides!")
@@ -179,16 +195,21 @@ class polygon:
 		return self.sides
 
 
-	def setAllSides(self, newSides):
-		
-		i = 0
-		for side in newSides:
-		
-			self.sides[i] = side
-			i = i + 1 
+	def setAllSides(self, newSides): #set all the sides together
 	
+		if(len(newSides) == len(self.sides)): #checking if the number of the new sides is equal to the old one
+		
+			i = 0
+			for side in newSides: 
 			
-	def setSingleSide(self, newSide, position):
+				self.sides[i] = side
+				i = i + 1 
+		else:
+			
+			print("You can not change the number of sides of the polygon")
+			
+			
+	def setSingleSide(self, newSide, position): #set a specific side in the list, position in in [0, (length of the list) -1]
 		
 		self.sides[position] = newSide
 	
@@ -224,10 +245,8 @@ print("I want set the new component to [16,11,18] using the setSingleSide method
 print("\n")
 pol.setSingleSide(16,0)
 print("   After execution of the method setSIngleSide for the first component: " +str(pol.getSides()))
-print("\n")
 pol.setSingleSide(11,1)
 print("   After execution of the method setSIngleSide for the second component: " +str(pol.getSides()))
-print("\n")
 pol.setSingleSide(18,2)
 print("   After execution of the method setSIngleSide for the last component: " +str(pol.getSides()))
 print("\n\n")
@@ -235,6 +254,54 @@ print("The perimeter of the polygon is: " + str(pol.perimeter()))
 print("\n\n")
 print("The list of sides in increasing order is: "+str(pol.getOrderedSides(increasing = True)))
 print("The list of sides in decreasing order is: "+str(pol.getOrderedSides(increasing = False)))
+print("\n\n")
+
+print("#####################EX10#####################")
+#ex10
+
+class rectangle(polygon):
+
+	def __init__(self, newSides):
+	
+		if(len(newSides) == 2): #i need only two sides to define a rectangle since given (a,b,c,d) we have: a = c and b = d
+			self.sides = list(newSides)
+		else:
+			print("You are not defining a rectangle")
+			
+	
+	def perimeter(self):
+		
+		return (self.sides[0] + self.sides[1])*2
+		
+	
+	def area(self):
+		
+		return self.sides[0]*self.sides[1]
+		
+
+rect = rectangle([10,15])
+
+		
+print("The sides list of the rectangle is: "  + str(rect.getSides()))
+print("\n\n")
+newSides = [9,14]
+print("I want set the sides to "+ str(newSides))
+print("\n")
+rect.setAllSides(newSides)
+print("   After execution of the method setAllSides: " +str(rect.getSides()))
+print("\n\n")
+print("I want set the new component to [16,11] using the setSingleSide method")
+
+rect.setSingleSide(16,0)
+print("   After execution of the method setSIngleSide for the first component: " +str(rect.getSides()))
+pol.setSingleSide(11,1)
+print("   After execution of the method setSIngleSide for the second component: " +str(rect.getSides()))
+print("\n\n")
+print("The perimeter of the rectangle is: " + str(rect.perimeter()))
+print("The area of the rectangle is: " + str(rect.area()))
+print("\n\n")
+print("The list of sides in increasing order is: "+str(rect.getOrderedSides(increasing = True)))
+print("The list of sides in decreasing order is: "+str(rect.getOrderedSides(increasing = False)))
 
 
 

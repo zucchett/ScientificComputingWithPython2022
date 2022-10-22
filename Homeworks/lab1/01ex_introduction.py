@@ -30,6 +30,8 @@ for i in range(len(tmp)):  #substitute the words
 result_substituted = tuple(tmp)  #cast to tuple 
 
 print("Results with replacements = " + str(result_substituted))
+print("\n\n")
+
 
 print("#####################EX2#####################")
 
@@ -43,6 +45,8 @@ print("(x,y) = (" + str(x) + ","+str(y)+")")
 x,y = y,x
 
 print("(x,y) after swap = (" + str(x) + "," + str(y)+")")
+print("\n\n")
+
 
 print("#####################EX3#####################")
 
@@ -58,6 +62,8 @@ print("\nu = " + str(u))
 dist = math.sqrt((v[0] - u[0])**2 + (v[1] - u[1])**2 )
 
 print("\nDistance = " + str(dist))
+print("\n\n")
+
 
 print("#####################EX4#####################")
 
@@ -94,6 +100,8 @@ for char in s2:
 	tuples2.add((char,count))
 	
 print("\nCounter for string 2 = " + str(tuples2))
+print("\n\n")
+
 
 print("#####################EX5#####################")
 
@@ -128,21 +136,23 @@ for number in l:
 	
 	
 print("Counter  using only a dictionary = "+str(unique))
+print("\n\n")
+
 	
 print("#####################EX6#####################")
 
 #ex6
 
-print("Do you want sum integer/float(type 1) values or strings?(type 2)")
+print("Do you want sum integer/float(type 1) values or strings(type 2)?")
 
-control = input("type you choice: ")
+control = input("Type you choice: ")
 
-correct = 0
+correct = False #check if a valid number was inserted
 if(control == "1"):
 	try:
 		x = float(input("x: "))
 		y = float(input("y: "))
-		correct = 1
+		correct = True
 	except:
 		print("Only integer or float are admited")
 		
@@ -150,14 +160,16 @@ elif(control == "2"):
 
 	x = input("x: ")
 	y = input("y: ")
-	correct = 1
+	correct = True
 	
 else:
 	print("Not admited choice")
 
-if(correct !=0):
+if(correct == True):
 	result = x + y
 	print("The sum of the two values is = " + str(result))
+
+print("\n\n")
 
 
 print("#####################EX7#####################")
@@ -175,6 +187,8 @@ cubes2=[x**3 for x in range(11)]
 
 print(cubes1)
 print(cubes2)
+print("\n\n")
+
 
 print("#####################EX8#####################")
 
@@ -195,6 +209,8 @@ print("#####################EX9#####################")
 abc_list = [(math.sqrt(c**2-b**2),b,c) for c in range(99) for b in range (1,c,1) if (int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2)==0 and b>math.sqrt(c**2-b**2))]
 
 print(abc_list)
+print("\n\n")
+
 
 print("#####################EX10#####################")
 
@@ -219,6 +235,8 @@ for i in vect_normalized:
 print("Vector = " + str(vect) + "with norm " + str(norm) + "->normalized = " + str(vect_normalized))
 	
 print("Check the norm of the normalized vector: " + str(check))
+print("\n\n")
+
 
 print("#####################EX11#####################")
 
