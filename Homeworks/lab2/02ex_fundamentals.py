@@ -62,12 +62,9 @@ print("\n\n")
 print("#####################EX5#####################")
 #ex5
 
-def sorting(x): #return the first element of the tuple 
-	return x[0]
-
 language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 
-language_scores.sort(key = sorting) #sort using the first element of the tuples
+language_scores.sort(key = (lambda x : x[0])) #sort using the first element of the tuples (the lambda function extracts it for each tuple)
 
 print(language_scores)
 print("\n\n")
@@ -163,7 +160,7 @@ fib = [0, 1] #base case
 
 l = 2 
 
-while l <= 20: #until there aren't 22 elements in the list (i counted also the base case with F0 = 0)
+while l <= 20: #until there aren't 21 elements in the list (i counted also the base case with F0 = 0)
 	
 	fib.append(fib[l-1] + fib[l-2]) #fib_i = fib_(i-1) + fib_(i-2)
 	l = len(fib) #update the list lenght
