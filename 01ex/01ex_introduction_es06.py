@@ -4,34 +4,18 @@ x = input("Insert first element: ")
 y = input("Insert second element: ")
 
 try:
-<<<<<<< HEAD
-	x = int(x)
-except:
-	try:
-		x = float(x)
-=======
 	x = float(x)
-except:
-	try:
+	if x-int(x) == 0:
 		x = int(x)
->>>>>>> main
-	except:
-		pass
+except:
+	pass
 	
 try:		
-<<<<<<< HEAD
-	y = int(y)
-except:
-	try:
-		y = float(y)
-=======
 	y = float(y)
-except:
-	try:
+	if y-int(y) == 0:
 		y = int(y)
->>>>>>> main
-	except:
-		pass
+except:
+	pass
 
 print("type(x) = " + str(type(x)) + ", type(y) = " + str(type(y)))
 
