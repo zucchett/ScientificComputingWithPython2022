@@ -15,6 +15,7 @@ try:
   print(vector_of_str)
   for i in range(len(vector_of_str)):
     vector.append(float(vector_of_str[i]))
+  print(vector)
 except:
   print('You entered something wrong! We are using our default one! (1,2,3,4,5)')
   vector= (1,2,3,4,5)
@@ -24,12 +25,12 @@ print('Length of vector: ',m.sqrt(sum([i**2 for i in vector])))
 
 sqr_sum = m.sqrt(sum([i**2 for i in vector]))
 
-def normalize(vector,value):
+def normalize(value):
   y = value / sqr_sum 
   return y
 
 for i in vector:
-  normalized_vector.append(normalize(vector,i))
+  normalized_vector.append(normalize(i))
 print(tuple(normalized_vector))
 print('Length of normalized vector: ',m.sqrt(sum([i**2 for i in normalized_vector])))
 
