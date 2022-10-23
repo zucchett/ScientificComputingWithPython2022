@@ -11,7 +11,7 @@ normalized_vector = []
 
 
 try:
-  vector_of_str = vector_of_str.split(',')
+  vector_of_str = list(filter(None,vector_of_str.split(',')))
   print(vector_of_str)
   for i in range(len(vector_of_str)):
     vector.append(float(vector_of_str[i]))
