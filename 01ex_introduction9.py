@@ -4,18 +4,10 @@
 
 py_triple = []
 
-m=2
-c = 0
-while(c<100):
-  for n in range(1,m+1):
-    a=m*m-n*n
-    b=2*m*n
-    c=m*m+n*n
-    if(c>100):
-        break
-    if(a==0 or b==0 or c==0):
-        break
-    py_triple.append((a,b,c))
-  m=m+1
+# (py_triple.append((a,b,c) for n in range(1,m+1)  )
 
-print(tuple(py_triple))
+##Nested List comprehension
+n = 100
+triples = [(a, b, c) for a in range(1, n) for b in range(a, n) for c in range(b, n) if a**2 + b**2 == c**2]
+print(triples,'\n')
+print(len(triples))
