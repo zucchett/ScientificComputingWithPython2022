@@ -16,7 +16,7 @@ passive = False
 
 printEs1=passive  #esercizio 2.1
 printEs2=passive  #esercizio 2.2
-printEs3=active  #esercizio 2.3
+printEs3=passive  #esercizio 2.3
 printEs4=passive  #esercizio 2.4
 printEs5=passive  #esercizio 2.5
 printEs6=passive  #esercizio 2.6
