@@ -5,7 +5,7 @@ Exercice 1 : THE HELLOWORLD REPLACEMENT
 """
 print("Exercice 1 : THE HELLOWORLD REPLACEMENT \n")
 """
-Creating the list "HelloWorld" and from this list, changing words and puting it into a tuple
+Creating the list "HelloWorld" and from this list, changing words and putting it into a tuple
 """
 
 #Fonction to create the list "HelloWorld"
@@ -171,6 +171,11 @@ casting(10,23)
 casting('hello', 'world')
 casting(3.2,4.6)
 
+
+"""
+Exercice 7 : CUBES
+"""
+print("\nExercice 7 : CUBES \n") 
 def cubes_for():
     #List of the cubes
     list_cubes = []
@@ -180,16 +185,27 @@ def cubes_for():
         list_cubes.append(i**3)
     return list_cubes
 cubesFor = cubes_for()
-print(cubesFor)
+print('List of the cubes with a for loop : ',cubesFor)
 
 def cubes_list_comprehension():
     #list of the cubes
     list = range(0,11,1)
+    #list comprehension
     return [i**3 for i in list]
 cubesListComprehension = cubes_list_comprehension()
-print(cubesListComprehension)
+print('List of the cubes with a for loop : ',cubesListComprehension)
 
+
+"""
+Exercice 8 : LIST COMPREHENSION
+"""
+print("\nExercice 8 : LIST COMPREHENSION \n") 
 print([(i,j) for i in range(3) for j in range(4)])
+
+"""
+Exercice 9 : NESTED LIST COMPREHENSION
+"""
+print("\nExercice 9 : NESTED LIST COMPREHENSION \n") 
 
 def Pythagorean_triple():
     my_tuple = ()
@@ -216,25 +232,35 @@ def Pythagorean_triple_nested_list():
     #with nested_list
     my_tuple = [(a,b,c) for c in range(100) for b in range(c) for a in range(b) if c**2 == a**2 + b**2]
     return my_tuple
-
 my_tuple = Pythagorean_triple_nested_list()     
-print(my_tuple)
+print('Pythagorean triple : \n',my_tuple)
 
 import random 
 import math
 
+"""
+Exercice 10 : NORMALIZATION OF A N-DIMENSIONAL VECTOR
+"""
+print("\nExercice 10 : NORMALIZATION OF A N-DIMENSIONAL VECTOR") 
 def normalization(n):
     #N random numbers in a tuple
     raw = tuple(random.random() for i in range(n))
     #Normalization
     norm = math.sqrt(sum(i**2 for i in raw))
+    #we devide the tuple by the norm
     raw_norm = tuple([i/norm for i in raw])
     print(norm)
     print(raw_norm)
+    #we make sure that the sum equals to 1
     sum_norm = sum(i**2 for i in raw_norm)
     print(sum_norm)
 
 norm = normalization(5)
+
+"""
+Exercice 11 : THE FIBONACCI SEQUENCE
+"""
+print("\nExercice 11 : THE FIBONACCI SEQUENCE") 
 
 def fibonacci():
     #Fn = F(n-1) + F(n-2)
