@@ -9,8 +9,10 @@ import timeit
 # execution time
 bench_data = []
 
+
 def print_title(title):
     print(f"\n----- {title} -----")
+
 
 # A decorator to benchmark exercises
 def benchmark(bench_data, exercise_name):
@@ -22,13 +24,14 @@ def benchmark(bench_data, exercise_name):
             tdelta = round((perf_counter() - t1) * 1000, 3)
             data = {exercise_name: tdelta}
             bench_data.append(data)
-            data 
+
         return wrapped_f
+
     return wrap
+
 
 # First algorithm by exploiting dict structure
 def count_unique1(tokens):
-    #tokens = msg.lower().split(" ")
     result = {}
     for t in tokens:
         try:
@@ -37,9 +40,9 @@ def count_unique1(tokens):
             result[t] = 1
     return result
 
+
 # Second algorithm using collections.Counter object
 def count_unique2(tokens):
-    #tokens = msg.lower().split(" ")
     c = collections.Counter(tokens)
     return dict(c)
 
@@ -51,7 +54,7 @@ def exercise1():
 
     # I used 100+1 for upper range to emphasise on upper limit (100) and
     # increase the code readability
-    for i in range(1, 100+1):
+    for i in range(1, 100 + 1):
         # The the first condition is multiplies of both 3 and 5,
         # otherwise it would have passed multiplies of three and five and the
         # output would not have been correct
@@ -74,6 +77,7 @@ def exercise1():
     print(f"The final tuple: ", end="")
     print(final_tuple)
 
+
 @benchmark(bench_data, "Exercise #2")
 def exercise2():
     print_title("Problem #2")
@@ -88,7 +92,9 @@ def exercise2():
 @benchmark(bench_data, "Exercise #3")
 def exercise3():
     # Create a lambda function because the calculation can be made in a single line
-    calc_distance = lambda p1, p2: math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])** 2)
+    calc_distance = lambda p1, p2: math.sqrt(
+        (p1[0] - p2[0]) ** 2 + (p1[1] - p2[1]) ** 2
+    )
 
     # Two arbitary points in linear space
     u = (3.0, 0.0)
@@ -130,15 +136,17 @@ def exercise4():
 @benchmark(bench_data, "Exercise #5")
 def exercise5():
     # Sample input
-    l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
-     85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
-     1, 84, 84, 36, 66, 9, 89, 50, 42, 91, 50, 95, 90, 98, 39, 16, 82, 31, 92, 41,
-     45, 30, 66, 70, 34, 85, 94, 5, 3, 36, 72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
+    l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63,
+         70, 85, 85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79,
+         81, 57, 37, 91, 1, 84, 84, 36, 66, 9, 89, 50, 42, 91, 50, 95, 90,
+         98, 39, 16, 82, 31, 92, 41, 45, 30, 66, 70, 34, 85, 94, 5, 3, 36,
+         72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
 
     # I used the same function from previous problem, because those functions
     # don't care about input type, whether string or list, since both can be tokenized
     unique_nums = count_unique1(l)
     print(unique_nums)
+
 
 @benchmark(bench_data, "Exercise #6")
 def exercise6():
@@ -154,17 +162,15 @@ def exercise6():
         print("Worong input(s). Summation can't be performed")
 
 
-
 @benchmark(bench_data, "Exercise #7")
 def exercise7():
     l1 = []
-    for x in range(10+1):
+    for x in range(10 + 1):
         l1.append(x**3)
     print(f"Using for loop:\n{l1}")
 
-    l2 = [x**3 for x in range(0, 10+1)]
+    l2 = [x**3 for x in range(0, 10 + 1)]
     print(f"Using list comperhension:\n{l2}")
-
 
 
 @benchmark(bench_data, "Exercise #8")
@@ -175,11 +181,13 @@ def exercise8():
 
 @benchmark(bench_data, "Exercise #9")
 def exercise9():
-    l = [(a, b, c)
-         for c in range(100) \
-         for a in range(c) \
-         for b in range(c) \
-         if a**2 + b**2 == c**2]
+    l = [
+        (a, b, c)
+        for c in range(100)
+        for a in range(c)
+        for b in range(c)
+        if a**2 + b**2 == c**2
+    ]
     t = tuple(l)
     print(t)
 
@@ -235,5 +243,3 @@ print_title("Benchmark data")
 for d in bench_data:
     name, t = list(d.items())[0]
     print(f"{name}: {t} ms")
-
-
