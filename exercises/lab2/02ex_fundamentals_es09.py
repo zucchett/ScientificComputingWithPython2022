@@ -8,7 +8,7 @@ def loopFibonacci(n):
     elif n == 1:
         return b
     else:
-        for i in range(n):
+        for i in range(1, n+1):
             if(i == 0):
                 fibonacci_list.append(a)
             elif(i == 1):
@@ -25,8 +25,7 @@ print(fibonacci_list)
 
 
 def recursiveFibonacci(n):
-    if n == 0: return 0
-    elif n == 1: return 1
+    if n == 0 or n ==1: return 1
     else: return recursiveFibonacci(n-1)+recursiveFibonacci(n-2)
 
 fibonacci_list=[]
