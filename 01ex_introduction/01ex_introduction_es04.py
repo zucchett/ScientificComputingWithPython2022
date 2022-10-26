@@ -14,8 +14,9 @@ s2 = "The quick brown fox jumps over the lazy dog"
 
 def count(string): # count characters in string
     output = {} # create dictionry
-    for i in set(string): # iterate over string
-        output[i] = string.count(i) # add key and value to dictionary
+    string_lower = string.lower()
+    for i in set(string_lower): # iterate over string
+        output[i] = string_lower.count(i) # add key and value to dictionary
     return(output)
 
 #print(count("hello"))
