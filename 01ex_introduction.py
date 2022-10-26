@@ -3,6 +3,7 @@ import math
 import collections
 import numpy as np
 from time import perf_counter
+import timeit
 
 # A list to hold benchmarking data which consists of exercise number and
 # execution time
@@ -202,10 +203,19 @@ def exercise10():
 
 @benchmark(bench_data, "Exercise #11")
 def exercise11():
-    l = [0, 1]
-    while len(l) < 20:
-        l.append(l[-1] + l[-2])
-    print(l)
+    def fibonacci(n):
+        # Bootstrap the sequence by inserting first two elements
+        seq = [0, 1]
+        while len(seq) < 20:
+            seq.append(seq[-1] + seq[-2])
+        return seq
+
+    fib20 = fibonacci(20)
+    print(fib20)
+
+    t1 = timeit.timeit(lambda: fibonacci(20), number=500)
+    print(f"Execution time of fibonacci function: {t1*1000} ms")
+
 
 # Execute exercises
 exercise1()
