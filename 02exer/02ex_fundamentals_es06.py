@@ -1,5 +1,5 @@
 #Alexandru Timis, 2039336, alexandru.timis@studenti.unipd.it
-from pyrsistent import s
+
 
 #square function
 def square(x):
@@ -18,8 +18,7 @@ print("The cube of "+str(x)+" is: "+str(cube(x)))
 
 #6-th power function
 def six(x):
-    d = square(x)**3
+    d = cube(square(x))
     return d
-    
-#print(six(x))
+
 print("The 6-th power of "+str(x)+" is: "+str(six(x)))

@@ -1,7 +1,7 @@
 #Alexandru Timis, 2039336, alexandru.timis@studenti.unipd.it
 
 #function definition
-def is_even(l,n):
+def words(l,n):
     return lambda l: len(l)<n
     
 l=[]
@@ -11,7 +11,7 @@ for i in range(N):
     l.append(element)       
 n =int(input("Insert the value of n: "))
 #filtering the list
-filtro = list(filter(is_even(l,n),l))
+filtro = list(filter(words(l,n),l))
 #print the list
 print(filtro)
 
