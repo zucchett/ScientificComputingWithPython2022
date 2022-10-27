@@ -7,10 +7,14 @@ while True:
     else:
         numbers.append(a)
 
-s = sum(numbers)
+b = []
+for i in numbers:
+    b.append(i**2)
+
+s = sum(b)
 
 norm = []
-for i in numbers:
+for i in b:
     norm.append(i/s)
 
 print("norm: ", norm)
