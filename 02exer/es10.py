@@ -23,12 +23,6 @@ class polygon:
         return p
     def getOrderedSides(self, increasing ):
         return tuple(sorted(self.x, reverse = increasing))
-        #if increasing == False:
-        #    return sorted(self.x)
-        #elif increasing == False:
-            #return sorted(self.x)
-    #def getOrderedSidesf(self, reverse=True ):
-        #return sorted(self.x, reverse = True)
 #############################################################
 N = int(input("Set dimension of the polygon: "))
 l=()
