@@ -253,8 +253,8 @@ print("The list of sides in increasing order is: "+str(pol.getOrderedSides(incre
 print("The list of sides in decreasing order is: "+str(pol.getOrderedSides(increasing = False)))
 print("\n\n")
 
-print("#####################EX10#####################")
-#ex10
+print("#####################EX11#####################")
+#ex11
 
 class rectangle(polygon):
 
