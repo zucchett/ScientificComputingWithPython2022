@@ -1,10 +1,13 @@
 # The Fibonacci Sequence
 
-fib = [0,1]
+n = 20
 
-print(len(fib))
-
-while len(fib) < 20:
-	fib.append(fib[len(fib)-1]+fib[len(fib)-2])
-
+if n == 0:
+	fib = []
+elif n == 1:
+	fib = [0]
+else:
+	fib = [0,1]
+	while len(fib) < n:
+		fib.append(fib[len(fib)-1]+fib[len(fib)-2])
 print(fib)

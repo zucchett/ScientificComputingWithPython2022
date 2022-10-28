@@ -1,7 +1,7 @@
 # The HelloWorld replacement
 
-x = 1;
-a = ();
+x = 1
+a = ()
 
 while x < 101:
 	if (x % 3 == 0) and (x % 15 != 0):
