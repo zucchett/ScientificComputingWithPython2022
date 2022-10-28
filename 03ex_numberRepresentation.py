@@ -57,21 +57,20 @@ float_converter(0b11001000110100101000001000000110)
 
 ##EX3
 print("##########EX3##########")
+overflow=1.3
 
+while(overflow*2>overflow and overflow*2!= float('inf')):
+	overflow=overflow*2
 
+print(overflow/2)
 
-overflow=1
-while(False):
-	overflow=overflow+1
-	print(overflow)
-	print("\n")
+underflow=1.3
 
-print(overflow)
-underflow=1
-while (False):
-      underflow=underflow/2
+while(underflow/2<underflow and underflow/2!= 0):
+	underflow=underflow/2
 
-print(underflow)
+print(underflow*2)
+		
 
 ##EX4
 print("##########EX4##########")
@@ -95,7 +94,10 @@ def resolutor(a,b,c):
 	solution_2=(b-rad_delta)/2*a
 	print(solution_1, solution_2)
 
+
 resolutor(7,21,-34)
+
+
 ##EX6
 print("##########EX6##########")
 
