@@ -90,16 +90,35 @@ def resolutor(a,b,c):
 		print("impossuible problem")
 		return
 	rad_delta=math.sqrt((b**2)-(4*a*c))
-	solution_1=(b+rad_delta)/2*a
-	solution_2=(b-rad_delta)/2*a
+	solution_1=(-b+rad_delta)/2*a
+	solution_2=(-b-rad_delta)/2*a
 	print(solution_1, solution_2)
 
 
-resolutor(7,21,-34)
+resolutor(0.001,1000,0.001)
+
+def resolutor_2(a,b,c):
+	if((b**2)-(4*a*c)<0):
+		print("impossuible problem")
+		return
+	rad_delta=math.sqrt((b**2)-(4*a*c))
+	solution_1=(((b+rad_delta)/2*a)*(-b-rad_delta))/(-b-rad_delta)
+	solution_2=(((b-rad_delta)/2*a)*(-b+rad_delta))/(-b+rad_delta)
+	print(solution_1, solution_2)
+
+resolutor_2(0.001,1000,0.001)
 
 
 ##EX6
 print("##########EX6##########")
+
+def f(x):
+	return x*(x-1)
+delta=0.01
+derivative= (f(1+delta)-f(1))/delta
+print(derivative) ## the analitical derivative is 1
+##EX7
+print("##########EX7##########")
 
 
 
