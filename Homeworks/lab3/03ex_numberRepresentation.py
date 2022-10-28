@@ -63,17 +63,56 @@ def convert_to_float(bin_string):
 		print("input must be a 32 bit binary string")
 		return
 	
-	if(bin_string[31] == 0):
+	if(bin_string[0] == 0):
 		sign = 1
 	else:
 		sign = -1
 		
-	f = float("1." + str(int(bin_string[0:22],2)))
-	e = int(bin_string[23:30],2)-127
+	f = 1
 	
-	return sign*f*(2**e)
+	i = 1
+	for bit in bin_string[9:31]:
+		
+		f = f + int(bit)/(2**i)
+		i = i+1
+		
+	e = 0
+	i = 7
+	for bit in bin_string[1:8]:
+		
+		e = int(bit)*(2**i)
+		i = i - 1
+	
+	return sign*f*(2**(e-127))
 
 print(convert_to_float("10110011001100110011001100110011"))
 		
+print(str(-1*2)[0])
+print("#####################EX3####################")
+#ex3
+
+overflow = float(1)
+underflow = float(1)
+
+while(True):
 	
+	overflow_curr = overflow*2
+	print(overflow)
+	if(overflow_curr/2 - overflow > 0.00000001):
+		break
+	overflow = overflow_curr
+		
+print("The overflow limit within a factor 2 is ", overflow)
+
+
+while(True):
+	
+	underflow_curr = underflow/2
+	print(underflow)
+	if(underflow_curr*2 - underflow > 0.0000001):
+		break
+	underflow = underflow_curr
+		
+print("The underflow limit within a factor 2 is ", underflow)
+		
 
