@@ -158,31 +158,34 @@ print("the precision of the machine is: ", 10**(-1*(i-1))) #with the final value
 print("#####################EX5####################")
 #ex5
 
+print("\n --------------__Classic formula__--------------")
+
 def SecondDegreeEquation(a,b,c):
 	
-	delta= b**2 - 4*a*c
+	delta= b**2 - 4*a*c #compute delta 
 	
-	if(delta>0):
+	if(delta>0): #two solutions
 		
 		delta_sqrt = mt.sqrt(delta)		
 	
 		return [(-1*b + delta_sqrt)/(2*a), (-1*b - delta_sqrt)/(2*a)]
 	
-	elif(delta == 0):
+	elif(delta == 0): #one solution
 	
 		delta_sqrt = mt.sqrt(delta)
 		
 		return [(-1*b)/(2*a)]
 
-	else:
+	else: #no solutions
 	
 	 	print("There are no real solutions for this equation")
 	 	return []
 	 	
 
-#tester 
+#tester -> compute the result for the 3 possible values of delta + the requested values for (a,b,c)
+#I added also the combination (0.001, -1000, 0.0001)
 
-for solution in [(1,0,-1),(9,-6,1),(1,1,12)]:
+for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001),(0.001, -1000, 0.0001)]:
 
 	print("\n ---------------------------------------")
 
@@ -198,8 +201,112 @@ for solution in [(1,0,-1),(9,-6,1),(1,1,12)]:
 		
 		print("The solution of the equation are x1 = x2 = ", solved[0])
 
+#Now:
+#x1 = 2c/(-b-sqrt(delta))
+#x2 = 2c/(-b+sqrt(delta))
 
+print("\n --------------__New formula__--------------")
 
-
+def SecondDegreeEquationNew(a,b,c):
+	
+	delta= b**2 - 4*a*c #compute delta 
+	
+	if(delta>0): #two solutions
 		
+		delta_sqrt = mt.sqrt(delta)		
+	
+		return [(2*c)/(-1*b - delta_sqrt), (2*c)/(-1*b + delta_sqrt)]
+	
+	elif(delta == 0): #one solution
+	
+		delta_sqrt = mt.sqrt(delta)
+		
+		return [(b**2)/(-2*a*b)]
+
+	else: #no solutions
+	
+	 	print("There are no real solutions for this equation")
+	 	return []
+
+#tester -> compute the result for the 3 possible values of delta + the requested values for (a,b,c)
+#I added also the combination (0.001, -1000, 0.0001)	 	
+
+for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001),(0.001, -1000, 0.0001)]:
+
+	print("\n ---------------------------------------")
+
+	solved = SecondDegreeEquationNew(solution[0], solution[1], solution[2])
+	
+	print(solution[0],"x^2+",solution[1],"x+", solution[2], "\n")
+	
+	if len(solved) == 2:
+		
+		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
+		
+	elif len(solved) == 1: 
+		
+		print("The solution of the equation are x1 = x2 = ", solved[0])
+	
+
+#the difference can be caused by the fact that we are subtracting two numbers very close (b and sqrt(delta)
+
+#it's possible to find one of the solution using the standard formula (with the sign that avoid to perform the cancellation) and then using the fact that x1*x2 = c/a
+
+
+print("\n --------------__Accurate formula__--------------")
+
+def SecondDegreeEquationAccurate(a,b,c):
+
+	delta= b**2 - 4*a*c #compute delta 
+	
+	if(delta>0): #two solutions
+		
+		
+		delta_sqrt = mt.sqrt(delta)
+		
+		if (b > 0):		
+			
+			x2 = (-1*b - delta_sqrt)/(2*a)
+			x1 = c/(a*x2)
+			return [x1, x2]
+		
+		else:
+		
+			x1 = (-1*b + delta_sqrt)/(2*a)
+			x2 = c/(a*x1)
+			return [x1, x2]			
+	
+	elif(delta == 0): #one solution
+	
+		delta_sqrt = mt.sqrt(delta)
+		
+		return [(-1*b)/(2*a)]
+
+	else: #no solutions
+	
+	 	print("There are no real solutions for this equation")
+	 	return []
+	 	
+#tester -> compute the result for the 3 possible values of delta + the requested values for (a,b,c)
+#I added also the combination (0.001, -1000, 0.0001)	  	
+
+for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001), (0.001, -1000, 0.0001)]:
+
+	print("\n ---------------------------------------")
+
+	solved = SecondDegreeEquationAccurate(solution[0], solution[1], solution[2])
+	
+	print(solution[0],"x^2+",solution[1],"x+", solution[2], "\n")
+	
+	if len(solved) == 2:
+		
+		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
+		
+	elif len(solved) == 1: 
+		
+		print("The solution of the equation are x1 = x2 = ", solved[0])
+
+
+
+
 
