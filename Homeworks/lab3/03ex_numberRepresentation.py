@@ -1,3 +1,5 @@
+import math as mt
+
 print("#####################EX1#####################")
 #ex1
 
@@ -62,7 +64,6 @@ for num in ["0b1010" , "10", "0xa", "test"]:
 		
 print("#####################EX2####################")
 #ex2
-import math
 
 def convert_to_float(bin_string):
 	
@@ -157,11 +158,45 @@ print("the precision of the machine is: ", 10**(-1*(i-1))) #with the final value
 print("#####################EX5####################")
 #ex5
 
+def SecondDegreeEquation(a,b,c):
+	
+	delta= b**2 - 4*a*c
+	
+	if(delta>0):
+		
+		delta_sqrt = mt.sqrt(delta)		
+	
+		return [(-1*b + delta_sqrt)/(2*a), (-1*b - delta_sqrt)/(2*a)]
+	
+	elif(delta == 0):
+	
+		delta_sqrt = mt.sqrt(delta)
+		
+		return [(-1*b)/(2*a)]
 
+	else:
+	
+	 	print("There are no real solutions for this equation")
+	 	return []
+	 	
 
+#tester 
 
+for solution in [(1,0,-1),(9,-6,1),(1,1,12)]:
 
+	print("\n ---------------------------------------")
 
+	solved = SecondDegreeEquation(solution[0], solution[1], solution[2])
+	
+	print(solution[0],"x^2+",solution[1],"x+", solution[2], "\n")
+	
+	if len(solved) == 2:
+		
+		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
+		
+	elif len(solved) == 1: 
+		
+		print("The solution of the equation are x1 = x2 = ", solved[0])
 
 
 
