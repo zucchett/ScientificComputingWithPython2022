@@ -1,3 +1,6 @@
+#Gianpietro Nicoletti
+#2053042
+
 import math as mt
 import timeit
 
