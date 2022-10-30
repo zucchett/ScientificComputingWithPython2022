@@ -25,7 +25,7 @@ def converter(n,type):
     return out
 
 
-a = input('Insert the number to be converted (i.e. 0xab or 0b101) and separated by a space the type needed as output (dec, hex or bin):')
+a = input('Insert the number to be converted (i.e. 0xab, 0b101 or 135) and separated by a space the type needed as output (dec, hex or bin):')
 
 x = a.split()
 print(converter(x[0],x[1]))
