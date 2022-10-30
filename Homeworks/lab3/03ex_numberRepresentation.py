@@ -39,7 +39,7 @@ def convertion(number, out_type): #in order to uniform the input, also the dec n
 			else:
 				print("wrong output type!") #the output type specify is wrong
 
-		else: #the last case is for dec number
+		else: #the last case is for dec number (evenif the second char is not a number)
 
 			print("The input number is a dec number")
 			if(out_type == "hex"):
@@ -52,7 +52,9 @@ def convertion(number, out_type): #in order to uniform the input, also the dec n
 				print("wrong output type!") #the output type specify is wrong
 	
 
-	except:#problem during casting
+	except:#problem during casting.
+	       #Notice that in case of double error, only the error in the output type will be
+	       #considered
 		
 		print("wrong format of the input")
 
@@ -69,10 +71,10 @@ print("#####################EX2####################")
 def convert_to_float(bin_string):
 	
 	count1 = bin_string.count("1") #count the 1's in the string
-	count0 = bin_string.count("0") #count the 0' in the string
+	count0 = bin_string.count("0") #count the 0's in the string
 	
 	#if the length of the string is less then 32 or the string contains 
-	#not only 1's and 0's (count1 + count0 !=0) -> wrong input
+	#not only 1's and 0's (count1 + count0 !=32) -> wrong input
 	if(len(bin_string) != 32 or (count1 + count0) != 32): 
 		print("input must be a 32 bit binary string")
 		return
@@ -145,8 +147,9 @@ i=1
 while(True):#adding ad each iteration a factor 10^-i
 	
 	new_number = initial_number + 10**(-1*i)
-	print(10**(-1*i))
-	print(new_number)
+	
+	print("1 + ",10**(-1*i)," = ",new_number)
+	
 	if(new_number == 1): #if the initial number doesn't change -> reach the limit 
 					  # of the precision 
 		break
@@ -156,6 +159,9 @@ while(True):#adding ad each iteration a factor 10^-i
 print("The precision of the machine is: ", 10**(-1*(i-1))) #with the final value of the variable i
 							   #there was no effect in the number so 
 							   #we need to take the previous one ->i-1
+							
+#But if i added 2*10^-i i reached 10^-16 as precision, so, i can say that the precision of the machine
+#is more or less 10^-15 / 10^-16.
 
 print("#####################EX5####################")
 #ex5
@@ -171,12 +177,12 @@ def SecondDegreeEquation(a,b,c):
 		delta_sqrt = mt.sqrt(delta)		
 	
 		return [(-1*b + delta_sqrt)/(2*a), (-1*b - delta_sqrt)/(2*a)]
+		
 	
 	elif(delta == 0): #one solution
-	
-		delta_sqrt = mt.sqrt(delta)
 		
 		return [(-1*b)/(2*a)]
+		
 
 	else: #no solutions
 	
@@ -199,15 +205,16 @@ for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001),(0.001, -1000, 0
 		
 		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
 		
-	elif len(solved) == 1: 
+	if len(solved) == 1: 
 		
 		print("The solution of the equation are x1 = x2 = ", solved[0])
+
+
+print("\n --------------__New formula__--------------")
 
 #Now:
 #x1 = 2c/(-b-sqrt(delta))
 #x2 = 2c/(-b+sqrt(delta))
-
-print("\n --------------__New formula__--------------")
 
 def SecondDegreeEquationNew(a,b,c):
 	
@@ -218,12 +225,12 @@ def SecondDegreeEquationNew(a,b,c):
 		delta_sqrt = mt.sqrt(delta)		
 	
 		return [(2*c)/(-1*b - delta_sqrt), (2*c)/(-1*b + delta_sqrt)]
+		
 	
 	elif(delta == 0): #one solution
-	
-		delta_sqrt = mt.sqrt(delta)
 		
 		return [(b**2)/(-2*a*b)]
+		
 
 	else: #no solutions
 	
@@ -245,7 +252,7 @@ for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001),(0.001, -1000, 0
 		
 		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
 		
-	elif len(solved) == 1: 
+	if len(solved) == 1: 
 		
 		print("The solution of the equation are x1 = x2 = ", solved[0])
 	
@@ -267,23 +274,23 @@ def SecondDegreeEquationAccurate(a,b,c):
 		
 		delta_sqrt = mt.sqrt(delta)
 		
-		if (b > 0):		
+		if (b > 0): #i need to avoid the cancellation -> -b - sqrt(delta), -b < 0	
 			
 			x2 = (-1*b - delta_sqrt)/(2*a)
 			x1 = c/(a*x2)
 			return [x1, x2]
 		
-		else:
+		else: # -> -b + sqrt(delta), -b > 0
 		
 			x1 = (-1*b + delta_sqrt)/(2*a)
 			x2 = c/(a*x1)
-			return [x1, x2]			
+			return [x1, x2]	
+					
 	
 	elif(delta == 0): #one solution
-	
-		delta_sqrt = mt.sqrt(delta)
 		
 		return [(-1*b)/(2*a)]
+		
 
 	else: #no solutions
 	
@@ -305,7 +312,7 @@ for solution in [(1,0,-1),(9,-6,1),(1,1,12), (0.001,1000,0.001), (0.001, -1000, 
 		
 		print("The solution of the equation are x1 = ", solved[0], " x2 = ",solved[1])
 		
-	elif len(solved) == 1: 
+	if len(solved) == 1: 
 		
 		print("The solution of the equation are x1 = x2 = ", solved[0])
 
@@ -364,9 +371,10 @@ while(condition): #until i not reach the exit condition
 	result = semicircleIntegral(N) #compute the integral
 	end_time = timeit.default_timer() #end time
 	
+	
 	time = end_time - start_time #execution time
 	
-	# print("Time with N = ", N, " is : ",time)
+	print("Time with N = ", N, " is : ",time)
 	
 	if(time >= 1): #exit condition
 	
@@ -379,14 +387,14 @@ while(condition): #until i not reach the exit condition
 		
 		
 	#when i nearer 1 second -> reduce the increasing of delta at each iteration
-	elif(time<=0.8): 
+	elif(0.5<time<=0.8): 
 	
 		N = int(N*1.5)
 		
 		
-	elif(time<=0.9):
+	elif(0.8<time<=0.9):
 	
-		N=int(N*1.1)
+		N=int(N*1.2)
 		
 		
 	else:
@@ -397,12 +405,12 @@ if(condition): #print only if i run the previous code
 	print("\n\nI can use ",N - 1," as maximum value of N that allow me to not compute the integral in over than one second")
 	
 
-#A consideration must be done: since the underflow of the float numbers is more or less 10^-15 /
+#A consideration must be done: since the precision of the float numbers is more or less 10^-15 /
 #10^-16 and i computed delta as 2/N, at a certain value of N, delta becomes 0, and this means that we
 #are not increasing x anymore since we are using x = x + delta at each iteration. So the value of x
 #stucks at a fixed value = -1.
 
-#Infact if i used N = 10000000000000000 i obtain:
+#Infact if i used N = 10000000000000000 x remains = -1
 
 
 print("\n\nThe value of x at each iteration with N >= 10000000000000000 is: ", -1 + 2*10**(-17))
