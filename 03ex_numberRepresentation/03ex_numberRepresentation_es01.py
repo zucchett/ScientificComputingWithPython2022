@@ -1,7 +1,7 @@
 def converter(n,type):
     if n[1] == 'b':
         if type=='bin':
-            out = b
+            out = n
         if type=='dec':
             out = int(n,2)
         if type=='hex':
