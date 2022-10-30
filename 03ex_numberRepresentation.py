@@ -18,12 +18,13 @@ printEs1=passive  #esercizio 3.1
 printEs2=passive  #esercizio 3.2
 printEs3=passive  #esercizio 3.3
 printEs4=passive  #esercizio 3.4
-printEs5=active  #esercizio 3.5
+printEs5=passive  #esercizio 3.5
 printEs6=passive  #esercizio 3.6
-printEs7=passive  #esercizio 3.7
+printEs7=active  #esercizio 3.7
 
 
-
+import math
+import timeit
 #***************************************************Ex 3.1
 if(printEs1):
     print("\n\n***************************************************Ex 3.1")
@@ -96,7 +97,6 @@ if(printEs2):
 #***************************************************Ex 3.3
 if(printEs3):
     print("\n\n***************************************************Ex 3.3")
-0x65ba58f0
 
 #***************************************************Ex 3.4
 if(printEs4):
@@ -104,7 +104,6 @@ if(printEs4):
 
 
 #***************************************************Ex 3.5
-import math
 if(printEs5):
     print("\n\n***************************************************Ex 3.5")
 
@@ -163,7 +162,64 @@ if(printEs5):
 if(printEs6):
     print("\n\n***************************************************Ex 3.6")
 
-   
+    #funzione f(x)
+    def func_x(x):
+        return x*(x-1)
+
+    #derivata della funzione f(x)
+    def deriv_x(y,delta):
+        return (func_x(y+delta)-func_x(y))/delta
+
+    print(f"Derivative with delta=10^-2 (for x=1): {deriv_x(1,10**-2)}")
+    print(f"Derivative calculate analytically (for x=1): {float(1)}") #analiticamente: df(x)=2x-1
+    #TODO: INSERT COMMENT -> vedi esercizi
+
+    print(f"\nDerivative with delta=10^-4 (for x=1): {deriv_x(1,10**-4)}")
+    print(f"Derivative with delta=10^-6 (for x=1): {deriv_x(1,10**-6)}")
+    print(f"Derivative with delta=10^-8 (for x=1): {deriv_x(1,10**-8)}")
+    print(f"Derivative with delta=10^-10 (for x=1): {deriv_x(1,10**-10)}")
+    print(f"Derivative with delta=10^-12 (for x=1): {deriv_x(1,10**-12)}")
+    print(f"Derivative with delta=10^-14 (for x=1): {deriv_x(1,10**-14)}")
+    #----> at 10^-8 the accuracy is best, then it drops
+
 #***************************************************Ex 3.7
 if(printEs7):
     print("\n\n***************************************************Ex 3.7")
+
+    def semicircle(x): 
+        return math.sqrt(1-x*x) 
+
+    #calcolo l'integrale della funzione func
+    def integrate(func, a, b, N): 
+        d = (b - a) * 1.0 / N 
+        return d*(0.5*func(a) + sum(func(a+i*d) for i in range(1, N)) + 0.5*func(b)) 
+ 
+    N=100
+    print(f"Integral with N=100: {integrate(semicircle, -1, 1, N)}") 
+    print(f"Original result: {1.57079632679}")
+    #----> the result calculated by me with N = 100 is less accurate by at least 0.01
+
+    def integral_under_time(N, timestart):
+        integrate(semicircle, -1, 1, N)
+        return timeit.default_timer()-timestart
+
+    #calcolo l'integrale 
+    """
+    res=0
+    N=0
+    start = timeit.default_timer()
+    while(timeit.default_timer()-start<1):
+        N=N+1
+        res= integrate(semicircle, -1, 1, N)
+        
+    print(N)
+    print(res)
+    """
+    N=4000000
+    time=0
+    while(time < 1):
+        time = integral_under_time(N, timeit.default_timer())
+        N=N+1
+        print(N)
+    print(N)
+
