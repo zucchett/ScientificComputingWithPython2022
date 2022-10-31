@@ -1,5 +1,6 @@
 # 03ex - FILE UNICO
 #Author: Riccardo Mosele 2044736
+from decimal import Underflow
 import math
 
 #flag per l'esecuzione singola degli esercizi
@@ -16,15 +17,16 @@ passive = False
 
 printEs1=passive  #esercizio 3.1
 printEs2=passive  #esercizio 3.2
-printEs3=passive  #esercizio 3.3
+printEs3=active  #esercizio 3.3
 printEs4=passive  #esercizio 3.4
 printEs5=passive  #esercizio 3.5
 printEs6=passive  #esercizio 3.6
-printEs7=active  #esercizio 3.7
+printEs7=passive  #esercizio 3.7
 
 
 import math
 import timeit
+import sys
 #***************************************************Ex 3.1
 if(printEs1):
     print("\n\n***************************************************Ex 3.1")
@@ -76,6 +78,7 @@ if(printEs1):
     x=input("Insert Value (Bin, Hex or Int): ")
     outputVal=input("Insert output base \"B\" for bin, \"H\" for hex and \"D\" for dec: ")
     print(f"\nOutput value: {convert_num(x,outputVal)}")
+flag_overflow=False
 
 #***************************************************Ex 3.2
 if(printEs2):
@@ -97,6 +100,34 @@ if(printEs2):
 #***************************************************Ex 3.3
 if(printEs3):
     print("\n\n***************************************************Ex 3.3")
+
+    #calcolo l'overflow
+    overflow_val=0
+    res=0
+    while(True):
+        try:
+            res=2**overflow_val
+            overflow_val=overflow_val+0.001
+        except OverflowError:
+            break
+    print(f"\nReal overflow value: {sys.float_info.max}")
+    print(f"Overflow value: {2**(overflow_val-0.001)}")
+
+
+    #calcolo l'overflow
+    underflow_val=0
+    res2=0
+    while(True):
+        try:
+            res2=1/(2**underflow_val)
+            underflow_val=underflow_val+0.001
+        except:
+            break
+    print(f"\nReal underflow value: {sys.float_info.min}")
+    print(f"Underflow value: {1/(2**(underflow_val-0.001))}")
+
+
+
 
 #***************************************************Ex 3.4
 if(printEs4):
