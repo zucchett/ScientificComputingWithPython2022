@@ -205,11 +205,16 @@ print("#####################EX9#####################")
 
 #ex9
 
-#c can not be 0, the idea is to find a,b starting from an initial integer value for c and decreasing it at each iteration
+#c can not be 0, the idea is to find a,b starting from an initial integer value for c and increasing it at each iteration
+#b must be less than c so,it start from 1 and reach always c-1 at each iteration of the inner for.
+
+#The conditions to be check for each value of a found from (b,c) are:
 #int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2) = is a an integer?
 #b>math.sqrt(c**2-b**2): b can be only > a
+
+#imposing a<b<c allows to find all the unique solution avoiding to consider the permutations in the tuple.
 	
-abc_list = [(math.sqrt(c**2-b**2),b,c) for c in range(99) for b in range (1,c,1) if (int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2)==0 and b>math.sqrt(c**2-b**2))]
+abc_list = [(math.sqrt(c**2-b**2),b,c) for c in range(1,100) for b in range (1,c) if (int(math.sqrt(c**2-b**2))-math.sqrt(c**2-b**2)==0 and b>math.sqrt(c**2-b**2))]
 
 print(abc_list)
 print("\n\n")
