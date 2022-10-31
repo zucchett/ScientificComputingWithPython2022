@@ -1,6 +1,3 @@
-from pickle import TRUE
-
-
 
 def fun(alist,n):
     

@@ -12,12 +12,12 @@ def sol2(a,b,c):
     return [x1,x2]
 
 
-print('Check the two methods with random numbers')
+print('Check the two methods with random numbers that does not generate errors')
 print(sol1(2,-1,-3))
 print(sol2(2,-1,-3))
 
 print('Check the two methods with given numbers')
 print(sol1(0.001,1000,0.001))
 print(sol2(0.001,1000,0.001))
-
+print('They both obtain two wrong results!')
 #the problem is the term -b + sqrt(b^2-4ac) that appears on the numerator of x2  in sol1 and on the denominaror of x1 in sol2

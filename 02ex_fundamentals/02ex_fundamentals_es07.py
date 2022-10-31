@@ -1,6 +1,6 @@
 def hello(func):
     def wrapper(n):
-        print('hello')
+        print('Hello World!')
         func(n)
     return wrapper
 

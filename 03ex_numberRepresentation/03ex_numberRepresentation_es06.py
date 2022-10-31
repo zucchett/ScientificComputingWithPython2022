@@ -1,0 +1,38 @@
+def f(x):
+    return x*(x-1)
+
+der_2 = (f(1+pow(10,-2))-f(1))/pow(10,-2)
+der_4 = (f(1+pow(10,-4))-f(1))/pow(10,-4)
+der_6 = (f(1+pow(10,-6))-f(1))/pow(10,-6)
+der_8 = (f(1+pow(10,-8))-f(1))/pow(10,-8)
+der_10 = (f(1+pow(10,-10))-f(1))/pow(10,-10)
+der_12 = (f(1+pow(10,-12))-f(1))/pow(10,-12)
+der_14 = (f(1+pow(10,-14))-f(1))/pow(10,-14)
+
+
+print('Obtained values with delta=10^-2: ')
+print(der_2)
+print('Difference from the target value 1: ',  abs(der_2-1))
+print('Obtained values with delta=10^-4: ')
+print(der_4)
+print('Difference from the target value 1: ',  abs(der_4-1))
+print('Obtained values with delta=10^-6: ')
+print(der_6)
+print('Difference from the target value 1: ',  abs(der_6-1))
+print('Obtained values with delta=10^-8: ')
+print(der_8)
+print('Difference from the target value 1: ',  abs(der_8-1))
+print('Obtained values with delta=10^-10: ')
+print(der_10)
+print('Difference from the target value 1: ',  abs(der_10-1))
+print('Obtained values with delta=10^-12: ')
+print(der_12)
+print('Difference from the target value 1: ',  abs(der_12-1))
+print('Obtained values with delta=10^-14: ')
+print(der_14)
+print('Difference from the target value 1: ',  abs(der_14-1))
+
+
+print('We can notice that for bigger values of delta the result is far from the real value of the derivatve in x=1; this is due to the fact that the delta value is too big, it sholud be closer to zero, so it\'s not due to the floating number\'s precision.')
+print('As the delta value goes down infact we can observe how we get  closer to the real value.')
+print('On the other hand form delta=10^-10 we start increasing again our error. This time it\'s connected to float\'s the precision on the computation of f(x+delta)-f(x) that gets unstable ')
