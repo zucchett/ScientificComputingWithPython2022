@@ -1,8 +1,4 @@
-#You can solve these exercises in the room or at home. For this week, and the next 3 weeks, exercises have to be solved by creating a dedicated `.py` file (or files) called `02ex_fundamentals.py`.
-
-#In case you need multiple files, name them `02ex_fundamentals_es01.py`, `02ex_fundamentals_es02.py` and so on. In this case, it's convenient to create a dedicated directory, to be named `02ex_fundamentals`.
-
-#The exercises need to run without errors with `python3`.
+#Anaïs FRAGNE
 
 #1\. **Global variables**
 
@@ -17,8 +13,8 @@ def f(alist):
 
 alist = [1, 2, 3]
 ans,alist2 = f(alist)
-print(ans)
-print(alist2) 
+print("List_modified: ",ans)
+print("Original_list: ",alist2) 
 
 #2\. **List comprehension**
 
@@ -26,6 +22,7 @@ print(alist2)
 
 ans = list(map(lambda x: x * x, filter(lambda x: x % 2 == 1, range(10))))
 print(ans)
+
 ans2=[x**2 for x in range(10) if x%2==1]
 print(ans2)
 
@@ -34,10 +31,10 @@ print(ans2)
 #Using the `filter()` hof, define a function that takes a list of words and an integer `n` as arguments, and returns a list of words that are shorter than `n`.
 
     
-def filter2(l,n):
+def filtering(l,n):
     return_list=list(filter(lambda x:len(x)<n,l))
     return return_list
-print(filter2(['anais','papa','famille','maman','anticonstitutionnellement'],6))
+print(filtering(['anais','papa','famille','maman','anticonstitutionnellement'],6))
 
 #4\. **Map dictionary**
 
@@ -51,6 +48,7 @@ def map2(dic):
     list_result=list(map(len,dic.keys()))
     return list_result
 print(map2(lang))
+
 #5\. **Lambda functions**
 
 #Write a Python program that sorts the following list of tuples using a lambda function, according to the alphabetical order of the first element of the tuple:
@@ -70,11 +68,13 @@ def square(x):
     return x*x
 def cube(x):
     return x*x*x
+
 #Then, write a third function that returns the number raised to the 6th power, using only the two previous functions.
 def sixth(x):
     return square(cube(x))
 
 print(sixth(4))
+
 #7\. **Decorators**
 
 #Write a decorator named `hello` that makes every wrapped function print “Hello World!” each time the function is called.
@@ -91,6 +91,7 @@ def square(x):
  return x*x
 
 square(4)
+
 #8\. **The Fibonacci sequence (part 2)**
 
 #Calculate the first 20 numbers of the [Fibonacci sequence](https://en.wikipedia.org/wiki/Fibonacci_number) using a recursive function.
@@ -101,6 +102,7 @@ def recursiveFibonacci(n):
         return (recursiveFibonacci(n-1)+recursiveFibonacci(n-2))
 
 print('fibo_recurs: ',[recursiveFibonacci(i) for i in range(20)])
+
 #9\. **The Fibonacci sequence (part 3)**
 
 #Run both the Fibonacci recursive function from the previous exercise, and the Fibonacci function from 01ex that use only `for` and `while` loops.
@@ -118,15 +120,18 @@ def loopFibonacci(n):
             l.append(fpp)
     return l
 print('fibo_ex1: ',loopFibonacci(10))
+
 #Measure the execution code of the two functions with `timeit` ([link to the doc](https://docs.python.org/3/library/timeit.html)), for example:
 import timeit
 
 time1=timeit.timeit('recursiveFibonacci(5)',globals=globals())
 time2=timeit.timeit('loopFibonacci(5)',globals=globals())
-
+print("time1: ",time1)
+print("time2: ",time2)
 #which one is the most efficient implementation? By how much?
 
 print('The Recursive function is the fastest so the most efficient by: ', time2/time1)
+
 #10\. **Class definition**
 
 #Define a class `polygon`. The constructor has to take a tuple as input that contains the length of each side. The (unordered) input list does not have to have a fixed length, but should contain at least 3 items.
@@ -161,6 +166,7 @@ class polygon:
 p= polygon((4,5,3))
 print("Perimeter: ",p.perimeter())
 print("ordered side: ", p.getOrderedSides(increasing=True))
+
 #11\. **Class inheritance**
 
 #Define a class `rectangle` that inherits from `polygon`. Modify the constructor, if necessary, to make sure that the input data is consistent with the geometrical properties of a rectangle.
