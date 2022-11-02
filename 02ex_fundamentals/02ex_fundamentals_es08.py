@@ -1,3 +1,8 @@
+# 8. The Fibonacci sequence (part 2)
+
+# Calculate the first 20 numbers of the Fibonacci sequence using a recursive function.
+
+# -------------------------------------- Code Begin-------------------------------------
 
 def fibonacci(n):
     if n == 0 :
@@ -10,4 +15,7 @@ def fibonacci(n):
 
 for i in range(20):
     print('F({}) = {}'.format(i,fibonacci(i)))
+
+# -------------------------------------- Code End ---------------------------------------
+
     

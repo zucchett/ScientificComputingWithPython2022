@@ -1,3 +1,13 @@
+
+# 11. Class inheritance
+
+# Define a class rectangle that inherits from polygon. Modify the constructor, if necessary, to make sure that the input data is consistent with the geometrical properties of a rectangle.
+
+# Create a method area() that returns the area of the rectangle.
+# Test the rectangle class by creating an instance and passing an appropriate input to the constructor.
+
+# -------------------------------------- Code Begin-------------------------------------
+
 class polygon:
     sides = []
     
@@ -35,3 +45,5 @@ print("Get the value of the 3rd side:", a.getSide(3))
 print("Perimeter:", a.perimeter())
 print("Area:", a.area())
 print("The length of the sides arranged:", a.getOrderedSides(increasing = True))
+
+# -------------------------------------- Code End -------------------------------------

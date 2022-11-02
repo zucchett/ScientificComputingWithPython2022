@@ -1,4 +1,18 @@
 
+# 9. The Fibonacci sequence (part 3)
+
+# Run both the Fibonacci recursive function from the previous exercise, and the Fibonacci function from 01ex that use only for and while loops.
+
+# Measure the execution code of the two functions with timeit (link to the doc), for example:
+
+# %timeit loopFibonacci(20)
+
+# %timeit recursiveFibonacci(20)
+
+# which one is the most efficient implementation? By how much?
+
+# -------------------------------------- Code Begin-------------------------------------
+
 import timeit
 def recursiveFibonacci(n):
     if n == 0 :
@@ -31,3 +45,5 @@ print("The start time loopFibonacci is :",starttime)
 loopFibonacci(20)
 print("The time difference for loopFibonacci is :", timeit.default_timer() - starttime)
 
+
+# -------------------------------------- Code End -------------------------------------

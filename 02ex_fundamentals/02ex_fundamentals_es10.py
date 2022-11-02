@@ -1,3 +1,18 @@
+
+# 10. Class definition
+
+# Define a class polygon. The constructor has to take a tuple as input that contains the length of each side. The (unordered) input list does not have to have a fixed length, but should contain at least 3 items.
+
+# Create appropriate methods to get and set the length of each side
+
+# Create a method perimeter() that returns the perimeter of the polygon
+
+# Create a method getOrderedSides(increasing = True) that returns a tuple containing the length of the sides arranged in increasing or decreasing order, depending on the argument of the method
+
+# Test the class by creating an instance and calling the perimeter() and getOrderedSides(increasing = True) methods.
+
+# -------------------------------------- Code Begin-------------------------------------
+
 class polygon:
     sides = []
     
@@ -26,3 +41,5 @@ a.setSide(3, 7) # set the third side to 7
 
 print("Perimeter:", a.perimeter())
 print("The length of the sides arranged:", a.getOrderedSides(increasing = True))
+
+# -------------------------------------- Code End -------------------------------------
