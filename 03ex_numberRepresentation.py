@@ -17,11 +17,11 @@ passive = False
 
 printEs1=passive  #esercizio 3.1
 printEs2=passive  #esercizio 3.2
-printEs3=active  #esercizio 3.3
+printEs3=passive  #esercizio 3.3
 printEs4=passive  #esercizio 3.4
 printEs5=passive  #esercizio 3.5
 printEs6=passive  #esercizio 3.6
-printEs7=passive  #esercizio 3.7
+printEs7=active  #esercizio 3.7
 
 
 import math
@@ -78,7 +78,6 @@ if(printEs1):
     x=input("Insert Value (Bin, Hex or Int): ")
     outputVal=input("Insert output base \"B\" for bin, \"H\" for hex and \"D\" for dec: ")
     print(f"\nOutput value: {convert_num(x,outputVal)}")
-flag_overflow=False
 
 #***************************************************Ex 3.2
 if(printEs2):
@@ -132,6 +131,15 @@ if(printEs3):
 #***************************************************Ex 3.4
 if(printEs4):
     print("\n\n***************************************************Ex 3.4")
+
+    y=0.1
+    res=1
+    while(res != res+y):
+        y=y/2
+
+    print(y)
+
+
 
 
 #***************************************************Ex 3.5
@@ -230,27 +238,22 @@ if(printEs7):
     print(f"Original result: {1.57079632679}")
     #----> the result calculated by me with N = 100 is less accurate by at least 0.01
 
-    def integral_under_time(N, timestart):
-        integrate(semicircle, -1, 1, N)
-        return timeit.default_timer()-timestart
-
-    #calcolo l'integrale 
-    """
-    res=0
-    N=0
-    start = timeit.default_timer()
-    while(timeit.default_timer()-start<1):
-        N=N+1
-        res= integrate(semicircle, -1, 1, N)
-        
-    print(N)
-    print(res)
-    """
-    N=4000000
+    N=5000000
     time=0
+    flagTmp=True
     while(time < 1):
-        time = integral_under_time(N, timeit.default_timer())
-        N=N+1
-        print(N)
-    print(N)
+        if(flagTmp):
+            print("Wait...")
+            flagTmp=False
+        #time = integral_under_time(N, timeit.default_timer())
+        time = timeit.timeit(stmt='integrate(semicircle, -1, 1, N)', globals=globals(), number=1)
+        if(time<0.8):
+            N=N+10000
+        else:
+            N=N+100
 
+    print(f"\nN with computation run in less than a second (precision of pm 1000):\n--->N: {N}")
+    print(f"Integral with N={N}: {integrate(semicircle, -1, 1, N)}") 
+    print(f"Original result: {1.57079632679}\n")
+
+    #---->eseguendo per un mitnuto otteniamo un valore di N che tende a più infinito
