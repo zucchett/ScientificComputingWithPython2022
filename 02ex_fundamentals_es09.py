@@ -4,7 +4,7 @@ import time
 first_time = 0
 sec_time = 0
 def first():
-    st = time.time()
+    # st = time.time()
     a = 0
     b = 1
     k = 0
@@ -12,34 +12,37 @@ def first():
 
     while k <= 20:
         c = a + b
-        print(k, ": ", c , " ")
+        # print(k, ": ", c , " ")
         a = b
         b = c
         k = k+1
-    en = time.time()
-    print("first code time is: " , en - st)
+    # en = time.time()
+    # print("first code time is: " , en - st)
 
     # print('time first : ',ss)
 
 
 def sec():
-    st = time.time()
+    # st = time.time()
     def fib(a, b, k):
         if(k > 18):
             return
         c = a + b
-        print(c)
+        # print(c)
         a = b
         b = c
         k = k+1
         fib(a, b, k)
-    print('0')
-    print('1')
+    # print('0')
+    # print('1')
     fib(0, 1, 0)
-    en = time.time()
-    print("second code time is: " , en - st)
+    # en = time.time()
+    # print("second code time is: " , en - st)
 
-first()
-sec()
-
-print("***please go up to see the first cone timing***")
+# first()
+# sec()
+time_first = timeit.Timer(lambda : first())
+time_sec = timeit.Timer(lambda : sec())
+print("first: ", time_first.timeit(1))
+print("sec: ",time_sec.timeit(1))
+# print("***please go up to see the first cone timing***")
