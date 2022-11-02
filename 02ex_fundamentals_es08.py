@@ -1,5 +1,5 @@
 def fib(a, b, k):
-    if(k > 18):
+    if(k >= 20):
         return
     c = a + b
     print(c)
