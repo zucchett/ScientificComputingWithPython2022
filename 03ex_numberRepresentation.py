@@ -3,21 +3,41 @@
 #1. Number representation
 
 def convert(x, output):#put 2,16,10 in output if you want a binary, hexadecimal or decimal conversion
-    result =x
+    if isinstance(x,int):
+        type=10
+    else:
+        n =list(x)
+        if n[1]=='b':#binary input
+            type=2
+        elif n[1]=='x': #hexa input
+            type=16
     if output==2:
-        result = bin(x)
-    if output==16:
-        result = hex(x)
-    if output == 10:
-        for i in str(x):
-            if i not in ("0","1"):#hexa
-                break
-            result = int(str(x), 16)
-        result = int(str(x),2)
+        if type==10:
+            result=bin(x)
+        elif type==16:
+            result=bin(int(x,16))
+    elif output==10:
+        if type==2:
+            result=int(x,2)
+        elif type==16:
+            result=int(x,16)
+    elif output==16:
+        if type==2:
+            result=hex(int(x,2))
+        elif type==10:
+            result=hex(x)
     return result
 
+a=16
+print('Hexadecimal of the decimal number: ',a,'is: ',convert(a,16))
+print('Binary of the decimal number: ',a,'is: ',convert(a,2))
+a1=hex(a)
+print('Decimal of the hexadecimal number: ',a1,'is: ',convert(a1,10))
+print('Binary of the hexadecimal number: ',a1,'is: ',convert(a1,2))
+b=bin(a)
+print('Decimal of the binary number: ',b,'is: ',convert(b,10))
+print('Hexadecimal of the binary number: ',b,'is: ',convert(b,16))
 
-print(convert(11011,10))
 
 #2. 32-bit floating point number
 
@@ -82,7 +102,7 @@ def quadra(a,b,c):
 
 print(quadra(0.001,1000,0.001))
 
-#We obtained the same value with the two methods. That means that my computer is enough strong to compute those small numbers and it still have effects on the number
+#We obtained the same value with the two methods. That means that my computer is not enough strong to compute those small numbers and it still have no effects on the number
 
 #6. The derivative
 def func(x):
