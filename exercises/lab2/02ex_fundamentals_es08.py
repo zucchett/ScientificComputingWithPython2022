@@ -4,7 +4,7 @@ def recursiveFibonacci(n):
     else: return recursiveFibonacci(n-1)+recursiveFibonacci(n-2)
 
 fibonacci_list=[]
-for i in range(20):
+for i in range(1,21):
     fibonacci_list.append(recursiveFibonacci(i))
 
 print(fibonacci_list)

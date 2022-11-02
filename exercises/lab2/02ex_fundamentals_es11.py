@@ -1,7 +1,4 @@
 # Class definition
-from ast import increment_lineno
-from cmath import rect
-import math
 
 class polygon:
 

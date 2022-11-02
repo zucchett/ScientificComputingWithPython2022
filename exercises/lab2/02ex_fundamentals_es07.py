@@ -9,5 +9,8 @@ def hello(func):
 def square(x):
     return x*x
 
-x = int(input("Insert a number: "))
-print(square(x))
+try:
+    x = int(input("Insert a number: "))
+    print(square(x))
+except:
+    print("Insert an int value!")

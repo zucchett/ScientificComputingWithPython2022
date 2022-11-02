@@ -1,5 +1,3 @@
-
-
 def f(alist):
     x = 5
     alist = [1, 2, 3]

@@ -1,6 +1,3 @@
-from warnings import catch_warnings
-
-
 def square(number):
     return number**2
 

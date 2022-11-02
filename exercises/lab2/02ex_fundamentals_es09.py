@@ -37,5 +37,5 @@ print(fibonacci_list)
 resultLoop = timeit.timeit(stmt='loopFibonacci(20)', globals=globals(), number=1)
 resultRec = timeit.timeit(stmt='recursiveFibonacci(20)', globals=globals(), number=1)
 
-print(resultLoop)
-print(resultRec)
+print("Time to computer loop algorithm: "+str(resultLoop))
+print("Time to computer recursive algorithm: "+str(resultRec))

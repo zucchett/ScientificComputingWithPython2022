@@ -1,5 +1,4 @@
 # Class definition
-from ast import increment_lineno
 import math
 
 class polygon:
