@@ -6,19 +6,33 @@
 # use the try/except expressions to perform the addition of these two variables, only if possible
 # and print the result without making the code crash for all the int/float/str input combinations.
 
+
+print('------------------- Method 1 ---------------' )
+
+# the following method is based on the eval function
+# Python's eval() allows you to evaluate arbitrary Python expressions from a string-based or compiled-code-based input.
+
+a = input('The variable type should be int, float, or str, a = ')
+b = input('The variable type should be int, float, or str, b = ')
+
+try:
+    c = eval(a + str('+') + b)
+    print('{} + {} = {}\n \n '.format(a,b,c))
+except TypeError:
+    print("******  TypeError !!!! {} and {} can't be added together *********\n \n ".format(a,b))
+
+
+print('------------------- Method 2 ---------------' )
+
 def inputchecked():
     try:
         a = input('The variable type should be int, float, or str : ')
         val = int(a)
-        print("Input is a interger number. Number = ", val)
     except ValueError:
         try:
             val = float(a)
-            print("Input is a float  number. Number = ", val)
         except ValueError:
-            val = a
-            print("Input is string, string = ", val)
-      
+            val = a      
     return val
 
 a = inputchecked()
