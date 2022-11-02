@@ -1,6 +1,6 @@
 # Machine precision
 
-a = 0 # Zero
+a = 1 # One
 b = 0 # a + e, compared to a to see if there was a difference
 i = 0 # loop count, which also is the (opposite of the) exponent in the e expression
 e = 0 # e from epsilon, gradually smaller quantity that is added to a
