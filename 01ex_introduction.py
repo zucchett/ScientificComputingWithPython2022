@@ -1,3 +1,5 @@
+# ********** Question 1 **********
+
 lst = []
 for i in range(1, 101):
     if((i % 3 == 0) and (i % 5 == 0)):
@@ -25,3 +27,139 @@ for i in range(len(lst)):
 
 result = tuple(lst)
 print(result)
+
+
+# ********** Question 2 **********
+
+print('Enter first term')
+x = input()
+print('First term: ',  x)
+print('Enter second term:')
+y = input()
+print('Second term: ',  y)
+x, y = y, x
+print('Switched first term: ',  x)
+print('Switched second term: ',  y)
+
+
+# ********** Question 3 **********
+
+import math
+
+def euclideanDistance(x, y):
+    a = (x[0] - y[0])**2
+    b = (x[1] - y[1])**2
+    c = math.sqrt(a + b)
+    return c
+
+u = (3,0)
+v = (0,4)
+result = euclideanDistance(u,v)
+print(result)
+
+
+# ********** Question 4 **********
+
+s1 = "Write a program that prints the numbers from 1 to 100. \
+But for multiples of three print Hello instead of the number and for the multiples of five print World. \
+For numbers which are multiples of both three and five print HelloWorld."
+s2 = "The quick brown fox jumps over the lazy dog"
+
+char_list = []
+number_list = []
+
+for i in s1:
+    found = 0
+    for j in range(len(char_list)):
+        if i == char_list[j]:
+            number_list[j] += 1
+            found = 1
+    if found == 0:
+        char_list.append(i)
+        number_list.append(1)
+
+for i in range(len(char_list)):
+    print(char_list[i] , ": " , number_list[i])
+
+
+# ********** Question 5 **********
+
+l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
+ 85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
+ 1, 84, 84, 36, 66, 9, 89, 50, 42, 91, 50, 95, 90, 98, 39, 16, 82, 31, 92, 41,
+ 45, 30, 66, 70, 34, 85, 94, 5, 3, 36, 72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
+# Forgive me father for I have sinned
+unique_set = set(l)
+print(unique_set)
+print("Number of unique numbers: " , len(unique_set))
+
+
+# ********** Question 6 **********
+
+print('Enter first term')
+x = input()
+print('First term: ',  x, ' with type: ', type(x))
+print('Enter second term:')
+y = input()
+print('Second term: ',  y, ' with type: ', type(y))
+
+try:
+    print(x + y)
+except:
+    print('the types are incompatible')
+
+
+# ********** Question 7 **********
+
+# Part a
+cubes_a = []
+for i in range(11):
+    cubes_a.append(i**3)
+print(cubes_a)
+
+
+# ********** Question 8 **********
+
+a = [(i, j) for i in range(3) for j in range(4)]
+print(a)
+
+
+# ********** Question 9 **********
+
+pythagoras_list = [(i,j,math.sqrt(i*i + j*j)) for i in range(1,100) for j in range(1,100) if math.sqrt(i*i+j*j) % 1 == 0 and math.sqrt(i*i+j*j) < 100 and i < j ]
+  
+print(pythagoras_list)
+
+
+# ********** Question 10 **********
+
+import math
+
+def normalize( vec ):
+    dimension = len(vec)
+    length_list = [vec[i]**2 for i in range(dimension)]
+    length_total = sum(length_list)
+    vector_length = math.sqrt(length_total)
+    ratio = 1 / vector_length
+    for i in range(dimension):
+        length_list[i] = vec[i]*ratio
+    return(length_list)
+
+vector_input = (4,6,8,10)
+print("vector input: ", vector_input)
+print("normalized: ", normalize(vector_input))
+
+
+# ********** Question 11 **********
+
+
+term1 = 1
+term2 = 1
+count = 0
+while count < 20:
+    print(term1)
+    termlast = term1 + term2
+    # update values
+    term1 = term2
+    term2 = termlast
+    count += 1
