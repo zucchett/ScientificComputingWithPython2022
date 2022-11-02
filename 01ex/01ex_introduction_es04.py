@@ -22,6 +22,9 @@ for chrctr in s2.lower():
 		freq2[chrctr] += 1
 	else:
 		freq2[chrctr] = 1
-		
+
+f1 = list(freq1)		
+f2 = list(freq2)
+
 print("String s1: \n" + str(freq1))
 print("String s2: \n" + str(freq2))

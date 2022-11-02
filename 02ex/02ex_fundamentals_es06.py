@@ -9,13 +9,16 @@ def cube(x):
 	
 num = input("Insert number: ")
 try:
-	num = d.Decimal(num)
-	if num-int(num) == 0:
-		num = int(num)
-	pwr = square(cube(num))
-	print("Input variable: " + str(num))
-	print("Elevated to the sixth power: " + str(pwr))
+	num = int(num)
 except:
-	print("Not a valid number.")
+	try:
+		num = d.Decimal(num)	# if Decimal is not ok, just replace d.Decimal with float
+	except:
+		print("Not a valid number.")
+		exit()
 	
+pwr = square(cube(num))
+print("Input variable: " + str(num))
+print("Elevated to the sixth power: " + str(pwr))
+
 # Used Decimal from decimal module instead of float because often the values resulted inaccurate due to floating point errors

@@ -52,6 +52,7 @@ if pentagon.get() != None:
 	print("Side no.3 is equal to " + str(pentagon.getX(3)) + ".")
 	pentagon.setX(3,2)
 	print("Side no.3 value is now equal to " + str(pentagon.getX(3)) + ".")
+	print("The modified polygon has sides: " + str(pentagon.get()) + ".")
 	print("The perimeter of the polygon is equal to " + str(pentagon.perimeter()) + ".")
 	print("Reordering the polygon sides in increasing order: " + 	str(pentagon.getOrderedSides()))
 	print("Reordering the polygon sides in decreasing order: " + str(pentagon.getOrderedSides(False)))

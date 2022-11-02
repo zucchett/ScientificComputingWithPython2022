@@ -41,3 +41,5 @@ elif (refi < lofi):
 	print("Recursive Fibonacci calculation is faster.")
 else:
 	print("How is this possible")
+
+# loopfibonacci is faster of about 3 orders of magnitude (~10^-5 vs ~10^-2 seconds)

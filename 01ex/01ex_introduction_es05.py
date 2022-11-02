@@ -9,5 +9,6 @@ s = set()
 
 for i in l:
 	s.add(i)
-
+	
+print(l)
 print("The list has " + str(len(l)) + " elements, with " + str(len(s)) + " unique elements.")
