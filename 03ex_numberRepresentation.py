@@ -125,33 +125,33 @@ if(printEs3):
     print(f"\nReal underflow value: {sys.float_info.min}")
     print(f"Underflow value: {1/(2**(underflow_val-0.001))}")
 
-
-
-
 #***************************************************Ex 3.4
 if(printEs4):
     print("\n\n***************************************************Ex 3.4")
 
+    #definisco valore e incremento iniziale
     y=0.1
     res=1
     while(res != res+y):
+        #continuo a dimezzare il valore fino a che non ha più effetto
         y=y/2
 
-    print(y)
-
-
-
+    print(f"The machine precision for floating point numbers is: {y*2}")
+    print(f"\n--> 1 + {y*2} = {1+y*2}")
+    print(f"--> 1 + {y} = {1+y}")
 
 #***************************************************Ex 3.5
 if(printEs5):
     print("\n\n***************************************************Ex 3.5")
 
+    #formula base anche con soluzione complessa
     def quadratic_equation(a,b,c):
         res=[]
 
         #calcolo il delta
         delta = b**2-4*a*c
         #print(f"Delta: {delta}\n")
+
         try:
             if(delta<0): #se minore di zero ho due risultati complessi
                 firstTerm=-b/2*a
@@ -159,6 +159,7 @@ if(printEs5):
                 res.append(str(firstTerm)+"+"+str(secondTerm)+"i")
                 res.append(str(firstTerm)+"-"+str(secondTerm)+"i")
                 return res
+
             else: #altrimenti calcolo il valore finale di entrambi
                 res.append((-b+math.sqrt(delta))/(2*a))
                 res.append((-b-math.sqrt(delta))/(2*a))
@@ -167,6 +168,7 @@ if(printEs5):
             print("ERROR!")
             return
 
+    #soluzione con moltiplicazione di -b mp rad(b^2-4ac)
     def quadratic_equation2(a,b,c):
         res=[]
 
@@ -187,12 +189,22 @@ if(printEs5):
             print("ERROR!")
             return
 
+    #soluzione standard con delta>0 e valori forniti
     res1 = quadratic_equation(0.001,1000,0.001)
+
+    #soluzione con la moltiplicazione fornita
     res2 = quadratic_equation2(0.001,1000,0.001)
 
+    #stampo il confronto
     print(f"Res1_a: {res1[0]}\nRes1_b: {res2[0]}")
     print(f"\nRes2_a: {res1[1]}\nRes2_b: {res2[1]}")
+    #--> moltiplicando e poi dividendo il risultato per lo stesso numero otteniamo un numero appena 
+    # diverso da quello originale, teoricamente il risultato non dovrebbe cambiare. In pratica
+    #potrebbe essere diverso a causa della precisione non infinita del calcolatore. Quindi eseguendo
+    #prima la moltiplicazione e poi la divisione ci sono degli errori di approssimazione.
 
+
+    #test di una soluzione complessa con a=1, b=2, c=2
     print("\nx^2+2x+2 -> a=1, b=2, c=2")
     res_c = quadratic_equation(1,2,2)
     print(f"Complex res 1: {res_c[0]}\nComplex res 2: {res_c[1]}")
@@ -210,16 +222,12 @@ if(printEs6):
         return (func_x(y+delta)-func_x(y))/delta
 
     print(f"Derivative with delta=10^-2 (for x=1): {deriv_x(1,10**-2)}")
-    print(f"Derivative calculate analytically (for x=1): {float(1)}") #analiticamente: df(x)=2x-1
-    #TODO: INSERT COMMENT -> vedi esercizi
+    print(f"Derivative calculate analytically (for x=1): {float(1)}\n") #analiticamente: df(x)=2x-1
+    #--> i due valori non coincidono perfettameneyt perchè la precisione del calcolatore non è infinita quindi vengono introdotti degli errori di calcolo
 
-    print(f"\nDerivative with delta=10^-4 (for x=1): {deriv_x(1,10**-4)}")
-    print(f"Derivative with delta=10^-6 (for x=1): {deriv_x(1,10**-6)}")
-    print(f"Derivative with delta=10^-8 (for x=1): {deriv_x(1,10**-8)}")
-    print(f"Derivative with delta=10^-10 (for x=1): {deriv_x(1,10**-10)}")
-    print(f"Derivative with delta=10^-12 (for x=1): {deriv_x(1,10**-12)}")
-    print(f"Derivative with delta=10^-14 (for x=1): {deriv_x(1,10**-14)}")
-    #----> at 10^-8 the accuracy is best, then it drops
+    #calcolo il valore della derivata cambiando il delta: 10^ -> -4,-6,-8,-10,-12,-14
+    for i in range(4,15,2):
+        print(f"Derivative with delta=10^{-i} (for x=1): {deriv_x(1,10**-i)}")
 
 #***************************************************Ex 3.7
 if(printEs7):
@@ -236,16 +244,19 @@ if(printEs7):
     N=100
     print(f"Integral with N=100: {integrate(semicircle, -1, 1, N)}") 
     print(f"Original result: {1.57079632679}")
-    #----> the result calculated by me with N = 100 is less accurate by at least 0.01
+    #--> the result calculated by me with N = 100 is less accurate by at least 0.01
 
-    N=5000000
+    #calcolo con quanti N la funzione ci impiega a essere eseguita
+    N=5000000 #dopo vari test parto da un numero già elevato
     time=0
     flagTmp=True
+
+    #incremento N fino a che la funzione non impiega più di un secondo
     while(time < 1):
         if(flagTmp):
             print("Wait...")
             flagTmp=False
-        #time = integral_under_time(N, timeit.default_timer())
+
         time = timeit.timeit(stmt='integrate(semicircle, -1, 1, N)', globals=globals(), number=1)
         if(time<0.8):
             N=N+10000
@@ -255,5 +266,4 @@ if(printEs7):
     print(f"\nN with computation run in less than a second (precision of pm 1000):\n--->N: {N}")
     print(f"Integral with N={N}: {integrate(semicircle, -1, 1, N)}") 
     print(f"Original result: {1.57079632679}\n")
-
-    #---->eseguendo per un mitnuto otteniamo un valore di N che tende a più infinito
+    #-->eseguendo per un minuto otteniamo un valore di N che tende a più infinito
