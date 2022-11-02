@@ -1,10 +1,10 @@
-#2. 32-bit floating point number
+# 2. 32-bit floating point number
 
-#Write a function that converts a 32 bit binary string
-#(for example, 110000101011000000000000) into a single precision
-#floating point in decimal representation. Interpret the various bits
-#as sign, fractional part of the mantissa and
-#exponent, according to the IEEE 754 reccommendations.
+# Write a function that converts a 32 bit binary string
+# (for example, 110000101011000000000000) into a single precision
+# floating point in decimal representation. Interpret the various bits
+# as sign, fractional part of the mantissa and
+# exponent, according to the IEEE 754 reccommendations.
 
 # -------------------------------------- Code Begin-------------------------------------
 

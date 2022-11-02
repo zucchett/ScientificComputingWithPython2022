@@ -1,8 +1,8 @@
-#1. Number representation
+# 1. Number representation
 
-#Write a function that converts numbers among the bin, dec, and
-#hex representations (bin<->dec<->hex). Determine the input type in
-#the function, and pass another argument to choose the output representation.
+# Write a function that converts numbers among the bin, dec, and
+# hex representations (bin<->dec<->hex). Determine the input type in
+# the function, and pass another argument to choose the output representation.
 
 # -------------------------------------- Code Begin-------------------------------------
 
