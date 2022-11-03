@@ -21,7 +21,6 @@ def squares(a,b,c):
         squares[1] = x_2
     return squares
  
- 
 #a
 a = 0.001
 b = 1000
@@ -55,28 +54,27 @@ def squares_2(a,b,c):
 print("This is the second function")
 print(squares_2(a,b,c))
 
+#in these two solutions there are errors due to the limited precision of the floating point numbers
+
 #c
-def squares_2(a,b,c):
+#to eliminate the error we should avoid the substraction of really close numbers
+def squares_3(a,b,c):
     squares = [0,0]
     
-    a = int(a)
-    b = int(b)
-    c = int(c)
+    a = float(a)
+    b = float(b)
+    c = float(c)
     
-    m_1 = -b - sqrt(b**2 - 4*a*c)
-    m_2 = -b + sqrt(b**2 - 4*a*c)
-    
-    if(b**2 - 4*a*c < 0):
-        return "Impossible"
-    elif(b**2 - 4*a*c == 0):
-        x_1 = (-b + sqrt(b**2 - 4*a*c))*m_2/(2*a*m_2)
-        squares.append(x_1)
+    if( b >= 0):
+        x_1 = (-b - sqrt(b**2 - 4*a*c))/(2*a)
     else:
-        x_1 = (-b + sqrt(b**2 - 4*a*c))*m_2/(2*a*m_2)
-        x_2 = (-b - sqrt(b**2 - 4*a*c))*m_1/(2*a*m_1) 
-        squares[0] = x_1
-        squares[1] = x_2
+        x_1 = (-b + sqrt(b**2 - 4*a*c))/(2*a)
+    x_2 = c/(a*x_1)
+    
+    squares[0] = x_1
+    squares[1] = x_2
     return squares
 
 print("This is the third function")
-print(squares_2(a,b,c))
+print(squares_3(a,b,c))
+

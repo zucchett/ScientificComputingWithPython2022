@@ -11,4 +11,4 @@ for i in range(1000):
     v += n/2
     print(v)
     n = n/2    
-print(v)
+print(n)
