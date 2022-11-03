@@ -164,6 +164,7 @@ def machinePrecision():
 
 ####### Exercise 5
 
+# Esercizio 5
 import math
 
 def quadraticSolution_a(a,b,c):
@@ -224,23 +225,27 @@ print('y2 - x2 = ', abs((y2-x2)/y2)*100, '% \n')
 #Invece, usando la funzione quadraticSolution_b, in cui l'operazione è al denominatore, otterremo delle soluzioni dai valori più elevati. 
 
 def quadraticSolution(a,b,c):
-    a_per_c = float('%.10f' % (a * c))
-    delta = (b**2) - (4*a_per_c)
+    #ritorna la soluzione di ax^2 + bx + c = 0
+    a_per_c = float('%.10f' % (a*c))
+    delta = float('%.10f' % ((b**2) - (4*a_per_c)))
     if delta < 0:
         print('There is no solution to the system')
         return
     elif delta == 0:
-        x1 = 2*c/(-b)
-        x2 = x1
-        return x1,x2
-    else:
-        x1 = (- b - math.sqrt(delta)) / (2*a)
-        x2 = (- b + math.sqrt(delta)) / (2*a)
+        x = - b/(2*float('%.10f' % a))
+        y = 2*float('%.10f' % c)/(-b)
+        x1 = x
+        x2 = x
         return x1, x2
+    else:
+        x1 = float('%.10f' % (- b - float('%.10f' % math.sqrt(delta)))) / (2*a)
+        y1 = 2*c / float('%.10f' % (- b + float('%.10f' % math.sqrt(delta))))
+        x2 = float('%.10f' % (- b + float('%.10f' % math.sqrt(delta)))) / (2*a)
+        y2 = 2*c / float('%.10f' % (- b - float('%.10f' % math.sqrt(delta))))
+        return x1, y1, x2, y2
 
-(z1, z2) = quadraticSolution(a,b,c)
-print('Results using the final function: ', '\n', 'z1 = ', z1, '\n', 'z2 = ', z2, '\n')
-
+(z1, z2, z3, z4) = quadraticSolution(a,b,c)
+print('Results using the final function: ', '\n', 'x1 = ', z1, '\n', 'y1 = ', z2, '\n', 'x2 = ', z3, '\n', 'y2 = ', z4)
 
 ####### Exercise 6
 
