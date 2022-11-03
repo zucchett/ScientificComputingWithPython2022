@@ -1,30 +1,11 @@
 from time import perf_counter
 import timeit
+import bench
 
-bench_data = []
-
-
-def print_title(title):
-    print(f"\n----- {title} -----")
+bench_data = bench.BenchData()
 
 
-# A decorator to benchmark exercises
-def benchmark(bench_data, exercise_name):
-    def wrap(f):
-        def wrapped_f(*args):
-            print_title(exercise_name)
-            t1 = perf_counter()
-            f(*args)
-            tdelta = round((perf_counter() - t1) * 1000, 3)
-            data = {exercise_name: tdelta}
-            bench_data.append(data)
-
-        return wrapped_f
-
-    return wrap
-
-
-@benchmark(bench_data, "Exercise1")
+@bench.benchmark("Exercise #1", bench_data)
 def exercise1():
     def f(alist, x):
         new_list = alist.copy()
@@ -38,7 +19,7 @@ def exercise1():
     print(alist)
 
 
-@benchmark(bench_data, "Exercise2")
+@bench.benchmark("Exercise #2", bench_data)
 def exercise2():
     orig_ans = list(map(lambda x: x * x, filter(lambda x: x % 2 == 1, range(10))))
     my_ans = [x * x for x in range(10) if x % 2 == 1]
@@ -48,7 +29,7 @@ def exercise2():
     assert my_ans == orig_ans, "Problem in exercise2"
 
 
-@benchmark(bench_data, "Exercise3")
+@bench.benchmark("Exercise #3", bench_data)
 def exercise3():
     def filter_words(word_list, n):
         less_than_n = lambda letter: len(letter) < n
@@ -60,14 +41,14 @@ def exercise3():
     print(filter_words(sample1, 6))
 
 
-@benchmark(bench_data, "Exercise4")
+@bench.benchmark("Exercise #4", bench_data)
 def exercise4():
     lang = {"Python": 3, "Java": "", "Cplusplus": "test", "Php": 0.7}
     keys_len = list(map(lambda x: len(x), lang.keys()))
     print(keys_len)
 
 
-@benchmark(bench_data, "Exercise5")
+@bench.benchmark("Exercise #5", bench_data)
 def exercise5():
     language_scores = [("Python", 97), ("Cplusplus", 81), ("Php", 45), ("Java", 32)]
     l = lambda x: x[0]
@@ -75,7 +56,7 @@ def exercise5():
     print(language_scores)
 
 
-@benchmark(bench_data, "Exercise6")
+@bench.benchmark("Exercise #6", bench_data)
 def exercise6():
     f1 = lambda x: x**2
     f2 = lambda x: x**3
@@ -100,14 +81,14 @@ def square(x):
     return x * x
 
 
-@benchmark(bench_data, "Exercise7")
+@bench.benchmark("Exercise #7", bench_data)
 def exercise7():
     print("Before calling square()")
     print(square(10))
     print("After calling square()")
 
 
-@benchmark(bench_data, "Exercise8")
+@bench.benchmark("Exercise #8", bench_data)
 def exercise8():
     # Fist recursive implementation
     def fibonacci_recursive_1(n):
@@ -163,7 +144,7 @@ def exercise8():
     print(f"Execution time of recursive algorithm WITH cache:    {t2* 1000} ms")
 
 
-@benchmark(bench_data, "Exercise9")
+@bench.benchmark("Exercise #9", bench_data)
 def exercise9():
     msg = """
     Compare to the implementation in the first exercise (using while loop):
@@ -223,7 +204,7 @@ class Rectangle(Polygon):
         return self._sides[0] * self._sides[1]
 
 
-@benchmark(bench_data, "Exercise10")
+@bench.benchmark("Exercise #10", bench_data)
 def exercise10():
     sides = (10, 20, 15, 5)
     poly1 = Polygon(sides)
@@ -259,7 +240,7 @@ def exercise10():
         print(str(e))
 
 
-@benchmark(bench_data, "Exercise11")
+@bench.benchmark("Exercise #11", bench_data)
 def exercise11():
     length, width = 10, 5
     rect = Rectangle(length, width)
@@ -272,15 +253,17 @@ def exercise11():
     assert rect.area() == length * width
 
 
-if __name__ == "__main__":
-    exercise1()
-    exercise2()
-    exercise3()
-    exercise4()
-    exercise5()
-    exercise6()
-    exercise7()
-    exercise8()
-    exercise9()
-    exercise10()
-    exercise11()
+exercise1()
+exercise2()
+exercise3()
+exercise4()
+exercise5()
+exercise6()
+exercise7()
+exercise8()
+exercise9()
+exercise10()
+exercise11()
+
+print("\n----- Runtime statistics -----")
+print(bench_data)

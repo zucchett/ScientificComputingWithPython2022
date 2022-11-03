@@ -4,31 +4,9 @@ import collections
 import numpy as np
 from time import perf_counter
 import timeit
+import bench
 
-# A list to hold benchmarking data which consists of exercise number and
-# execution time
-bench_data = []
-
-
-def print_title(title):
-    print(f"\n----- {title} -----")
-
-
-# A decorator to benchmark exercises
-def benchmark(bench_data, exercise_name):
-    def wrap(f):
-        def wrapped_f(*args):
-            print_title(exercise_name)
-            t1 = perf_counter()
-            f(*args)
-            tdelta = round((perf_counter() - t1) * 1000, 3)
-            data = {exercise_name: tdelta}
-            bench_data.append(data)
-
-        return wrapped_f
-
-    return wrap
-
+bench_data = bench.BenchData()
 
 # First algorithm by exploiting dict structure
 def count_unique1(tokens):
@@ -47,7 +25,7 @@ def count_unique2(tokens):
     return dict(c)
 
 
-@benchmark(bench_data, "Exercise #1")
+@bench.benchmark("Exercise #1", bench_data)
 def exercise1():
     # Create a temporary list
     l = []
@@ -78,9 +56,8 @@ def exercise1():
     print(final_tuple)
 
 
-@benchmark(bench_data, "Exercise #2")
+@bench.benchmark("Exercise #2", bench_data)
 def exercise2():
-    print_title("Problem #2")
     x = sys.argv[1]
     y = sys.argv[2]
     print(f"Original values: x = {x}, y = {y}")
@@ -89,7 +66,7 @@ def exercise2():
     print(f"After swapping:  x = {x}, y = {y}")
 
 
-@benchmark(bench_data, "Exercise #3")
+@bench.benchmark("Exercise #3", bench_data)
 def exercise3():
     # Create a lambda function because the calculation can be made in a single line
     calc_distance = lambda p1, p2: math.sqrt(
@@ -111,7 +88,7 @@ def exercise3():
     print(distance)
 
 
-@benchmark(bench_data, "Exercise #4")
+@bench.benchmark("Exercise #4", bench_data)
 def exercise4():
     s1 = "Write a program that prints the numbers from 1 to 100. \
     But for multiples of three print Hello instead of the number and for the multiples of five print World. \
@@ -133,7 +110,7 @@ def exercise4():
     assert d1 == d2
 
 
-@benchmark(bench_data, "Exercise #5")
+@bench.benchmark("Exercise #5", bench_data)
 def exercise5():
     # Sample input
     l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63,
@@ -148,7 +125,7 @@ def exercise5():
     print(unique_nums)
 
 
-@benchmark(bench_data, "Exercise #6")
+@bench.benchmark("Exercise #6", bench_data)
 def exercise6():
     var1 = sys.argv[1]
     var2 = sys.argv[2]
@@ -162,7 +139,7 @@ def exercise6():
         print("Worong input(s). Summation can't be performed")
 
 
-@benchmark(bench_data, "Exercise #7")
+@bench.benchmark("Exercise #7", bench_data)
 def exercise7():
     l1 = []
     for x in range(10 + 1):
@@ -173,13 +150,13 @@ def exercise7():
     print(f"Using list comperhension:\n{l2}")
 
 
-@benchmark(bench_data, "Exercise #8")
+@bench.benchmark("Exercise #8", bench_data)
 def exercise8():
     a = [(x, y) for x in range(3) for y in range(4)]
     print(a)
 
 
-@benchmark(bench_data, "Exercise #9")
+@bench.benchmark("Exercise #9", bench_data)
 def exercise9():
     l = [
         (a, b, c)
@@ -192,7 +169,7 @@ def exercise9():
     print(t)
 
 
-@benchmark(bench_data, "Exercise #10")
+@bench.benchmark("Exercise #10", bench_data)
 def exercise10():
     # An example vector
     vector = np.array([1, 2, 3, 4, 5, 6, 7, 9, 9])
@@ -209,7 +186,7 @@ def exercise10():
     print(f"Squared sum: {ss}")
 
 
-@benchmark(bench_data, "Exercise #11")
+@bench.benchmark("Exercise #11", bench_data)
 def exercise11():
     def fibonacci(n):
         # Bootstrap the sequence by inserting first two elements
@@ -238,8 +215,5 @@ exercise9()
 exercise10()
 exercise11()
 
-# Print benchmarking data
-print_title("Benchmark data")
-for d in bench_data:
-    name, t = list(d.items())[0]
-    print(f"{name}: {t} ms")
+print("\n----- Runtime statistics -----")
+print(bench_data)
