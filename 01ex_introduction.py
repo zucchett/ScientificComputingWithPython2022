@@ -8,6 +8,17 @@ import bench
 
 bench_data = bench.BenchData()
 
+# Check command-line inputs
+try:
+    x = sys.argv[1]
+    y = sys.argv[2]
+except Exception as IndexError:
+    msg = (f"Usage: python {sys.argv[0]} X Y\n"
+           "X and Y are two digits which is used in exercises #3 and #6")
+    print(msg)
+    exit(1)
+
+
 # First algorithm by exploiting dict structure
 def count_unique1(tokens):
     result = {}
