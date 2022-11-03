@@ -33,3 +33,5 @@ def quadSol2(a,b,c):
 solb1,solb2 = quadSol2(0.001,1000,0.001)
 print("Solution b1: "+str(solb1))
 print("Solution b2: "+str(solb2))
+
+print("\nExercise 5c)")

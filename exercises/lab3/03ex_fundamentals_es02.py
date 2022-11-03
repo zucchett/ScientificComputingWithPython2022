@@ -8,5 +8,4 @@ def floatPointNum(bin_str):
     return (-1)**sign_bin * mant_bin /( 1<<( len(bin_str)-9 - (exp_bin-127) ))
 
 bin_str = "110000101011000000000000"
-bin_str = bin_str.zfill(32)
 print(floatPointNum(bin_str))
