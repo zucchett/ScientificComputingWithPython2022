@@ -1,4 +1,4 @@
-# 01ex_introduction by Alberto Merotto 208117
+# 01ex_introduction by Alberto Merotto 208117 v2
 #*************************************************************
 #Exercise 01:
 mylist = []
