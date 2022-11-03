@@ -1,3 +1,5 @@
+# The HelloWorld replacement
+
 print("\nExercise 01-a \n")
 
 replacement = []

@@ -2,7 +2,10 @@
 
 def findPrecision(init_n, precision):
     while (init_n + precision != init_n):
-        precision = precision/2
+        precision = precision/10
     return precision
 
-print(findPrecision(1,0.1))
+base = 1.0
+accuracy = 0.1
+
+print("the machine precision for floating point numbers is: "+str(findPrecision(base,accuracy)))

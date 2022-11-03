@@ -1,3 +1,5 @@
+# Nested functions
+
 def square(number):
     return number**2
 

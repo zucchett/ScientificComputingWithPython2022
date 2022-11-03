@@ -1,9 +1,11 @@
+# Global variables
+
 def f(alist):
     x = 5
-    alist = [1, 2, 3]
+    alist_new = [i for i in alist]
     for i in range(x):
-        alist.append(i)
-    return alist
+        alist_new.append(i)
+    return alist_new
 
 alist = [1, 2, 3]
 ans = f(alist)

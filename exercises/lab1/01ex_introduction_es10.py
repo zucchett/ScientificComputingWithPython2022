@@ -1,3 +1,5 @@
+# Normalization of a N-dimensional vector
+
 import random
 import math
 

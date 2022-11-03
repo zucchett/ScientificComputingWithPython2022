@@ -1,7 +1,7 @@
 # Integral of a semicircle
-from math import pi
-from cmath import phase
+import math
 import timeit
+from cmath import phase
 
 def semicircleArea(x): 
     return (1-pow(x,2)) ** (1/2)
@@ -15,9 +15,10 @@ def integration(f, low, up, N):
 
 print("\nExercise 7a)")
 
-N = 10
+N = 100
 print("Integral with N = 100: "+str(integration(semicircleArea, -1, 1, N)))
-print("Real result of the integral: "+str(pi/2))
+print("Real result of the integral: "+str(math.pi/2))
+print("Difference between the two results: ", math.pi/2 - integration(semicircleArea, -1, 1, N))
 
 
 print("\nExercise 7b)")
@@ -30,11 +31,11 @@ while a<1:
 
 N = N-100000
 
-print("\nTo run in less than a second N can be increased to: "+str(N)+"\nand in this case the result is: "+str(integration(semicircleArea, -1, 1, N)))
+print("\nTo run in less than a second N can be increased to: "+str(N)+", and in this case the integral result is: "+str(integration(semicircleArea, -1, 1, N)))
+print("Real result of the integral: "+str(math.pi/2))
+print("Difference between the two results: ", math.pi/2 - integration(semicircleArea, -1, 1, N))
 
-N = N*60
-
-a = timeit.timeit(stmt='integration(semicircleArea, -1, 1, N)', globals=globals(), number=1)
-print("\nIntegral with N = "+str(N)+" computed in time "+str(a))
-
-print("\nTo run in less than a second N can be increased to: "+str(N)+"\nand in this case the result is: "+str(integration(semicircleArea, -1, 1, N)))
+# Running the code for 1 minute would get a very high N.
+# But already a 1-second computation allows a good accuracy of the integral calculation,
+# consequently an accurate result can be obtained with a much lower computation time than 60 seconds
+# and therefore with a lower value of N.

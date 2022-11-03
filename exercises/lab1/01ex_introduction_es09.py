@@ -1,3 +1,5 @@
+# Nested list comprehension
+
 pyth_trip_list = ()
 
 for a in range(1, 100):

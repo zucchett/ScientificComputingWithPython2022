@@ -20,7 +20,7 @@ def detInputType(num,n_type):
         return hex(num)
 
 try:        
-    x_num = (input("Insert a number: \n"))
+    x_num = (input("Insert a number (decimal, binary(0b) or hexadecimal(0x)): \n"))
     x_type = int(input("Convertion: select 1 for binary, 2 for decimal, 3 for hexadecimal \n"))
 
     print(detInputType(x_num,x_type))

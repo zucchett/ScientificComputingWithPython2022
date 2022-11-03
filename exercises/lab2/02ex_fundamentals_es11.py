@@ -1,4 +1,4 @@
-# Class definition
+# Class inheritance
 
 class polygon:
 

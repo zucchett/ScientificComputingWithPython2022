@@ -1,3 +1,5 @@
+# Decorators
+
 def hello(func):
     def wrapper(x):
         print("Hello World")

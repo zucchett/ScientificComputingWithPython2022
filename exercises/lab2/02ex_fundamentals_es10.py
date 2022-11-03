@@ -1,4 +1,5 @@
 # Class definition
+
 import math
 
 class polygon:
@@ -36,12 +37,9 @@ class polygon:
     def getOrderedSides(self,increasing_sides):
         return tuple(sorted(self.x,reverse = not increasing_sides))
 
-# End of the class definition
-
 a = polygon((5, 5, 1, 2))
 print(a.printPoly())
 a.setSide(0,10)
 print(a.printPoly())
 print(a.perimeter())
-
 print(a.getOrderedSides(True))

@@ -1,3 +1,5 @@
+# Computing the distance
+
 import math
     
 u1 = float(input("Insert x coordinate of u vector: "))
