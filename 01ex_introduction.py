@@ -130,9 +130,9 @@ def exercise5():
          98, 39, 16, 82, 31, 92, 41, 45, 30, 66, 70, 34, 85, 94, 5, 3, 36,
          72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
 
-    # I used the same function from previous problem, because those functions
-    # don't care about input type, whether string or list, since both can be tokenized
-    unique_nums = count_unique1(l)
+    # Create a list of numbers with only one occurence
+    unique_nums = [i[0] for i in count_unique1(l).items() if i[1] == 1]
+    print(f"Found {len(unique_nums)} unique numbers:")
     print(unique_nums)
 
 
