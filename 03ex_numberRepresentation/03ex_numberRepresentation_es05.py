@@ -25,12 +25,19 @@ def solver(a,b,c):
 
 print('Solutions for the equation : ',a,'x² +',b,'x +',c,' are :', solver(a,b,c))
 
+# Why the results are not correct or not very close to the true value?
+# The quadratic equation violated the
+# cardinal rule of numerical analysis: avoid subtracting
+# nearly equal numbers. The more similar two numbers are,
+# the more precision you can lose from subtracting them. In this
+# case √(b² – 4ac) is very nearly equal to b.
+
 print('----------------------- Question b ---------------------')
 
 def solver_2(a,b,c):
     d =(b**2) - (4*a*c)
-    sol1 = (4*a*c) / ((2*a) * (-b + sqrt(d)))
-    sol2 = (4*a*c) / ((2*a) * (-b - sqrt(d)))
+    sol1 = (2*c) / (-b + sqrt(d))
+    sol2 = (2*c) / (-b - sqrt(d))
     return sol1,sol2
 
 print('Solutions for the equation : ',a,'x² +',b,'x +',c,' are :', solver_2(a,b,c))
@@ -38,6 +45,11 @@ print('Solutions for the equation : ',a,'x² +',b,'x +',c,' are :', solver_2(a,b
 # much larger than 4ac, the square root is approximately equal to b. If b
 # is positive and you add that positive square root to negative b, you get
 # "cancellation", which gives a loss of numerical precision.
+
+# the method used in question b is not also very correct, because we improved
+# the results of (solu2) but
+# we made the results of (sol1) much worse for same reason stated above :
+# we subtracted two nearly equal numbers!
 print('----------------------- Question c ---------------------')
 
 # ******** Method #1 ********
