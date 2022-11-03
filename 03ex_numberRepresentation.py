@@ -236,7 +236,9 @@ def quadraticSolution(a,b,c):
         y = 2*float('%.10f' % c)/(-b)
         x1 = x
         x2 = x
-        return x1, x2
+        y1 = y
+        y2 = y
+        return x1, y1, x2, y2
     else:
         x1 = float('%.10f' % (- b - float('%.10f' % math.sqrt(delta)))) / (2*a)
         y1 = 2*c / float('%.10f' % (- b + float('%.10f' % math.sqrt(delta))))
