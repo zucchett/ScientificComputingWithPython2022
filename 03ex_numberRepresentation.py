@@ -1,8 +1,5 @@
 # 03ex - FILE UNICO
 #Author: Riccardo Mosele 2044736
-from decimal import Underflow
-import math
-
 #flag per l'esecuzione singola degli esercizi
 active = True
 passive = False
@@ -15,18 +12,18 @@ passive = False
 #E' POSSIBILE L'ESECUZIONE MULTIPLA E DI TUTTI GLI ESERCIZI
 
 
-printEs1=passive  #esercizio 3.1
-printEs2=passive  #esercizio 3.2
-printEs3=passive  #esercizio 3.3
-printEs4=passive  #esercizio 3.4
-printEs5=passive  #esercizio 3.5
-printEs6=passive  #esercizio 3.6
+printEs1=active  #esercizio 3.1
+printEs2=active  #esercizio 3.2
+printEs3=active  #esercizio 3.3
+printEs4=active  #esercizio 3.4
+printEs5=active  #esercizio 3.5
+printEs6=active  #esercizio 3.6
 printEs7=active  #esercizio 3.7
 
 
 import math
 import timeit
-import sys
+
 #***************************************************Ex 3.1
 if(printEs1):
     print("\n\n***************************************************Ex 3.1")
@@ -38,7 +35,6 @@ if(printEs1):
             return
 
         #se l'inserimento del tipo di output è corretto proseguo
-
         if data[0:2] == "0x": #caso esadecimale
             try:
                 #controllo che il valore inserito sia effettivamente un numero
@@ -100,30 +96,23 @@ if(printEs2):
 if(printEs3):
     print("\n\n***************************************************Ex 3.3")
 
-    #calcolo l'overflow
-    overflow_val=0
-    res=0
-    while(True):
-        try:
-            res=2**overflow_val
-            overflow_val=overflow_val+0.001
-        except OverflowError:
+    overflow_val = 1.0
+    underflow_val = 1.0
+    
+    #overflow: moltiplico il valore iniziale per due fino a che non viene assegnato a infinito -> overflow
+    while True:
+        overflow_val = overflow_val * 2
+        if math.isinf(overflow_val *2):
             break
-    print(f"\nReal overflow value: {sys.float_info.max}")
-    print(f"Overflow value: {2**(overflow_val-0.001)}")
 
-
-    #calcolo l'overflow
-    underflow_val=0
-    res2=0
-    while(True):
-        try:
-            res2=1/(2**underflow_val)
-            underflow_val=underflow_val+0.001
-        except:
+    #underflow: divido il valore iniziale per due fino a che non risulta zero -> underflow
+    while True:
+        underflow_val = underflow_val / 2
+        if underflow_val/2 == 0:
             break
-    print(f"\nReal underflow value: {sys.float_info.min}")
-    print(f"Underflow value: {1/(2**(underflow_val-0.001))}")
+
+    print(f"Overflow value is: {overflow_val}")
+    print(f"Underflow value is: {underflow_val}")
 
 #***************************************************Ex 3.4
 if(printEs4):
@@ -199,9 +188,9 @@ if(printEs5):
     print(f"Res1_a: {res1[0]}\nRes1_b: {res2[0]}")
     print(f"\nRes2_a: {res1[1]}\nRes2_b: {res2[1]}")
     #--> moltiplicando e poi dividendo il risultato per lo stesso numero otteniamo un numero appena 
-    # diverso da quello originale, teoricamente il risultato non dovrebbe cambiare. In pratica
-    #potrebbe essere diverso a causa della precisione non infinita del calcolatore. Quindi eseguendo
-    #prima la moltiplicazione e poi la divisione ci sono degli errori di approssimazione.
+    #--> diverso da quello originale, teoricamente il risultato non dovrebbe cambiare. In pratica
+    #--> potrebbe essere diverso a causa del numero limitato di cifre decimali per i float, vengono quindi
+    #--> introdotti degli errori di arrotondamento
 
 
     #test di una soluzione complessa con a=1, b=2, c=2
@@ -223,11 +212,12 @@ if(printEs6):
 
     print(f"Derivative with delta=10^-2 (for x=1): {deriv_x(1,10**-2)}")
     print(f"Derivative calculate analytically (for x=1): {float(1)}\n") #analiticamente: df(x)=2x-1
-    #--> i due valori non coincidono perfettameneyt perchè la precisione del calcolatore non è infinita quindi vengono introdotti degli errori di calcolo
+    #--> i due valori non coincidono perfettamente perchè il delta con cui stiamo calcolando la derivata non è esattamente zero. 
 
     #calcolo il valore della derivata cambiando il delta: 10^ -> -4,-6,-8,-10,-12,-14
     for i in range(4,15,2):
         print(f"Derivative with delta=10^{-i} (for x=1): {deriv_x(1,10**-i)}")
+    #--> l'accuratezza del delta aumenta fino al valore 10^-8 dopo inizia a decrescere.
 
 #***************************************************Ex 3.7
 if(printEs7):
@@ -258,12 +248,15 @@ if(printEs7):
             flagTmp=False
 
         time = timeit.timeit(stmt='integrate(semicircle, -1, 1, N)', globals=globals(), number=1)
+
+        if(time<0.5):
+            N=N**2
         if(time<0.8):
-            N=N+10000
+            N=N*4
         else:
             N=N+100
 
-    print(f"\nN with computation run in less than a second (precision of pm 1000):\n--->N: {N}")
+    print(f"\nN with computation run in less than a second (precision of pm 100):\n--->N: {N}")
     print(f"Integral with N={N}: {integrate(semicircle, -1, 1, N)}") 
     print(f"Original result: {1.57079632679}\n")
     #-->eseguendo per un minuto otteniamo un valore di N che tende a più infinito
