@@ -1,5 +1,7 @@
 import sys
 import math
+import timeit
+import numpy as np
 """
 Exercise 1 : NUMBER REPRESENTATION
 """
@@ -22,8 +24,6 @@ def number_representation(x,type):
         elif (number[1] == "x"):
             #input_type = 3 -> hexa
             input_type = 3
-        else:
-            input_type = 1
 
     if (type == "decimal"):
         if (input_type == 2): #-> binary
@@ -33,13 +33,13 @@ def number_representation(x,type):
     elif (type == "hexadecimal"):
         if (input_type == 2): #-> binary
             return hex(int(x, 2))
-        elif (input_type == 1): #-> decimal
+        else: 
             return hex(int(x))
     elif (type == "binary"):
-        if (input_type == 1): #-> decimal
-            return bin(int(x))
-        elif (input_type == 3): #-> hexa
+        if (input_type == 3): #-> hexa
             return bin(int(x,16))
+        else:
+            return bin(int(x))
     else :
         print("ERROR : output convertion")
 
@@ -58,37 +58,28 @@ Exercise 2 : 32-BIT FLOATING POINT NUMBER
 """
 print("\n Exercise 2 : 32-BIT FLOATING POINT NUMBER\n")
 def floating_point_number(x):
-    number = list(x)
     signe = 0
     #Check the sign
-    if (number[0] == '0'):
-        sign = 0
-    elif (number[0] == '1'):
+    if (x[0] == '0'):
+        signe = 0
+    elif (x[0] == '1'):
         signe = 1
 
     #we calculate the exponent
-    l = list()
-    l.append('0b')
-    for i in number[1:9]:
-        l.append(i)
-    exp = (''.join(l))
-    exponent = (int(exp, 2))
+    exponent = int(x[1:9], 2)
 
     #we calculate the mantisse
-    m = list()
     n = 1
     mant_cal = 1
-    for i in number [9:]:
+    for i in x[9:]:
         if (i == '1'):
             mant_cal = mant_cal + 2**(-n)
         n+=1
 
     if signe == 0:
-        res = mant_cal * 2**(exponent - 127)
+        return mant_cal * 2**(exponent - 127)
     else :
-        res = - mant_cal * 2**(exponent - 127)
-
-    return res
+        return - mant_cal * 2**(exponent - 127)
          
 number = "11000010101100000000000"
 print(floating_point_number(number))
@@ -96,7 +87,6 @@ print(floating_point_number(number))
 #exampl during class -> we should find -5.5
 number2 = "110000001011"
 print(floating_point_number(number2))
-
 
 
 """
@@ -110,14 +100,18 @@ def floating_numbers_sys():
     M = 1024
     for i in range(N):
         underflow=underflow/2
-        print(i,'\t\t|',"%6e"%underflow)
+        print("--------")
+        print(i)
+        print(underflow)
     for i in range(M):
         overflow=overflow*2
-        print(i,'\t\t|',"%6e"%overflow)
+        print("--------")
+        print(i)
+        print(overflow)
 
 print(sys.float_info.max)
 print(sys.float_info.min)
-#floating_numbers_sys()
+floating_numbers_sys()
 """
 We can see that the overflow limit occurs when i=1023, the maximum float is 8.98847e+307
 The underflow limit occurs when i=1074, that minimum float is 4.94066e-324
@@ -138,7 +132,7 @@ def machine_precision():
         print(precision)
 
 print(sys.float_info.epsilon)
-#machine_precision()
+machine_precision()
 """
 We can see that by additionning a number under 7.792376308032534e-16
 the result does not change
@@ -147,30 +141,136 @@ the result does not change
 """
 Exercise 5 : QUADRATIC SOLUTION
 """
-print("\n Exercise 4 : QUADRATIC SOLUTION\n")
+print("\n Exercise 5 : QUADRATIC SOLUTION\n")
 
 def quadratic_solution(a,b,c):
-    x1 = (-b + math.sqrt(b**2-4*a*c))/2*a
-    x2 = (-b - math.sqrt(b**2-4*a*c))/2*a
+    delta = b**2-4*a*c
+    if delta > 0:
+        x1 = (-b + math.sqrt(b**2-4*a*c))/2*a
+        x2 = (-b - math.sqrt(b**2-4*a*c))/2*a
+    elif delta == 0:
+        x1 = -b/2*a
+    else:
+        print('no real root')
     return (x1,x2)
 
 print(quadratic_solution(0.001, 1000, 0.001))
 #Solution : (-9.999894245993345e-13, -0.999999999999)
+#We find the wrong solution 
+#Good solution : x1 = −9.99989E−7 x2 = −1000000
 
 def quadratic_solution_b(a,b,c):
-    x1 = ((-b + math.sqrt(b**2-4*a*c))*(-b + math.sqrt(b**2-4*a*c)))/((2*a)*(-b + math.sqrt(b**2-4*a*c)))
-    x2 = ((-b - math.sqrt(b**2-4*a*c))*(-b - math.sqrt(b**2-4*a*c)))/((2*a)*(-b - math.sqrt(b**2-4*a*c)))
+    x1_numerator = (-b + math.sqrt(b**2-4*a*c)) * (-b + math.sqrt(b**2-4*a*c))
+    x2_numerator = (-b - math.sqrt(b**2-4*a*c)) * (-b - math.sqrt(b**2-4*a*c))
+    x1_denominator = 2*a * (-b + math.sqrt(b**2-4*a*c))
+    x2_denominator = 2*a * (-b - math.sqrt(b**2-4*a*c))
+    x1 = x1_numerator/x1_denominator
+    x2 = x2_numerator/x2_denominator
     return (x1,x2)
 
 print(quadratic_solution_b(0.001, 1000, 0.001))
-#Solution : (-9.999894245993346e-07, -999999.999999)
+
+
 """
-When we calculate $-b\mp\sqrt{b^2-4ac}$ we don't find the true result because we cannont represented in binary the 
-fraction in the decimal base. That is why we don't have exacly the result attended and we find 2 differents results 
-by multplying the numerator and denominator by the same fonction. The problem is the floating point precision that give 
-slightly wrong results
+But when I calculate the numerator and the denominator separtly , I do not find the same solution. Therefore, my system is not able to put the fraction in the decimal base. Therefore, the result that we find is not 
+accurate. In the b), we avoid calculating nearly equal numbers and loosing precision when going from the decimal representation to the binary representation. 
 """
 
-def roots_quadratiq_solution(a,b,c):
-    return (-b + math.sqrt(b**2-4*a*c), -b - math.sqrt(b**2-4*a*c))
-print(roots_quadratiq_solution(0.001,1000,0.001))
+"""
+To obtain more precise results with floating number, we need to avoid substacting nearly equal numbers. Indeed, 
+the more similar two numbers are, the more precision we loose. 
+Here, the problem is that b almost equal to math.sqrt(b**2 - 4*a*c)
+Therefore, we need to multiply the result by its conjugate => using the Citardauq formulat (see quadractic_solution_b function)
+"""
+
+"""
+Exercise 6 : THE DERIVATIVE
+"""
+print("\n Exercise 6 : THE DERIVATIVE\n")
+
+#f'(x) = 2x - 1
+def derivative(x, delta):
+    def function(x):
+        return x*(x-1)
+    return ((function(x + delta) - function(x))/delta)
+
+print(derivative(1, 10**-2))
+"""
+Analytically the derivative of the function at the point x = 1 is 2*1-1=1
+We find 1.010000000000001 and not 1 because delta is not close enough to zero. Indeed, 
+if we apply the definition, delta must tend to 0 to find the right result
+"""
+
+deltas = [10**-4, 10**-6, 10**-8, 10**-10, 10**-12, 10**-14]
+for i in deltas:
+    print(derivative(1, i), '\t\t', i)
+
+"""
+We can see that by decreasing the delta, we approach a value of 1. 
+However, when the delta is to small (starting from 1e-10), the system cannot compute it 
+corretly. Therefore, the result are not precise and we have a derivative that start 
+increasing and decreasing.
+"""
+
+"""
+Exercise 7 : INTEGRAL OF A SEMICIRCLE
+"""
+print("\n Exercise 7 : INTEGRAL OF A SEMICIRCLE\n")
+
+
+def Riemann(N):
+    def semicircle(x):
+        return math.sqrt(1-x**2)
+    I = 0
+    h = 2/N #the width of each slices
+    x = np.linspace(-1, 1, N) #100 values for -1 to 1 (because the integral goes from -1 to 1)
+    for k in range(1,N): #k from 1 to N
+        #sum of h * function yk
+        I = I + h*semicircle(x[k])
+    return I
+
+print(Riemann(100))
+
+
+"""
+The true value : 1.57079632679....
+The value that we find : 1.5534179294048955
+The value that we find is close to the true value. However, N needs to be bigger to 
+be really close to the true value. Indeed, the N in the Riemann definition tends to the infinite
+"""
+
+N = 1
+t = 0
+#under 1 second : 
+while t < 0.1:
+    N_temp = N+100
+    t_temp = timeit.timeit('Riemann(N)', globals=globals(), number=1)
+    if t_temp > 0.1:
+        break
+    else:
+        N=N_temp
+        t=t_temp
+
+print("N = ", N, "so that the computation run in ", t)
+#N = 350001 so that the computation run in  0.09478401900014433
+
+N = 1
+t = 0
+#under 1 minute : 
+while t < 1:
+    N_temp = N+10**5
+    t_temp = timeit.timeit('Riemann(N)', globals=globals(), number=1)
+    if t_temp > 1:
+        break
+    else:
+        N=N_temp
+        t=t_temp
+
+print("N = ", N, "so that the computation run in ", t)
+#N =  2700001 so that the computation run in  0.9048463549997905
+
+#Let's see the gain in running it for 1 minutes
+print("Running it in 1sec : ",Riemann(350001)) #1sec
+print("Running it in 1min : ", Riemann(2700001)) #1min
+
+#By running it for 1min, we calcule more N slices. By calculating more slices, the solution will be more precise

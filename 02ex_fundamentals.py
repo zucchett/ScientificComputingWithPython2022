@@ -70,14 +70,14 @@ print(language_scores)
 Exercice 6 : NESTED FUNCTIONS
 """
 print("\nExercice 6 : NESTED FUNCTIONS \n")
-#function that returns the square of a number 
-def square(x):
-    return x * x
-#function that returns the cube of a number
-def cube(x):
-    return x * x * x
 #function the returns the number raised to the 6th power
 def sixthPower(x):
+    #function that returns the square of a number 
+    def square(x):
+        return x * x
+    #function that returns the cube of a number
+    def cube(x):
+        return x * x * x
     return square(x)*cube(x)
 
 res = sixthPower(2)
@@ -225,7 +225,7 @@ print('Polygon : ')
 a.printPolygon()
 print('Lenght of the 3nd side : ', a.getLenght(2))
 print('Set lenght of the 3nd side to 10. \nPolygon : ')
-a.setLenght(3,10)
+a.setLenght(2,10)
 a.printPolygon()
 print('Perimeter of the polygon',a.perimeter())
 print('Order the lenght of the sides arranged in increasing order : ')
@@ -239,7 +239,7 @@ print("\nExercice 11 : CLASS INHERITANCE \n")
 class rectangle(polygon): #class rectangle that inherits from 'polygon'
     #The constructor as to be redefined 
     def __init__(self, components):
-        #here, we make sure that 4 variables are entered 
+        #here, we make sure that 2 variables are entered 
         if len(components) == 2:
             components = components + components
             self.x = components
@@ -253,10 +253,11 @@ class rectangle(polygon): #class rectangle that inherits from 'polygon'
         y = list(self.x)
         #we just take the first two values to have the width and the height
         for i in y[:2]:
+            print(i)
             area = area * i
         return area
 
-r = rectangle((3,4))
+r = rectangle((4,3))
 print("Rectangle : ")
 r.printPolygon()
 print("Area of the rectangle :", r.area())

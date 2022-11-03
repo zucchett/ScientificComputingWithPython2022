@@ -188,10 +188,8 @@ cubesFor = cubes_for()
 print('List of the cubes with a for loop : ',cubesFor)
 
 def cubes_list_comprehension():
-    #list of the cubes
-    list = range(0,11,1)
     #list comprehension
-    return [i**3 for i in list]
+    return [i**3 for i in range(0,11,1)]
 cubesListComprehension = cubes_list_comprehension()
 print('List of the cubes with a for loop : ',cubesListComprehension)
 
