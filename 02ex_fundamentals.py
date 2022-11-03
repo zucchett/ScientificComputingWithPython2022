@@ -96,27 +96,28 @@ print([recursiveFibonacci(n) for n in range (20)])
 #Exercise 09:
 import timeit
 s="""
-def recursiveFibonacci(n = 2000000000000000000000000000000000000):
+def recursiveFibonacci(n = 20):
 	if n <= 1:
 		return n
 	else:
 		return(recursiveFibonacci(n-1) + recursiveFibonacci(n-2))
+recursiveFibonacci()
 """		
 
 t="""
-def fibonacci_numbers(n=2000000000000000000000000000000000000):
+def fibonacci_numbers(n=20):
 	fib = [0, 1]
 	for i in range(2, n):
 		fib.append(fib[i-1]+fib[i-2])
 	return fib
+fibonacci_numbers()
 """
 
-n=20
-ex1 = timeit.timeit(s)
-print(ex1)
+ex1 = timeit.timeit(s, number = 1)
+print(ex1) #ex1 = 0.0008429870003965334
 
-ex2 = timeit.timeit(t)
-print(ex2)
+ex2 = timeit.timeit(t, number = 1)
+print(ex2) #ex2 = 1.341600000159815e-05
 
 #*************************************************************
 #Exercise 10:

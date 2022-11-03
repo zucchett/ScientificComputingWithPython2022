@@ -247,5 +247,61 @@ for e in l:
 
 #*************************************************************
 #Exercise 07:
+import math
+	
+def integral_semicircle(N=100):
+	I = 0
+	v = lambda x: (1-x**2)**(1/2)
+	for n in range(N):
+		x =(((n - 0)/(N-0))*(1-(-1)))+(-1) 
+		I = I + ((2/N) * (v(x)))
+	return I
+
+N = 100
+r = integral_semicircle(N)
+print(r)
+print('the result differs from the real value of ', (((math.pi/2)-r)/(math.pi/2))*100, '% with N=', N)
+
+import timeit
+s="""
+def integral_semicircle():
+	I = 0
+	N = 1000000
+	v = lambda x: (1-x**2)**(1/2)
+	for n in range(N):
+		x =(((n - 0)/(N-0))*(1-(-1)))+(-1) 
+		I = I + ((2/N) * (v(x)))
+	return I
+print(integral_semicircle())
+"""
+
+ex1 = timeit.timeit(s, number = 1)
+print(ex1)
+
+#the upper bound of N to the program to run for less than a second is 1000000 and the value of I is 1.5707963251317272 
+
+#if we run it for about 2 minutes with N = 1000000000:
+
+t="""
+def integral_semicircle():
+	I = 0
+	N = 1000000000
+	v = lambda x: (1-x**2)**(1/2)
+	for n in range(N):
+		x =(((n - 0)/(N-0))*(1-(-1)))+(-1) 
+		I = I + ((2/N) * (v(x)))
+	return I
+r = integral_semicircle()
+print(r)
+print('the result differs from the real value of ', (((math.pi/2)-r)/(math.pi/2))*100, '%')
+"""
+
+#uncomment the following two lines to run
+#ex2 = timeit.timeit(t, setup='import math', number = 1)
+#print(ex2) 
+
+#the result is different from the real one of 2.7675066468307884e-10 %
+
+
 
 
