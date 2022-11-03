@@ -21,10 +21,10 @@ print(X1)
 print(X2)
 # as we remove the mission of /2a, so the answer got bigger
 print("(c): ")
-def findRoot(a,b,c):
+def Root(a,b,c):
     D = (b**2) - (4*a*c)
     x1 = ((b* -1) - math.sqrt(D)) /( 2 * a)
     x2 = ((b* -1) + math.sqrt(D)) /(2 * a)
     print("the root x1:  ", x1)
     print("the root x2:  ", x2)
-findRoot(a,b,c)
+Root(a,b,c)
