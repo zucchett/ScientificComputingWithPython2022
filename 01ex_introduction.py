@@ -1,5 +1,6 @@
 # ********** Question 1 **********
 
+print("Question 1")
 lst = []
 for i in range(1, 101):
     if((i % 3 == 0) and (i % 5 == 0)):
@@ -31,6 +32,7 @@ print(result)
 
 # ********** Question 2 **********
 
+print("Question 2")
 print('Enter first term')
 x = input()
 print('First term: ',  x)
@@ -44,6 +46,7 @@ print('Switched second term: ',  y)
 
 # ********** Question 3 **********
 
+print("Question 3")
 import math
 
 def euclideanDistance(x, y):
@@ -60,6 +63,7 @@ print(result)
 
 # ********** Question 4 **********
 
+print("Question 4")
 s1 = "Write a program that prints the numbers from 1 to 100. \
 But for multiples of three print Hello instead of the number and for the multiples of five print World. \
 For numbers which are multiples of both three and five print HelloWorld."
@@ -84,11 +88,12 @@ for i in range(len(char_list)):
 
 # ********** Question 5 **********
 
+print("Question 5")
 l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
  85, 63, 47, 56, 42, 70, 84, 88, 55, 20, 54, 8, 56, 51, 79, 81, 57, 37, 91,
  1, 84, 84, 36, 66, 9, 89, 50, 42, 91, 50, 95, 90, 98, 39, 16, 82, 31, 92, 41,
  45, 30, 66, 70, 34, 85, 94, 5, 3, 36, 72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
-# Forgive me father for I have sinned
+
 unique_set = set(l)
 print(unique_set)
 print("Number of unique numbers: " , len(unique_set))
@@ -96,22 +101,23 @@ print("Number of unique numbers: " , len(unique_set))
 
 # ********** Question 6 **********
 
+print("Question 6")
 print('Enter first term')
 x = input()
-print('First term: ',  x, ' with type: ', type(x))
 print('Enter second term:')
 y = input()
-print('Second term: ',  y, ' with type: ', type(y))
 
 try:
+    x=float(x)
+    y=float(y)
     print(x + y)
 except:
-    print('the types are incompatible')
+    print('addition cannot be done')
 
 
 # ********** Question 7 **********
 
-# Part a
+print("Question 7")
 cubes_a = []
 for i in range(11):
     cubes_a.append(i**3)
@@ -120,12 +126,14 @@ print(cubes_a)
 
 # ********** Question 8 **********
 
+print("Question 8")
 a = [(i, j) for i in range(3) for j in range(4)]
 print(a)
 
 
 # ********** Question 9 **********
 
+print("Question 9")
 pythagoras_list = [(i,j,math.sqrt(i*i + j*j)) for i in range(1,100) for j in range(1,100) if math.sqrt(i*i+j*j) % 1 == 0 and math.sqrt(i*i+j*j) < 100 and i < j ]
   
 print(pythagoras_list)
@@ -133,8 +141,7 @@ print(pythagoras_list)
 
 # ********** Question 10 **********
 
-import math
-
+print("Question 10")
 def normalize( vec ):
     dimension = len(vec)
     length_list = [vec[i]**2 for i in range(dimension)]
@@ -152,8 +159,8 @@ print("normalized: ", normalize(vector_input))
 
 # ********** Question 11 **********
 
-
-term1 = 1
+print("Question 11")
+term1 = 0
 term2 = 1
 count = 0
 while count < 20:
