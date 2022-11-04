@@ -1,4 +1,3 @@
-
 print("\nex. 1")
 
 def f(alist):
@@ -61,6 +60,39 @@ print(ans)
 
 
 
+print("\nex. 5")
+
+language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
+
+language_scores.sort(key = lambda tupla: tupla[0])
+
+print("the list 'language_score' in alphabetical order of the first element of the tuple is: ", language_scores)
+
+
+
+
+
+print("\nex. 6")
+
+def square(x):
+    return x**2
+    
+def cube(x):
+    return x**3
+    
+def sisth(x):
+    return square(x)*cube(x)*x
+    
+x = int(input("Enter a number that you want to get the square and the cube: "))
+
+print(square(x))
+print(cube(x))
+print(sisth(x))
+
+
+
+
+
 print("\nex. 7")
 
 def hello(func):
@@ -79,7 +111,9 @@ print(square(2))
 
 
 
+print("\nex. 8, ex. 9")
 
+import timeit
 
 listFib = [0, 1] #The sequence commonly starts from 0 and 1
 
@@ -88,9 +122,11 @@ i=2
 while i < 20:
 	listFib.append(listFib[i-1]+listFib[i-2])
 	i += 1
-	
-print(listFib)
 
+timeInitialIterative = timeit.default_timer()
+print(listFib)
+timeFinalIterative = timeit.default_timer()
+print("Time for iterative Fibonacci is: ", timeFinalIterative - timeInitialIterative)
 
 
 
@@ -110,7 +146,13 @@ a =[]
 n = 20
 ans = fibList(n,a)
 
+timeInitialRecoursive = timeit.default_timer()
 print(ans)
+timeFinalRecoursive = timeit.default_timer()
+print("Time for recoursive Fibonacci is: ", timeFinalRecoursive - timeInitialRecoursive)
+
+x = (timeFinalRecoursive - timeInitialRecoursive)*(10**3) - (timeFinalIterative - timeInitialIterative)*(10**3)
+print("The iterative method in this case is faster by: ", x, "ms")
 
 
 
@@ -168,4 +210,3 @@ class rectangle(polygon):
         
 c = rectangle(b)
 print(c.area())
-
