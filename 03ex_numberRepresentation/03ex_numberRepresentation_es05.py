@@ -32,19 +32,17 @@ print("""The results are different because of the problems that occur in
       python when doing calculations with floats and when doing operations
       with small and big numbers (associative does not necessarily hold
                                   and distributive law does not hold)""")
+print("""For the final method take the solution with plus sign from the 2nd method
+      and the solution with minus sign from the 1st method to avoid doing
+      operations with small and big numbers""")
 print("#####")
 
 
 def quadSol(a, b, c):
-    b2 = b**2.
-    prod = 4.*a*c
-    d = b2 - prod
-    prod_a = 2.*a
-    x_p = (-b + np.sqrt(d))/prod_a
-    x_n = (-b - np.sqrt(d))/prod_a
-    xp = (-b + np.sqrt(d))*(-b - np.sqrt(d))/prod_a/(-b - np.sqrt(d))
-    xn = (-b - np.sqrt(d))*(-b + np.sqrt(d))/prod_a/(-b + np.sqrt(d))
-    return [x_p, x_n , xp, xn]
+    # x_p = 4.*a*c/(2.*a*(-b-np.sqrt(b**2.-4.*a*c)))
+    x_p = (- b + np.sqrt(b ** 2. - 4. * a * c))/(2. * a)*(- b - np.sqrt(b ** 2. - 4. * a * c))/(- b - np.sqrt(b ** 2. - 4. * a * c))
+    x_n = (- b - np.sqrt(b ** 2. - 4. * a * c))/(2. * a)
+    return [x_p, x_n]
 
 print("Solutions [final method]: ", quadSol(0.001, 1000, 0.001))
     
