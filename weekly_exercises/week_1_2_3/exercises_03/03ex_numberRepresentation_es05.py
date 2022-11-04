@@ -36,19 +36,36 @@ def bSolution(parameters):
     print("\nSolutions\nx1 = ", Fraction(solutions[0]), "\nx2 = ",
           Fraction(solutions[1]))
 
+def cSolution(parameters):
+    a, b, c = parameters[0], parameters[1], parameters[2]
+    solutions = []
+    if b >= 0:
+        solutions = (-b - math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a), c / (a * ((-b - math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a)))
+    else:
+        solutions = (-b + math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a), c / (a * ((-b - math.sqrt(pow(b, 2) - 4 * a * c)) / (2 * a)))
+
+    print("\nSolutions\nx1 = ", (solutions[0]), "\nx2 = ", (solutions[1]))
+
 
 print(">>>>>>>>>>>>>> PART 0)\n")
-parameters = inputValues()
-standardSolution(parameters)
+parameters_input = inputValues()
+standardSolution(parameters_input)
 
 print("\n>>>>>>>>>>>>>> PART a)\n")
-parameters = [0.001, 1000, 0.001]
-print("a =", parameters[0], "\nb =", parameters[1], "\nc =", parameters[2])
-standardSolution(parameters)
+parameters_prof = [0.001, 1000, 0.001]
+print("a =", parameters_prof[0], "\nb =", parameters_prof[1], "\nc =", parameters_prof[2])
+standardSolution(parameters_prof)
 
 print("\n>>>>>>>>>>>>>> PART b)\n")
-parameters = [0.001, 1000, 0.001]
-print("a =", parameters[0], "\nb =", parameters[1], "\nc =", parameters[2])
-bSolution(parameters)
+print("a =", parameters_prof[0], "\nb =", parameters_prof[1], "\nc =", parameters_prof[2])
+bSolution(parameters_prof)
 
-# solutions are different because of the the precision of the float value are not so accuracy
+# solutions are different because of the the precision of the float value are not so accurate
+
+print("\n>>>>>>>>>>>>>> PART c)\n---- Input parameters")
+print("a =", parameters_input[0], "\nb =", parameters_input[1], "\nc =", parameters_input[2])
+cSolution(parameters_prof)
+
+print("\n---- Prof parameters")
+print("a =", parameters_prof[0], "\nb =", parameters_prof[1], "\nc =", parameters_prof[2])
+cSolution(parameters_prof)
