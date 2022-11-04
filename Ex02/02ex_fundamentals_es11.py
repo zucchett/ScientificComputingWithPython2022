@@ -28,9 +28,13 @@ class rectangle(polygon):
             print("Error! Not a Rectangle")
     
     def area(self):
-        return self.sides[0] * self.sides[1]
+        try:
+            return self.sides[0] * self.sides[1]
+        except:
+            print("\nArea cannot be computed for a non-rectangle")
 
 
 testRectangle = rectangle((3,5,3))
 
-print(testRectangle.area())       
+area = testRectangle.area()
+   
