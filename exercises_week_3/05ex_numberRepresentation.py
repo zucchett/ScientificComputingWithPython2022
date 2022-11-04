@@ -2,35 +2,24 @@
 
 from cmath import sqrt
 
-def squares(a,b,c):
-    squares = [0,0]
-    
-    a = float(a)
-    b = float(b)
-    c = float(c)
-    
-    if(b**2 - 4*a*c < 0):
-        return "Impossible"
-    elif(b**2 - 4*a*c == 0):
-        x_1 = (-b + sqrt(b**2 - 4*a*c))/2*a
-        squares.append(x_1)
-    else:
-        x_1 = (-b + sqrt(b**2 - 4*a*c))/2*a
-        x_2 = (-b - sqrt(b**2 - 4*a*c))/2*a 
-        squares[0] = x_1
-        squares[1] = x_2
-    return squares
- 
 #a
 a = 0.001
 b = 1000
 c = 0.001
 
-print(squares(a,b,c))
-
+def roots(a,b,c): #first method to solve the equation
+    
+    a = float(a)
+    b = float(b)
+    c = float(c)
+    
+    x_1 = (-b + sqrt(b**2 - 4*a*c))/(2*a)
+    x_2 = (-b - sqrt(b**2 - 4*a*c))/(2*a)
+    
+    return [x_1,x_2]
+ 
 #b
-def squares_2(a,b,c):
-    squares = [0,0]
+def roots_2(a,b,c):
     
     a = float(a)
     b = float(b)
@@ -38,28 +27,16 @@ def squares_2(a,b,c):
     
     m_1 = -b - sqrt(b**2 - 4*a*c)
     m_2 = -b + sqrt(b**2 - 4*a*c)
-    
-    if(b**2 - 4*a*c < 0):
-        return "Impossible"
-    elif(b**2 - 4*a*c == 0):
-        x_1 = (-b + sqrt(b**2 - 4*a*c))*m_2/(2*a*m_2)
-        squares.append(x_1)
-    else:
-        x_1 = (-b + sqrt(b**2 - 4*a*c))*m_2/(2*a*m_2)
-        x_2 = (-b - sqrt(b**2 - 4*a*c))*m_1/(2*a*m_1) 
-        squares[0] = x_1
-        squares[1] = x_2
-    return squares
 
-print("This is the second function")
-print(squares_2(a,b,c))
+    x_1 = (2*c)/m_1
+    x_2 = (2*c)/m_2
 
+    return [x_1,x_2]
 #in these two solutions there are errors due to the limited precision of the floating point numbers
 
 #c
 #to eliminate the error we should avoid the substraction of really close numbers
-def squares_3(a,b,c):
-    squares = [0,0]
+def roots_3(a,b,c):
     
     a = float(a)
     b = float(b)
@@ -71,10 +48,9 @@ def squares_3(a,b,c):
         x_1 = (-b + sqrt(b**2 - 4*a*c))/(2*a)
     x_2 = c/(a*x_1)
     
-    squares[0] = x_1
-    squares[1] = x_2
-    return squares
+    return [x_1,x_2]
 
-print("This is the third function")
-print(squares_3(a,b,c))
+print("By using the classic formula these are the results: ",roots(a,b,c))
+print("By using the second method these are the results: ",roots_2(a,b,c))
+print("By using the third method these are the results: ",roots_3(a,b,c))
 
