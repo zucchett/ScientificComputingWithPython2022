@@ -13,7 +13,7 @@ def cube(x):
 
 
 def power6(x):
-    return square(x) * cube(x) * int(cube(x)/square(x))
+    return square(cube(x))
 
 x = 3
 print(power6(x))
