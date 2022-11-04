@@ -5,3 +5,7 @@ l = [36, 45, 58, 3, 74, 96, 64, 45, 31, 10, 24, 19, 33, 86, 99, 18, 63, 70, 85,
       45, 30, 66, 70, 34, 85, 94, 5, 3, 36, 72, 91, 84, 34, 87, 75, 53, 51, 20, 89, 51, 20]
 pairs = Counter(l)
 print(pairs)
+print('----------------------------------------------')
+pairs = pairs.most_common()
+unique_pairs = [v for v in pairs if v[1]==1]
+print("These are unique pairs:\n", unique_pairs)
