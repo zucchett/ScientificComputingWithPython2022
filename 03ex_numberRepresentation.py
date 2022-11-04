@@ -123,7 +123,10 @@ def exercise5():
         return x1, x2
 
     def quad2(a, b, c):
-        print("Multiplying by nominator:")
+        # Multipling numerator and denominator by a factor will scale up the
+        # numbers, hence they can be represent more accurately by floating
+        # point variables which leads to more accurate results
+        print("Multiplying by numerator:")
         i = b**2 - (4 * a * c)
         i = math.sqrt(i)
         n = -b + i
@@ -134,6 +137,7 @@ def exercise5():
         return x1, x2
 
     def quad3(a, b, c):
+        # Using float128 give us more accuracy in computations
         print("Float128:")
         a = np.float128(a)
         b = np.float128(b)
@@ -144,6 +148,7 @@ def exercise5():
         print(x1)
 
     def quad4(a, b, c):
+        # On the other hand, with float32 we have less accurate results
         print("Float32:")
         a = np.float32(a)
         b = np.float32(b)
