@@ -1,5 +1,5 @@
 # 11. Class inheritance
-from _02ex_introduction10 import polygon as p
+from _02ex_fundamentals10 import polygon as p
 # from _02ex_introduction10 import polygon as p 
 
 # Define a class rectangle that inherits from polygon. Modify the constructor,
