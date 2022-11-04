@@ -2,8 +2,8 @@
 x=[]
 for i in range(11):
     x.append( pow(i, 3))
-print(x)    
+print('result by for loop', x)    
 # list comprehension
 x = [pow(i,3) for i in range(11)]
-print(x)    
+print('result by list comprehension', x)    
 
