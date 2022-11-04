@@ -36,14 +36,20 @@ print(lis1)
 
 """
 
-lis2=['hi','there','kiiir','d']
-n=2
-def myfunc(x):
+list2=[]
+def myfunc(m):
+  for i in range(m):
+    list2.append(input('enter the words'))
+  print(list2)
+def cal(x): 
   if len(x)<n:
     return True
   else:
     return False
-l=filter(myfunc,lis2)
+n=int(input('enter the limit'))
+m=int(input('enter the lenght of the list'))
+myfunc(m)
+l=filter(cal,list2)
 for s in l:
     print(s)
 
@@ -59,7 +65,18 @@ for j in t:
   lis.append(len(j))
 print(lis)
 
-"""ex5"""
+"""ex5
+without lambda
+
+firs approach
+"""
+
+language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
+
+language_scores.sort(key=lambda f : f[0])
+print(language_scores)
+
+"""second approch just the keys order"""
 
 language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 l=[]
@@ -67,7 +84,9 @@ def myfunc(x):
   l.append(x[0])
 for i in language_scores:
   l.append(i[0])
-print(sorted(l))
+print(tuple(sorted(l)))
+
+"""with lambda"""
 
 language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 l=[]
@@ -75,7 +94,7 @@ for i in language_scores:
   l.append(list(i))
 t=map(lambda x:x[0],language_scores)
 sort=sorted(t)
-print(sort)
+print(tuple(sort))
 
 """ex6"""
 
@@ -222,6 +241,43 @@ class polygon():
       print(x)
     else:
       print(list(reversed(x)))
+
+class polygon():
+  def __init__(self,numberOfSides):
+     self.numberOfSides=numberOfSides
+  list1=[]
+  increas=None
+  decreas=None
+  def set_Sides(self):
+    print("input the length of sides")
+    for i in range(self.numberOfSides):
+      sideLength=int(input("enter"))
+      self.list1.append(sideLength)
+    return(self.list1)
+
+
+  def get_sides(self):
+    return self.list1
+  def perimeter(self):
+    total=0
+    for i in range(len(self.list1)):
+      total=total+self.list1[i]
+    return total
+  def getOrderedSides(self,increasing):
+    x=sorted(self.list1)
+    if increasing==True:
+      print(x)
+    else:
+      print(list(reversed(x)))
+
+y=polygon(4)
+y.set_Sides()
+
+y.get_sides()
+
+y.perimeter()
+
+y.getOrderedSides(False)
 
 """make new object from polygon class and enter the set the sides of our shape with set_Sides() method."""
 

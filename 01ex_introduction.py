@@ -142,6 +142,24 @@ print(newlist)
 a=[(x,y)for x in range(3) for y in range(4)]
 print(a)
 
+"""ex 9 first approach"""
+
+s=[]
+c, m = 0, 2
+counter=0
+number=2
+while counter < 100 :
+        for n in range(1, m) :
+            a = number * number - n * n
+            b = 2 * number * n
+            counter = number * number + n * n
+            if counter > 100 :
+                break
+            s.append((a,b,counter))
+        number = number + 1
+a=tuple(s)       
+print(a)
+
 """ex9
 not that al the number that are valid in a**2+b**2=c**2
 are some coefficient of (3*n,4*n,5*n) for exmale when n=2 (6,8,10)or n=3(9,12,15)...
