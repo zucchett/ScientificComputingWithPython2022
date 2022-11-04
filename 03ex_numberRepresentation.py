@@ -216,10 +216,9 @@ def exercise7():
     # Runtime would not be exact 60 seconds, but somewhere around it.
     n_60sec = int((60 / t1) * n)
     t1 = time.perf_counter()
-    # TODO
-    # result = riemann(f, -1.0, 1.0, n_60sec)
-    # runtime = time.perf_counter() - t1
-    # print(f"N: {n_60sec}, Result: {result}, Runtime: {runtime}")
+    result = riemann(f, -1.0, 1.0, n_60sec)
+    runtime = time.perf_counter() - t1
+    print(f"N: {n_60sec}, Result: {result}, Runtime: {runtime}")
 
 
 exercise1()
