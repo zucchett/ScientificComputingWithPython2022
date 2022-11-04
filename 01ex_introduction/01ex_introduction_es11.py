@@ -1,5 +1,5 @@
 f_list = []
-for i in range(4):
+for i in range(20):
     if (len(f_list) < 2):
         f_list.append(i)
     else:
