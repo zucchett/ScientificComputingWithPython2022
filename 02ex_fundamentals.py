@@ -92,6 +92,22 @@ def recursiveFibonacci(n):
 
 print([recursiveFibonacci(n) for n in range (20)])
 
+#alternatively, method which returns a list:
+def rfl(n):
+	if n==0:
+		return [0]
+	elif n==1:
+		return [0,1]
+
+	l_1 = rfl(n-1)
+
+	l_1.append(l_1[-1] + l_1[-2])
+	
+	return l_1
+	
+print(rfl(20))
+
+
 #*************************************************************
 #Exercise 09:
 import timeit
@@ -118,6 +134,8 @@ print(ex1) #ex1 = 0.0008429870003965334
 
 ex2 = timeit.timeit(t, number = 1)
 print(ex2) #ex2 = 1.341600000159815e-05
+
+#the recursive one is by far the worst efficient
 
 #*************************************************************
 #Exercise 10:
