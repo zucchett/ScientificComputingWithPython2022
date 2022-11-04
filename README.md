@@ -1,5 +1,5 @@
-# Scientific Computing With Python - Exercises Branch
+# Scientific Computing With Python - Develop Branch
 
-- Lessons → all the lessons files
-- Weekkly exercises group by weeks
+- Lessons → all the lessons files group by lesson directory
+- Weekly exercises group by weeks
 
