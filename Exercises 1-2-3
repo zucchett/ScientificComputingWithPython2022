@@ -1,0 +1,104 @@
+
+
+# 1)
+
+# In[ ]:
+
+
+num = input("Number: ")
+rep= input("Enter H/Hexa D/Decimal B/Binary: ")
+
+
+
+
+def numcheck(num):
+    if num.startswith("0x"):
+        return "hex"    
+    elif num.startswith("0b"):
+        return "bi"
+    else:
+        return "dec"
+
+def converter(num, rep):
+
+    numberType = numcheck(num)
+
+    if rep == "H":
+        if numberType == "hex":
+            return num
+        elif numberType == "bi":
+            num = int(num, 2)
+            return hex(num)
+        elif numberType == "dec": 
+            return hex(int(num))
+
+    elif rep == "B":
+        if numberType == "hex":
+            num = int(num, 16)
+            return bin(num)
+        elif numberType == "bi":            
+            return num
+        elif numberType == "dec":
+            return bin(int(num))
+
+    elif rep == "D":
+        if numberType == "hex":
+            return int(num, 16)
+        elif numberType == "bi":
+            return int(num, 2)
+        elif numberType == "dec":
+            return num
+    else:
+        return "Wrong input!"
+
+print(converter(num, rep))
+
+
+# 2)
+
+# In[2]:
+
+
+def convertInt(mant_str):
+    p = -1
+    mant_int = 0
+    for i in mant_str: # computes the mantissa based on the bits
+        mant_int += (int(i) * pow(2, p))
+        p -= 1
+
+    return (mant_int + 1)
+
+
+def ieee(k):
+    
+    
+    exponent_bias = int(k[1 : 9], 2)
+    exponent_unbias = exponent_bias - 127
+    mant_str = k[9 : ]
+    mant_int = convertInt(mant_str)
+    sign_bit = int(k[0])
+    number = pow(-1, sign_bit) * mant_int * pow(2, exponent_unbias)
+    return number
+
+num = '110000101011000000000000'
+floatnum = ieee(num)
+print("float:",floatnum)
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
