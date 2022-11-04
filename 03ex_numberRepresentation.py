@@ -312,6 +312,7 @@ def findN(init_N, time_limit): 		#find best N given a time limit
 		time = time/factor #to scale the time limit
 			
 		if (time >= 1):
+			print("\nTime limit not respected with the last N value")
 			condition = False
 		
 			
@@ -347,7 +348,8 @@ def findN(init_N, time_limit): 		#find best N given a time limit
 				final_N = N
 				N = int(N*1.001) #add N/1000
 
-	print("\nFound N:",final_N, "for time limit:",time_limit ,"seconds"  )
+	print("Found N:",final_N, "for time limit:",time_limit ,"seconds"  )
+	
 
 #(b)
 # if the computation must run in less than 1 second N is about 1.2*10^6 on my pc
