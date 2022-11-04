@@ -1,3 +1,6 @@
+'''
+Fibonacci sequence using a recursive function
+'''
 import timeit
 
 def recursiveFibonacci(n):
@@ -6,8 +9,9 @@ def recursiveFibonacci(n):
     else:
         return recursiveFibonacci(n-1) + recursiveFibonacci(n-2)
 
-(recursiveFibonacci(20))
-'''
-%timeit :2.21 ms ± 108 µs per loop (mean ± std. dev. of 7 runs, 100 loops each)
-'''
+start = timeit.default_timer()
+recursiveFibonacci(20)
+exe_time = timeit.default_timer() - start
+print("Fibonacci sequence using a recursive function execution time:", exe_time)
+
 
