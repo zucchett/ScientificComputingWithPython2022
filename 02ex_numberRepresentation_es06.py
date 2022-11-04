@@ -8,4 +8,6 @@ def cubed(x):
 def sixth_pow(x):
     return squared(x)*cubed(x)
 
-print('sixth power:', sixth_pow(2))
+print('second power of x=2: ', squared(2))
+print('third power of x=2: ', cubed(2))
+print('sixth power of x=2: ', sixth_pow(2))
