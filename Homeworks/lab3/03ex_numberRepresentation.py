@@ -2,6 +2,7 @@
 #2053042
 
 import math as mt
+import cmath as cmt #used because sqrt implemeted in math launches a domain exception with high value of the argument 
 import timeit
 
 print("#####################EX1#####################")
@@ -353,25 +354,28 @@ def semicircleIntegral(N):
 	
 	for i in range(N): 
 	
-		integral = integral + delta*mt.sqrt(1-x**2)
+		integral = integral + delta*cmt.sqrt(1-x**2)
 		x = x + delta #new value of x
 	
 	return integral
 	
 
 print("The integral computed with N = 100 is equal to: ",semicircleIntegral(100))
+print("The precision with N = 100 is equal to: ", mt.pi/2 - semicircleIntegral(100))
 
 
 #Set condition = True if you want run the following peace of code:
 
-condition = False
+condition = True
 
 time = 0
-N=1
+N=10**4 #initial value of N to avoid to much iterations
+result = [0,0] #used to save the last 2 execution of the cycle
 while(condition): #until i not reach the exit condition
 	
+	i = N%2 #poition 0 or position 1 of the list?
 	start_time = timeit.default_timer() #initial time
-	result = semicircleIntegral(N) #compute the integral
+	result[i] = semicircleIntegral(N) #compute the integral
 	end_time = timeit.default_timer() #end time
 	
 	
@@ -379,46 +383,50 @@ while(condition): #until i not reach the exit condition
 	
 	print("Time with N = ", N, " is : ",time)
 	
-	if(time >= 1): #exit condition
+	if(time >= 60): #exit condition
 	
 		 break
 
 	#try to improve the accuracy of the estimation
-	if(time <= 0.5): 
+	if(time <= 20): 
 		 
+		N = N*4
+		
+		
+	#when i nearer 1 second -> reduce the increasing of N at each iteration
+	elif(20<time<=30): 
+	
 		N = N*2
 		
 		
-	#when i nearer 1 second -> reduce the increasing of delta at each iteration
-	elif(0.5<time<=0.8): 
+	elif(30<time<=55):
 	
-		N = int(N*1.5)
+		N=int(N*1.5)
 		
 		
-	elif(0.8<time<=0.9):
+	elif(55<time<59.8):
 	
-		N=int(N*1.2)
+		N = int(N*1.05)
 		
 		
 	else:
-		N = N + 1 
+		N = N +1
 
 if(condition): #print only if i run the previous code
 	
-	print("\n\nI can use ",N - 1," as maximum value of N that allow me to not compute the integral in over than one second")
+	
+	print("\n\nI can use ",N," as maximum value of N that allow me to not compute the integral in over than one minute")
+	print("The integral computed with N = ", N," is equal to: : ", result[(N)%2])
+	print("Precision: ", mt.pi/2 - result[(N)%2])
 	
 
 #A consideration must be done: since the precision of the float numbers is more or less 10^-15 /
-#10^-16 and i computed delta as 2/N, at a certain value of N, delta becomes 0, and this means that we
-#are not increasing x anymore since we are using x = x + delta at each iteration. So the value of x
-#stucks at a fixed value = -1.
-
-#Infact if i used N = 10000000000000000 x remains = -1
+#10^-16 and i computed delta as 2/N, at a certain value of N, the value of N computed never reaches
+#the precision fo the machines, so, finding N that permit to exetute the code in one minute will increase 
+#the precision of the solution 
 
 
-print("\n\nThe value of x at each iteration with N >= 10000000000000000 is: ", -1 + 2*10**(-17))
 
-#So, find a value for N that runs the code for 1 minutes is usless and it will used to compute a not correct value for the integral.
 
 
 
