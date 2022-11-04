@@ -366,7 +366,7 @@ print("The precision with N = 100 is equal to: ", mt.pi/2 - semicircleIntegral(1
 
 #Set condition = True if you want run the following peace of code:
 
-condition = True
+condition = False
 
 time = 0
 N=10**4 #initial value of N to avoid to much iterations
@@ -422,8 +422,7 @@ if(condition): #print only if i run the previous code
 
 #A consideration must be done: since the precision of the float numbers is more or less 10^-15 /
 #10^-16 and i computed delta as 2/N, at a certain value of N, the value of N computed never reaches
-#the precision fo the machines, so, finding N that permit to exetute the code in one minute will increase 
-#the precision of the solution 
+#the precision of the machines, so, finding N that permit to exetute the code in one minute will increase the precision of the solution 
 
 
 
