@@ -11,3 +11,5 @@ if number2:
     print(int(x[0],16))
 if number3:
     print(number3.group(0))
+else:
+    print('You have not enter any types of numbers')

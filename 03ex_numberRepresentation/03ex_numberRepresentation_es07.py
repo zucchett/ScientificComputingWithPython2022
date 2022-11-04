@@ -1,34 +1,30 @@
-from sympy import*
 import math
 import timeit
+import numpy as np
 
-def calculate_dims(delta, x= -1.0):
-    z = Symbol('z')
-    y = 1 - (z**2)
-    x_values=[x]
-    while x < 1.0:
-        x = x+(delta)
-        x_values.append(x)
-    y = [y.evalf(subs = {z: a}) for a in x_values]
-    return y
+def func(x):
+    return math.sqrt(1 - x**2)
 
-def calculate_area(y,delta):
-    a = sum([delta*b for b in y])
-    print("Area for n = ", 2/delta, " is ",a)
-    return a
+def calculate_area(delta):
+    s = 0
+    for x in np.arange(-1,1,delta):
+        s += func(x) * delta
+    return s
+
+
 
 n = 100
+delta = 2/n
+area = calculate_area(delta)
+print("This is the area for N=100: ", area)
+
 t = 0
 while t < 1:
-    y = calculate_dims(2/n)
-    t = timeit.timeit(lambda: calculate_area(y, 2/n), number = 1)
-    n = n*2
+    delta = 2/n
+    t = timeit.timeit(lambda: calculate_area(delta), number = 1)
+    last_n = n
+    n *= 2
     print("This is n: ", n)
     print("This is t: ", t)
+print("This is the maximum n for caculating the area in less than a minute: ", last_n)
 print('______________________________')
-while t < 60:
-    y = calculate_dims(2/n)
-    t = timeit.timeit(lambda: calculate_area(y, 2/n), number = 1)
-    n = n*2
-    print("This is n: ", n)
-    print("This is t: ", t)
