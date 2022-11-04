@@ -180,6 +180,7 @@ loopFibonacci(20)
 '''
  
 print ("While Fibonacci:    ", timeit.timeit(setup = mysetup, stmt = mycode, number = 10000))
+
 #the loopFibonacci function is more efficient, it requires less than half of the the of the recursiveFibonacci function
 
 #es10
@@ -233,7 +234,7 @@ class rectangle(polygon):
 
 
 	def __init__(self,components):
-		if len(components) == 2:
+		if len(components) == 2:  	#rectangle can be defined using only two sides
 			components = list(components)
 			self.edges = components
 			print("New rectangle created: ", self.edges)		

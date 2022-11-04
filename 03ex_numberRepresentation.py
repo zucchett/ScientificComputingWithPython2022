@@ -1,3 +1,6 @@
+#Matteo Cogato
+#2026966
+
 #es1
 print("\n###################### ES1 ##########################\n")
 
@@ -181,16 +184,16 @@ def solutionA(a,b,c):
 	return [x0,x1]
 
 def solutionB(a,b,c):
-	x0_num = -b + math.sqrt((b**2)-4*a*c)
-	x0_den = 2*a
-	mult0 = -b - math.sqrt((b**2)-4*a*c)
-	x0 = (x0_num*mult0) / (x0_den*mult0)
+	x0_num = 2*c
+	x0_den = -b - math.sqrt((b**2)-4*a*c)
+	
+	x0 = (x0_num) / (x0_den)
 	
 	
-	x1_num = -b - math.sqrt((b**2)-4*a*c)
-	x1_den = 2*a
-	mult1 = -b + math.sqrt((b**2)-4*a*c)
-	x1 = (x1_num*mult1) / (x1_den*mult1)
+	x1_num = 2*c
+	x1_den = -b + math.sqrt((b**2)-4*a*c)
+	
+	x1 = (x1_num) / (x1_den)
 	
 	print("\nsolutionB")
 	print("x0 = ",x0)
@@ -253,7 +256,7 @@ point = 1
 for e in range(2,15,2):
 	delta = 10**(-e)
 	scientific_not = "{:.1e}".format(delta)
-	print("Delta:", scientific_not, " Result:", derivate(point,10**(-e)))
+	print("Delta:", scientific_not, " Result:", derivate(point,delta))
 
 #(a)	
 #the analytical result is different this is due to the 
@@ -347,14 +350,14 @@ def findN(init_N, time_limit): 		#find best N given a time limit
 	print("\nFound N:",final_N, "for time limit:",time_limit ,"seconds"  )
 
 #(b)
-# if the computation must run in less than 1 second N is about 1.2*10^6 
+# if the computation must run in less than 1 second N is about 1.2*10^6 on my pc
 # and the accuracy is highly improved with respect to the case (a)
 
 init_N = 10**6 		#start with an high N to reduce computation time
 time_limit = 1 		#time limit is in seconds
 findN(init_N, time_limit)
 
-# if the computation can run for one minute N can be increased up to 7*10^7, 
+# if the computation can run for one minute N can be increased up to 7*10^7 on my pc,
 # still we don't have a valuable improve in the accuracy that swings around 10^(-10)
 
 init_N = 5*10**7	#start with an high N to reduce computation time
