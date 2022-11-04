@@ -1,6 +1,7 @@
 import math
 import timeit
 import numpy as np
+import time
 
 def func(x):
     return math.sqrt(1 - x**2)
@@ -18,6 +19,7 @@ delta = 2/n
 area = calculate_area(delta)
 print("This is the area for N=100: ", area)
 
+# As delta decreases, the integram will get closer to ideal value
 t = 0
 while t < 1:
     delta = 2/n
@@ -28,3 +30,17 @@ while t < 1:
     print("This is t: ", t)
 print("This is the maximum n for caculating the area in less than a minute: ", last_n)
 print('______________________________')
+
+
+# Running for 1 minute
+r = 60 / t
+n = n * r
+print(n)
+delta = 2/n
+
+t1 = time.time()
+result = calculate_area(delta)
+runtime = time.time() - t1
+print("Runtime:", runtime)
+print("Result:", result)
+
