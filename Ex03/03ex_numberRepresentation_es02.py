@@ -24,8 +24,9 @@ def singlePrecisionFloating(binaryStr):
 
 
 
-binNumber = '11000010101100000000000000000000'
+binaryNumber = '11000010101100000000000000000000'
 
 #print(len(binNumber))
 
-print('Single Precision Floating Point Number:',singlePrecisionFloating(binNumber))
+print('Binary Number:',binaryNumber)
+print('Single Precision Floating Point Number:',singlePrecisionFloating(binaryNumber))
