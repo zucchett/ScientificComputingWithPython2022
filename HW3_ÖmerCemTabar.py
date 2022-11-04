@@ -63,9 +63,9 @@ print(67131,"\t\t\t", NumberConvertion(67131, "dec"), "\t\t\t\t", "Decimal to De
 print(67131,"\t\t\t", NumberConvertion(67131, "bin"), "\t\t", "Decimal to Binary Convertion")
 print("-------------------------------------------------------------------------------------")
 
-print("0b10000011000111011","\t", NumberConvertion(67131, "hex"), "\t\t\t", "Binary to Hexadecimal Convertion")
-print("0b10000011000111011","\t", NumberConvertion(67131, "dec"), "\t\t\t\t", "Binary to Decimal Convertion")
-print("0b10000011000111011","\t", NumberConvertion(67131, "bin"), "\t\t", "Binary to Binary Convertion")
+print("0b10000011000111011","\t", NumberConvertion("0b10000011000111011", "hex"), "\t\t\t", "Binary to Hexadecimal Convertion")
+print("0b10000011000111011","\t", NumberConvertion("0b10000011000111011", "dec"), "\t\t\t\t", "Binary to Decimal Convertion")
+print("0b10000011000111011","\t", NumberConvertion("0b10000011000111011", "bin"), "\t\t", "Binary to Binary Convertion")
 print("-------------------------------------------------------------------------------------")
 
 print("0x1063b","\t\t", NumberConvertion("0x1063b", "hex"), "\t\t\t", "Hexadecimal to Hexadecimal Convertion")
