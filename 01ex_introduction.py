@@ -167,17 +167,30 @@ print(pytTriplet)
 print("ex. 10")
 
 import random
+from math import sqrt
 
 dim=int(input("Inser the vector dimension: "))
 
 vector=[]
 
 for i in range (dim): #creation of an n-dimentional vector
-	singularDimention=random.randint(0, 100)
+	singularDimention=random.randint(0, 10)
 	vector.append(singularDimention)
 	
 print(vector)
-	
+
+normFactor=0
+for i in vector:
+    normFactor += i**2
+
+normFactor = sqrt(normFactor)
+
+versor= []
+
+for i in range (dim):
+    versor.append(singularDimention/normFactor)
+    
+print(versor)
 	
 	
 
