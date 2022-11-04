@@ -6,4 +6,5 @@ for x in range(11):
 #7 (b)
 cubes_b = [x**3 for x in range(11)]
 
-print(cubesisdigitprint(cubes_b)
+print(cubes_a)
+print(cubes_b)
