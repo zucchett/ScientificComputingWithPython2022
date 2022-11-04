@@ -17,10 +17,11 @@ def fibo2(fibo):
 
 
 
+t = {"recursive":0,"for-loop":0}
+t['recursive'] = timeit.timeit('recurs_fib(x)', globals = globals(), number = 10)
+t['for-loop'] = timeit.timeit( 'fibo2(fibo)', globals = globals(), number = 10)
+print("The time taken by ",max(t, key = t.get), ' function is more than the other so the ', min(t, key = t.get),' is more efficient')
 
-print("The time taken by recursive function: ", timeit.timeit('recurs_fib(x)', globals = globals(), number = 10))
-print("The time taken by while loop: ", timeit.timeit( 'fibo2(fibo)', globals = globals(), number = 10))
-
-
-    
+print("The time taken by recursive function: ", t['recursive'])
+print("The time taken by while loop: ", t['for-loop'])
 

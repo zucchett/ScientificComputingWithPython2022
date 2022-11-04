@@ -4,10 +4,10 @@ def recurs_fib(f):
         return f
     else:
         f.append(f[-1] + f[-2])
-        print(f)
+#        print(f)
         return recurs_fib(f)
 
-recurs_fib(f)
+print(recurs_fib(f))
 
 
     
