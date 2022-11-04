@@ -1,4 +1,5 @@
 def converter(n,type):
+
     if n[1] == 'b':
         if type=='bin':
             out = n
@@ -22,6 +23,7 @@ def converter(n,type):
             out = n
         if type=='hex':
             out = hex(n)
+
     return out
 
 

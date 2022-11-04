@@ -14,7 +14,8 @@ while True:
 while True: 
     n_underflow = float(n_underflow/2)
     if float(n_underflow/2)==0.0:
-        print("Underflow reached at: ", n_underflow)
+        print("Underflow reached at: ", "%2.8e" %n_underflow)
         break
+
 
 
