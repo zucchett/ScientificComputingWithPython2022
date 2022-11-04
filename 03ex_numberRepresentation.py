@@ -3,7 +3,7 @@ print("\nex. 1")
 # type the number in the following format
 # 0b: binary, 0x: hexadecimal, 0d: decimal.
 
-number = input("Enter a number: ")
+number = input("Enter a number starting with 0b/0x/0d: ")
 typeout = input("Enter the type (bin/dec/hex): ")
 
 number.lower()
@@ -77,20 +77,23 @@ print(xfloat)
 
 print("\nex. 3")
 
-number = 1.0
 
 # the minimum representable number is 5e-324
+
+number = 1.0
+
 while number > 0:
     number /= 2
     print(number)
     
 # the maximum representable number is 8.98846567431158e+307
 # overflow
-'''
+
+number = 1.0
+
 while number < float("inf"):
     number *= 2
     print(number)
-'''
 
 
 
@@ -111,21 +114,18 @@ while number-newnumber != 0:
 
 
 
-
 print("\nex. 5")
 
 from math import sqrt
 
 
-
-#point a
+# point a
 
 def f(a, b, c):
     x1 = (-b+sqrt((b**2)-(4*a*c)))/(2*a)
     x2 = (-b-sqrt((b**2)-(4*a*c)))/(2*a)
     results = [x1, x2]
     return results
-
 
 
 # point b
@@ -138,33 +138,26 @@ def f1(a, b, c):
     return results
 
 
-
-#point c
-'''
-if a == 0:
-    f(0,b,c)
-elif b==0:
-    f(a,0,c)
-elif c==0:
-    f(a,b,0)
-elif a == 0 and b == 0:
-    f(0,0,c)
-elif a == 0 and c == 0:
-    f(0,b,0)
-elif b == 0 and c == 0:
-    f(a,0,0)
-else:
-    print("In this case have non sense find the roots because the equation 0=0")
-'''
-
-a = 0.001
+a = 0.1
 b = 1000
-c = 0.001
+c = 0.8
 
-f(a,b,c)
-print(f(a,b,c))
-f1(a,b,c)
-print(f1(a,b,c))
+# point c
+
+if a == 0 and b == 0 and c == 0:
+    print("Impossible to calculate because the equation is indeterminate")
+elif a == 0:
+    print("Impossible to calculate because the denominator is equal to 0")
+elif a == 0 or c == 0:
+    f(a,b,c)
+    print(f(a,b,c))
+    print("Results of f1 impossible to calculate because the denominator is equal to 0")
+else:
+    f(a,b,c)
+    print(f(a,b,c))
+    f1(a,b,c)
+    print(f1(a,b,c))
+
 
 
 
