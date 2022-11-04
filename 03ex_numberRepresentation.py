@@ -106,7 +106,7 @@ def exercise3():
 @benchmark("Exercise4")
 def exercise4():
     last_hex = ""
-    for e in range(0, -32, -2):
+    for e in range(0, -32, -1):
         h = (1.0 + 10**e).hex()
         if h == last_hex:
             break
