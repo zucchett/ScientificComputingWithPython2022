@@ -11,7 +11,7 @@ Original file is located at
 Write a function that converts numbers among the bin, dec, and hex representations (bin<->dec<->hex). Determine the input type in the function, and pass another argument to choose the output representation.
 """
 
-#Converting straightforward using casting (Solution1)
+#Converting straightforward using casting (Solution 1)
 def Change(x):
   try:
     Type = type(x)
