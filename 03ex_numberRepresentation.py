@@ -190,7 +190,7 @@ def exercise6():
 
 @benchmark("Exercise7")
 def exercise7():
-    f = lambda x: 1 - x**2
+    f = lambda x: math.sqrt(1 - x**2)
 
     def riemann(func, start, stop, N):
         h = np.abs(start - stop) / N
@@ -201,6 +201,8 @@ def exercise7():
 
     i = riemann(f, -1.0, 1.0, 100)
     print(f"Riemann result with N=100: {i}")
+    offset = (math.pi / 2) - i
+    print(f"Offset with real value: {offset}")
 
     print("Runtimes for computing Riemann with various N values:")
     N = 100
