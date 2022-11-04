@@ -25,12 +25,12 @@ print(ans)
 # ********** Question 3 **********
 
 print("Question 3")
-def checkLength(word, n):
+def checkLength(word, n): # checks if the length of word is smaller than n
     if len(word) < n:
         return True
     return False
 
-def filterList(words, n):
+def filterList(words, n): # filter traverses through the list and puts every word into checkLength function
     filtered_list = list(filter(lambda word: checkLength(word, n), words))
     return filtered_list
 
@@ -63,7 +63,7 @@ print(list(length_list))
 print("Question 5")
 language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 
-language_scores.sort(key = lambda x: x[0])
+language_scores.sort(key = lambda x: x[0]) # lambda function returns the first index and sort takes that as key
 print(language_scores)
 
 
@@ -88,8 +88,8 @@ print("Question 7")
 def hello(func):
     def wrapper(x):
         print("Hello World.")
-        print(func(x)) # runs the function
-    return wrapper # returns a function
+        print(func(x)) # runs the function based on the argument x
+    return wrapper
 
 @hello
 def square(x):
@@ -113,7 +113,7 @@ def loopFibonacci(x):
         term2 = termlast
         count += 1
 
-def recursiveFibonacci(n):
+def recursiveFibonacci(n): # every iteration calls for the same function twice to find two preceeding number
    if n <= 1:
        return n
    else:
@@ -135,7 +135,7 @@ print('Question 9')
 start_time = timeit.default_timer()
 print('start time: ', start_time)
 loopFibonacci(20)
-print("difference: ", timeit.default_timer() - start_time)
+print("difference: ", timeit.default_timer() - start_time) # checks the time by recording the difference between start time and current time
 start_time = timeit.default_timer()
 print('start time: ', start_time)
 for i in range(20):
