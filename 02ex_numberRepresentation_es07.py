@@ -9,5 +9,5 @@ def hello(Myfunc):
 def square(x):
     return x*x
 
-print(square(3))
-
+print('calling square(3) function using decorator: ')
+square(3)
