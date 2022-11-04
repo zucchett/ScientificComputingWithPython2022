@@ -6,7 +6,7 @@ for i in range(1, 101):
 
     
 #for multiples of three print "Hello" instead of the number and for the multiples of five print "World"
-print('multiples of three print "Hello" instead of the number and for the multiples of five print "World"')
+print('\nmultiples of three print "Hello" instead of the number and for the multiples of five print "World"')
 for i in range(1, 101):
     if i%3 == 0 :
         print('Hello')
@@ -16,7 +16,7 @@ for i in range(1, 101):
         print(i)
 
 #for numbers which are multiples of both three and five print "HelloWorld"
-print('for numbers which are multiples of both three and five print "HelloWorld"')
+print('\nfor numbers which are multiples of both three and five print "HelloWorld"')
 for i in range(1, 101):
     if i% (3*5) == 0:
         print('HelloWorld')  
@@ -46,6 +46,8 @@ for i in range(len(result_list)):
     if result_list[i] == 'Hello':
         result_list[i] = 'Python'
     if result_list[i] == 'World':
-        result_list[i] = 'Works'
+    	result_list[i] = 'Works'
+    	
+print('\nafter substituting "Hello" with "Python" and "World" with "Works": ', result_list)
         
-print(result_list)
+        
