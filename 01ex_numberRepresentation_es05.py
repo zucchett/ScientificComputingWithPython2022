@@ -11,4 +11,4 @@ for i in l:
         count += 1 
         unique_list.append(i)
 
-print(unique_list, count) 
+print('unique numbers: \n', unique_list, '\ntotal number of present unique numbers:', count) 
