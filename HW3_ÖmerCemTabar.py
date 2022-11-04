@@ -20,8 +20,11 @@ def BinaryChecker(x):
 
 def HexadecimalChecker(x):
     try:
-        val = int(x,16)
-        return True
+        if x[0] == '0' and x[1] == 'x':
+            val = int(x,16)
+            return True
+        else:
+            return False
     except:
         return False
     
@@ -35,7 +38,8 @@ def NumberConvertion(inputValue,outputType):
             return int(inputValue,2)
         elif outputType == 'hex':
             integer = int(inputValue,2)
-            return hex(integer)
+            i = hex(integer)
+            return i
         else:
             return inputValue
     
@@ -49,12 +53,27 @@ def NumberConvertion(inputValue,outputType):
                 integer = int(inputValue,16)
                 return bin(integer)
         else: #number is decimal
+            x = int(inputValue)
             if outputType == 'dec':
-                return inputValue
+                return x
             elif outputType == 'hex':
-                return hex(inputValue)
+                return hex(x)
             else:
-                return bin(inputValue)
+                return bin(x)
+
+inpt = input("Please enter an input value:")
+outTyp = input("Please enter an output type for conversion (either write dec/hex/bin):")
+print(NumberConvertion(inpt, outTyp))           
+
+
+
+
+
+#Please be aware that I specified the required input in order to define the outputType
+#For binary a user must enter 'bin', for decimal 'dec' and for hexadecimal 'hex'notation should be entered
+
+
+"""
 
 print("INPUT","\t\t\t","OUTPUT", "\t\t\t")
 print("-------------------------------------------------------------------------------------")
@@ -72,7 +91,7 @@ print("0x1063b","\t\t", NumberConvertion("0x1063b", "hex"), "\t\t\t", "Hexadecim
 print("0x1063b","\t\t", NumberConvertion("0x1063b", "dec"), "\t\t\t\t", "Hexadecimal to Decimal Convertion")
 print("0x1063b","\t\t", NumberConvertion("0x1063b", "bin"), "\t\t", "Hexadecimal to Binary Convertion")
 print("-------------------------------------------------------------------------------------")
-
+""
 
 
 
