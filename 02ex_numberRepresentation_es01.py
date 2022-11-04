@@ -7,5 +7,6 @@ def f(alist):
 
 alist = [1,2,3]
 ans = f(alist)
-print (ans)
-print (alist) # alist has not been changed!
+
+print ('ans : ', ans)
+print ('alist : ', alist) # alist has not been changed!
