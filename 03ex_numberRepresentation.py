@@ -184,6 +184,7 @@ def der(x, d):
 x = 1
 d = 10**(-2)
 print(der(x, d))
+# ans: for the delta limit
 
 # (b)
 for i in range(6):
@@ -191,7 +192,7 @@ for i in range(6):
 	print(der(x, d))
 
 """
-The derivate is: f'(x) = x-1+x = 2x -1 -> f'(1) = 1
+ans: The derivate is: f'(x) = x-1+x = 2x -1 -> f'(1) = 1
 We can observe that the difference from the printed value to the real value decreases until 10^-10, but then it increases and became unstable
 """
 #_________________________________________________ESERCIZIO 7__________________________________________________
