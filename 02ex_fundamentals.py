@@ -41,10 +41,7 @@ language_scores = [('Python', 97), ('Cplusplus', 81), ('Php', 45), ('Java', 32)]
 language_scores.sort(key=lambda x:x[0])
 print(language_scores)
 
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 #EXERCISE 6
 print('\n'+'_________ESERCIZIO_6__________')
 square = lambda x: x**2
@@ -64,11 +61,7 @@ def hello(func): # takes a function as an argument
 @hello
 def square(x):
     return x*x
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
 square(3)
 
 
@@ -79,19 +72,13 @@ def fib_rec(x):
         return x
     else:
         return fib_rec(x-2)+fib_rec(x-1)
-<<<<<<< HEAD
 
-for i in range(1,21):
-    print(fib_rec(i))
 
-=======
-    
 for i in range(1,21):
     print(fib_rec(i))
 
 
 
->>>>>>> main
 #EXERCISE 9
 print('\n'+'_________ESERCIZIO_9__________')
 import timeit
@@ -105,11 +92,7 @@ def loopFibonacci(n):
         l.append(l[i-2]+l[i-1])
         i+=1
     print(l)
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
 def fib_rec(x):
     if x<=1:
         return x
@@ -127,22 +110,7 @@ def fib_rec(x):
 #there is a difference of two order of magnitude for n=20, instead for larger value of n the difference
 # increaseas: for example there is a difference of four order of magnitude for n=30
 
-<<<<<<< HEAD
-#EXERCISE 10
-print('\n'+'_________ESERCIZIO_10__________')
-class polygon:
 
-    x = ()
-    global increasing
-
-    def __init__(self, components):
-        self.x = components # a tuple is expected as input
-
-    # Methods to get and set the length of each side
-    def getDimension(self,n):
-        return self.x[n]
-
-=======
 
 #EXERCISE 10
 print('\n'+'_________ESERCIZIO_10__________')
@@ -158,26 +126,21 @@ class polygon:
     def getDimension(self,n): 
         return self.x[n]
     
->>>>>>> main
+
     # This method returns the perimeter of the polygon
     def perimeter(self):
         p = 0
         for i in range(len(self.x)):
             p += self.x[i]
         return p
-<<<<<<< HEAD
 
-    # This method returns a tuple containing the length
-    # of the sides arranged in increasing or decreasing order,
-    # depending on the argument of the method
-    def getOrderedSides(self,increasing):
-=======
+
     
     # This method returns a tuple containing the length 
     # of the sides arranged in increasing or decreasing order, 
     # depending on the argument of the method
     def getOrderedSides(self,increasing): 
->>>>>>> main
+
         if increasing==True:
             l=list(self.x)
             l.sort()
@@ -189,19 +152,12 @@ class polygon:
             t=tuple(l)
             return t
         else:
-            return 'Invalid input'
-<<<<<<< HEAD
-
-
-# End of the class definition
-
-=======
-    
+            return 'Invalid input'    
 
 # End of the class definition
 
 
->>>>>>> main
+
 a=polygon((1,3,2))
 
 print('Perimeter= '+str(a.perimeter()))
@@ -213,12 +169,10 @@ print(a.getOrderedSides(increasing=False))
 #EXERCISE 11
 print('\n'+'_________ESERCIZIO_11__________')
 class rectangle(polygon):
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
-    # The constructor here is optional, and can be inherited from the parent class if omitted
+
+
+# The constructor here is optional, and can be inherited from the parent class if omitted
     def __init__(self, components):
         l=list(components)
         l.sort()
@@ -226,12 +180,8 @@ class rectangle(polygon):
             self.x = components # a tuple is expected as input
         else:
             print("This is not a rectangle")
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> main
-    # New methods that only belong to the child class
+# New methods that only belong to the child class
     def area(self):
         l=list(self.x)
         l.sort()
@@ -242,7 +192,3 @@ class rectangle(polygon):
 
 r=rectangle((2,3,2,3))
 print('Area= '+str(r.area()))
-<<<<<<< HEAD
-
-=======
->>>>>>> main
