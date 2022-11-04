@@ -26,7 +26,7 @@ plt.show()
 '''
 The best agreement with the theoretical prediction is given by 10^ -8
 The lowest value : 10^ -2
-It seems that to get the best possible value, the should not be too small, neither too high.
+To get the best possible value, the should not be too small, neither too high.
 
 '''
 
