@@ -148,9 +148,16 @@ print(x2)
 """
 (c) write a function that computes the roots of a quadratic equation accurately in all cases
 """
+import numpy
 
-
-
+# After installing numpy, the longdouble type allow to make calculation with 128 bit
+a_ext = numpy.longdouble(0.001)
+b_ext = numpy.longdouble(1000)
+c_ext = numpy.longdouble(0.001)
+x1_ext = (-b_ext - sqrt(b_ext**2 - 4* a_ext*c_ext))/(2*a_ext)
+x2_ext = (-b_ext + sqrt(b_ext**2 - 4* a_ext*c_ext))/(2*a_ext)
+print(x1_ext)
+print(x2_ext)
 #_________________________________________________ESERCIZIO 6__________________________________________________
 
 """
@@ -192,7 +199,7 @@ for i in range(6):
 	print(der(x, d))
 
 """
-ans: The derivate is: f'(x) = x-1+x = 2x -1 -> f'(1) = 1
+The derivate is: f'(x) = x-1+x = 2x -1 -> f'(1) = 1
 We can observe that the difference from the printed value to the real value decreases until 10^-10, but then it increases and became unstable
 """
 #_________________________________________________ESERCIZIO 7__________________________________________________

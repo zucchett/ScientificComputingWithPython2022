@@ -224,8 +224,8 @@ for i in range(len(l)):
 
 # Order to better explain the out
 d = dict(sorted(d.items()))
-# Print the dictionary with the unique values
-print(d)
+# Print the dictionary with the unique values, print only the keys without reporting the repetitions that are 1
+print(list(d.keys()))
 # Count them
 print(len(d))
 
@@ -318,10 +318,17 @@ Find and put in a tuple all unique Pythagorean triples for the positive integers
 """
 print("___________ESERCIZIO 9___________")
 
+# return true only if a_ and b_ are prime together
+def isPrime(a_, b_):
+	#if MCD is greater than 1 the two numbers are not cross prime
+	if math.gcd(a_, b_) > 1: return False
+	else: return True
+
+
 # Clear a to reuse it
 a.clear()
 #    (a, b, c=a^2+b*2) all the Pythagorean triple, use all the a and for the b start after a to find all unique triplet
-a = [(a, b, a**2+b**2) for a in range(100+1) for b in range(a+1) if  a**2+b**2 < 100]
+a = [(a, b, int(math.sqrt(a**2+b**2))) for a in range(1, 100+1) for b in range(1, a+1) if  math.sqrt(a**2+b**2) < 100 and int(math.sqrt(a**2+b**2)) == math.sqrt(a**2+b**2) and isPrime(a, b)]
 print(a)
 
 
