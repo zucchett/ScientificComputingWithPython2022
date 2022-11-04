@@ -39,6 +39,11 @@ for i in range(1,len(mant)):
 x=float(sgn+str(x*pow(2,exp)))
 
 print(x)
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
 # ESERCIZIO 3
 print('\n'+'_________ESERCIZIO_3__________')
 n=1
@@ -77,6 +82,11 @@ while run==True:
     if n==n_prev:
         break
 print('Adding ' + str(a)+ ' to x has no effect')
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
 # ESERCIZIO 5
 print('\n'+'_________ESERCIZIO_5__________')
 import math
