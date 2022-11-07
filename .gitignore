@@ -2,10 +2,15 @@
 
 /.ipynb_checkpoints
 /Homeworks/lab*/.ipynb_checkpoints
-/.ipynb_checkpoints
 
 #Media files
 *.jpg
 *.jpeg
 *.png
+/Homeworks/lab*/*.jpg
+/Homeworks/lab*/*.jpeg
+/Homeworks/lab*/*.png
+/Homeworks/lab*/*.png/*.pdf
+
+
 
