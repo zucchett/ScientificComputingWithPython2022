@@ -1,4 +1,4 @@
-print("************EXERCISE 1**********")
+Print("************EXERCISE 1**********")
 #FUnction that doesn't use global variables
 def f(alist):
     x = 5
