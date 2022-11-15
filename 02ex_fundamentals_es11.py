@@ -26,11 +26,11 @@ b = a.getOrderedSides()
 print(b)
 
 class rectangle(polygon):
-    def __init__(self):
+    def __init__(self , le):
         # super().__init__(len)
         self.le = le
     def area(self):
-        print(self.lel[0] * self.lel[1])
+        print(self.le[0] * self.le[1])
 
 a = rectangle(le=(1,2,3,5,4))
 a.area()
