@@ -25,7 +25,7 @@ print('the sort is')
 b = a.getOrderedSides()
 print(b)
 
-class rectangle(polygon و le):
+class rectangle(polygon):
     def __init__(self):
         # super().__init__(len)
         self.le = le
