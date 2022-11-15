@@ -1,5 +1,3 @@
-
-
 class polygon:
     def __init__(self, len):
         self.len = len
@@ -27,7 +25,6 @@ print(b)
 
 class rectangle(polygon):
     def __init__(self , le):
-        # super().__init__(len)
         self.le = le
     def area(self):
         print(self.le[0] * self.le[1])
