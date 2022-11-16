@@ -11,7 +11,7 @@
 /Homeworks/lab*/*.jpeg
 /Homeworks/lab*/*.png
 /Homeworks/lab*/*.pdf
-/Homeworks/lab*/data
+/Homeworks/lab*/data/*
 
 
 
