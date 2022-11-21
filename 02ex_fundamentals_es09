@@ -1,0 +1,31 @@
+from setuptools import setup
+import timeit
+import time
+first_time = 0
+sec_time = 0
+def first():
+    a = 0
+    b = 1
+    n = 0
+    c = 0
+
+    while n <= 20:
+        c = a + b
+        a = b
+        b = c
+        n = n+1 
+def sec():
+    def fibonatchi(a, b, n):
+        if(n > 18):
+            return
+        c = a + b
+        a = b
+        b = c
+        n = n+1
+        fibonatchi(a, b, n)
+    fibonatchi(0, 1, 0)
+time_first = timeit.Timer(lambda : first())
+time_sec = timeit.Timer(lambda : sec())
+print("first: ", time_first.timeit(1))
+print("sec: ",time_sec.timeit(1))
+

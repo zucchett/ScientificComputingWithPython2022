@@ -1,0 +1,13 @@
+letters = []
+
+while True:
+    a = input("enter letter or word: ")
+    if a == "0":
+        break
+    letters.append(a)
+
+print(" integer n & letters")
+n = int(input("integer n: "))
+
+result = list(filter(lambda x: len(x) <= n, letters)) 
+print(result) 
