@@ -2,3 +2,8 @@
 Icon
 .ipynb_checkpoints
 5/data
+*.csv
+*.txt
+*.json
+*.dat
+*.png
