@@ -1,5 +1,5 @@
 """
-2\. **Outer product**
+2.Outer product
 Find the outer product of the following vectors:
 u = np.array([1, 3, 5, 7])
 v = np.array([2, 4, 6, 8])
