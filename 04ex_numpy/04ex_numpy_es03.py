@@ -8,7 +8,7 @@ After creating the matrix, set all entries < 0.3 to zero using a mask.
 import numpy as np
 
 a = np.random.uniform(0, 3, [6, 10]) #均匀分布
-b = np.random.normal(0, 3, [6, 10])  #正态分布（高斯分布）
+# b = np.random.normal(0, 3, [6, 10])  正态分布（高斯分布），0是均值，3是标准差
 print(a, '\n')
 
 a[a < 0.3] = 0

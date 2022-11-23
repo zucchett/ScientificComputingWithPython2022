@@ -14,3 +14,7 @@ The corresponding positions in miles are: 0, 198, 303, 736, 871, 1175, 1475, 154
   * 沿着66号公路建立一个每个城市之间距离的2D网格
   * 将距离转换为公里数
 """
+import numpy as np
+# evenly spaced:
+print(np.array([0, 198, 303, 736, 871, 1175, 1475, 1544, 1913, 2448])) # same as "range": start, end (exclusive), step
+

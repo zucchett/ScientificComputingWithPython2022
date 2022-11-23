@@ -15,4 +15,22 @@ Compute the prime numbers in the 0-N (start with N=99) range with a sieve (mask)
   * 检查性能（用`timeit'）；它是如何随N扩展的？
   * 执行[Eratosthenes的筛子]中建议的优化。
 """
+import timeit
 import numpy as np
+a = np.random.randint(0, 9, 15) # 15 random int between 0 and 21
+print("original array:", a, '\n')
+
+# create a mask to filter multiples of 3
+mask = (a % 3 == 0)
+print("the mask:", mask, '\n')
+
+filtered_a = a[mask]
+# equivalent to a[a % 3 == 0]
+print("the filtered array:", filtered_a, '\n')
+
+# verify that fancy indexing creates copies
+print("are a and filtered_a the same object?", np.may_share_memory(a, filtered_a), '\n')
+
+# Indexing with a mask can be very useful to assign a new value to a sub-array
+a[a % 3 == 0] = -1
+print("the modified array:", a, '\n')

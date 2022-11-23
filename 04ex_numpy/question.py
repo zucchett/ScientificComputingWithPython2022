@@ -1,10 +1,10 @@
 """
 es02-2:#qs: how to use list comprehension to write the list 用列表理解怎么写那个for循环
 
-es03:what is flat distribution :正态分布和均匀分布是不是不一样，用哪个函数才是正确的
+es03:what is flat distribution :正态分布randn和均匀分布是不是不一样，用哪个函数才是正确的
 
-es04:how to Extract every 10th element using the slice notation & the absolute difference between the `sin` and `cos`
-    怎么每隔10分割，以及sin和cos那个部分要怎么理解
+es04:how to Extract every 10th element using the slice notation  怎么每隔10分割，
+    & the absolute difference between the `sin` and `cos` 以及sin和cos那个部分要怎么理解
 
 es06&es07 理解
 

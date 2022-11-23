@@ -21,6 +21,8 @@ tri = np.linspace(0, 2 / np.pi, num=100, endpoint=True)
 
 #Extract every 10th element using the slice notation
 tri_ten =np.split(tri, 10)
+tt = tri[::10]
+
 print(tri_ten)
 
 
@@ -29,15 +31,14 @@ res = tri[::-1]
 print(res)
 
 #Extract elements where the absolute difference between the `sin` and `cos` functions evaluated for that element is < 0.1
+ex_elements  = []
 for x in np.nditer(tri):
     sin_result = np.sin(x)
     cos_result = np.cos(x)
-    dif = sin_result - cos_result
-    # sin_inv = np.arcsin(x)
-    # cos_inv = np.arccos(x)
-    # dif = sin_inv-cos_inv
-    dif_abs = np.abs(dif)
-    print(dif_abs, end=", ")
+    dif_abs= np.abs(sin_result - cos_result)
+    if dif_abs < 0.1:
+        ex_elements.append(x)
+print(ex_elements, end=", ")
 # plt.plot(x, dif_abs)
 # plt.show()
 #Optional**: make a plot showing the sin and cos functions and indicate where they are close
