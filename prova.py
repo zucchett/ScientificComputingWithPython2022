@@ -1,1 +1,0 @@
-print('Ciao come stai?')
