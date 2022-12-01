@@ -12,26 +12,30 @@ Consider a simple random walk process: at each step in time, a walker jumps righ
   * Compute the mean of the squared distances at each step (i.e. the mean along the columns)
   * **Optional**: plot the average distances ($\sqrt(distance^2)$) as a function of time (step)
 """
-import matplotlib.pyplot as plt,
-import numpy as np,
+import matplotlib.pyplot as plt
+import numpy as np
 
-walkers = 1000,
-steps = 200,
-walk_arr = np.random.randint(2, size=(walkers, steps)),
-walk_arr[walk_arr == 0] = -1,
-walking_distances = [],
-for i in walk_arr:
-    n,
-walking_distances.append(np.sum(i)),
-walking_distances_squarred = np.square(walking_distances),
-mean_sum = 0,
-mean_distance_squarred = [],
-for i in walking_distances_squarred:
-  mean_sum += i,
-mean_distance_squarred.append(np.mean(mean_sum)),
-distances = np.sqrt(walking_distances_squarred),
-m = np.arange(0, len(distances)),
 
-plt.rcParams[\"figure.figsize\"] = (30,4),
-plt.plot(m, distances),
-plt.show()
+#######################################
+
+a = np.random.randint(2, size=(1000, 200))
+a[np.where(a == 0)] = -1
+print(a)
+walking_dist = np.sum(a, axis=1)
+print("walking distance of each walker:\n", walking_dist)
+sq_a = np.power(walking_dist, 2)
+print("element-wise square is:\n", sq_a)
+# mean=sq_a.mean(axis=0)
+# print("mean along columns :\n",mean)
+mean = []
+for i in range(1, 200):
+    b = a[:, i].mean()  # mean will be calculated along each column here
+    mean.append(b)
+print("mean along the columns is:\n", mean)
+average_distance = np.sqrt(sq_a)
+print("average distances:\n", average_distance)
+array = average_distance
+time = np.sort(array)
+plt.plot(time, array)
+plt.xlabel('Time')
+plt.ylabel('Average Distances')
