@@ -10,8 +10,8 @@ Convert the distances in km
 import numpy as np
 import matplotlib.pyplot as plt
 
-cities = ["Chicago", "Springfield", "Saint-Louis", "Tulsa", "Oklahoma City", "Amarillo", "Santa Fe", "Albuquerque",
-          "Flagstaff", "Los Angeles"]
+cities = ["Chicago", "Springfield", "Saint-Louis", "Tulsa", "Oklahoma City", "Amarillo", "Santa Fe", 
+"Albuquerque","Flagstaff", "Los Angeles"]
 dist = np.array([0, 198, 303, 736, 871, 1175, 1475, 1544, 1913, 2448])
 a = np.tile(dist, (10, 1)).T
 a = abs(a - dist)  # built the matrix
