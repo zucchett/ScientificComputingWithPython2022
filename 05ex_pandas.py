@@ -2,14 +2,14 @@ import numpy as np
 import pandas as pd
 import bench
 
-
+# Exercise #1, load the dataset
 data = pd.read_csv("./data/data_000637.txt")
 orbit_bx_num = 0
 
 
 @bench.benchmark("Exercise #2")
 def exercise2():
-    global orbit_bx_num  # TODO: Fix this
+    global orbit_bx_num
 
     # Find the maximum value of BX in the whole dataset
     orbit_bx_num = data["BX_COUNTER"].max()
