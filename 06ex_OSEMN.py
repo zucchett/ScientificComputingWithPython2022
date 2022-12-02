@@ -19,6 +19,8 @@ def exercise1():
         print(f"data_int.txt has been created")
 
     # TODO: Do the remainig parts
+    mat1 = np.ndarray((5, 5))
+    np.savetxt("./data/data_float.txt", mat1, delimiter=",")
 
 
 @bench.benchmark("Exercise #2")
@@ -90,7 +92,7 @@ def exercise5():
     if Path(out_name).is_file():
         print(f"Skipping, {out_name} exists")
         return
-    
+
     data = pd.read_csv("./data/data_000637.txt")
     print(data)
 
@@ -110,6 +112,7 @@ def exercise5():
     f.close()
 
     print(f"{out_name} has been created")
+
 
 exercise1()
 exercise2()
