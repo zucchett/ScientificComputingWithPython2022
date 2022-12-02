@@ -1,0 +1,62 @@
+
+----- Exercise #2 -----
+Number of BX in a orbit: 3563
+
+----- Exercise #3 -----
+         HEAD  FPGA  TDC_CHANNEL  ...  BX_COUNTER  TDC_MEAS  TIME_NANOSEC
+0           1     0          123  ...        2374        26  5.936970e+04
+1           1     0          124  ...        2374        27  5.937045e+04
+2           1     0           63  ...        2553        28  6.384621e+04
+3           1     0           64  ...        2558        19  6.396439e+04
+4           1     0           64  ...        2760        25  6.901894e+04
+...       ...   ...          ...  ...         ...       ...           ...
+1310715     1     0           62  ...         762        14  9.804755e+08
+1310716     1     1            4  ...         763        11  9.804755e+08
+1310717     1     0           64  ...         764         0  9.804755e+08
+1310718     1     0          139  ...         769         0  9.804756e+08
+1310719     1     0           61  ...         762        18  9.804755e+08
+
+[1310720 rows x 7 columns]
+
+----- Exercise #4 -----
+0 days 00:00:00.980475463
+
+----- Exercise #5 -----
+Top-3 noisy channels: [139, 64, 63]
+
+----- Exercise #6 -----
+Number of non-empty orbits: 11001
+
+----- Exercise #6 -----
+Number of non-empty orbits: 11001
+
+----- Exercise #7 -----
+Number of non-empty orbits in channel #139: 10976
+
+----- Exercise #8 -----
+TDC_CHANNEL
+1       1215
+2       1602
+3       1493
+4       2352
+5       1432
+       ...  
+129        2
+130       33
+137       32
+138       34
+139    75617
+Name: ORBIT_CNT, Length: 124, dtype: int64
+TDC_CHANNEL
+1      28438
+2      32669
+3      21970
+4      26403
+5      15003
+       ...  
+129       35
+130       38
+137       36
+138       36
+139    32442
+Name: ORBIT_CNT, Length: 132, dtype: int64
