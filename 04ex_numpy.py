@@ -31,7 +31,7 @@ def exercise2():
     print(o2)
 
     print("Broadcasting operations:")
-    uu = np.tile(u, (u.size,1)).T
+    uu = np.tile(u, (v.size,1)).T
     o3 = uu * v
     print(o3)
 
