@@ -1,6 +1,6 @@
 """
 Author : Ömer Cem Tabar
-Exercise Document 06 Solution File
+Exercise Document 07 Solution File
 
 This file only includes the codes that is required to solve the questions
 You can also check the outputs from the notebook
