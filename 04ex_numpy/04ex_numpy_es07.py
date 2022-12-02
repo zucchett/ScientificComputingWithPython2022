@@ -1,26 +1,25 @@
 import numpy as np
 import timeit 
-def extract_primes(n):
-    mask = np.full((1,n), True)
-    print(np.shape(mask))
-    mask[0,0] = False
-    numbers = np.arange(1,n+1)
-    numbers = np.reshape(numbers,(1,n))
-    print(np.shape(numbers))
-    x = 2
 
-    while x * 2 < 99:
-        if x *2 <= 99:
-            mask[0, (x * 2)-1] = False
-        if x*3 <=  99:
-            mask[0, (x *3)-1] = False
-        if x * 5 <=99:
-            mask[0, (x*5)-1] = False
-        if x *7 <= 99:
-            mask[0, (x * 7)-1] = False
-        x = x+1
-    print("This s the mask:\n", mask, '\n')
-    print("This is matrix of prime numbers created by mask:\n", numbers[mask])
-n = 120    
-t = timeit.timeit('extract_primes(n)', number = 1, globals = globals())
+def generate_prime(n):
+    # Initial a mask with all True values
+    msk = np.full((n + 1), True)
+
+    # Set mask to False in non-desired locations
+    for i in range(2, int(np.sqrt(n)) + 1):
+        if not msk[i]:
+            continue
+        for j in range(i**2, n + 1, i):
+            msk[j] = False
+
+    # Create a full spectrum of integer numbers within the input range
+    nums = range(n + 1)
+    # Return portion of numbers where mask is true
+    return np.array(nums)[msk]
+
+
+
+n = 100
+print(generate_prime(n))
+t = timeit.timeit('generate_prime(n)', number = 1, globals = globals())
 print(t)
