@@ -14,7 +14,7 @@ def exercise1():
     json_str = json.dumps(int_seq)
 
     # Create a temporary file in order to wite in it
-    with open("data_int.txt", "w") as f:
+    with open("./data/data_int.txt", "w") as f:
         f.write(json_str)
         print(f"data_int.txt has been created")
 
@@ -24,13 +24,13 @@ def exercise1():
 @bench.benchmark("Exercise #2")
 def exercise2():
     try:
-        user_data = json.load(open("user_data.json"))
+        user_data = json.load(open("./data/user_data.json"))
         print("Loaded json data")
     except Exception as e:
         print(e)
         return
 
-    fname = "american_express.csv"
+    fname = "./data/american_express.csv"
     f = open(fname, "w")
 
     header_line = ",".join(user_data[0].keys()) + "\n"
@@ -52,13 +52,13 @@ def exercise2():
 
 @bench.benchmark("Exercise #3")
 def exercise3():
-    data = pd.read_csv("mushrooms_categorized.csv")
+    data = pd.read_csv("./data/mushrooms_categorized.csv")
     print(data)
 
     feature_avg = data.groupby("class").mean()
     print(feature_avg)
 
-    fname = "mushrooms_feature_avg.json"
+    fname = "./data/mushrooms_feature_avg.json"
     with open(fname, "w") as f:
         f.write(feature_avg.to_json())
         print(f"{fname} has been created")
@@ -66,7 +66,7 @@ def exercise3():
 
 @bench.benchmark("Exercise #4")
 def exercise4():
-    f = open("credit_card.dat", "r")
+    f = open("./data/credit_card.dat", "r")
 
     # A function to convert binary-string to character
     b2c = lambda x: chr(int(x, 2))
@@ -85,13 +85,13 @@ def exercise4():
 @bench.benchmark("Exercise #5")
 def exercise5():
 
-    out_name = "data_000637.dat"
+    out_name = "./data/data_000637.dat"
     # Skip if the binary file is already created
     if Path(out_name).is_file():
         print(f"Skipping, {out_name} exists")
         return
     
-    data = pd.read_csv("./data_000637.txt")
+    data = pd.read_csv("./data/data_000637.txt")
     print(data)
 
     f = open(out_name, "wb")
