@@ -69,12 +69,6 @@ def exercise8():
     print(fpga2_tdc_count)
 
 
-@bench.benchmark("Exercise #9")
-def exercise9():
-    # TODO
-    pass
-
-
 exercise2()
 exercise3()
 exercise4()
@@ -83,4 +77,3 @@ exercise6()
 exercise6()
 exercise7()
 exercise8()
-exercise9()
