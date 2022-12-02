@@ -1,4 +1,8 @@
+#actually, i need more time to underestand this topic properly, sorry but i miss the deadline, i write this because it is important for me to inform you this lecture is important for me,and i will be solve my problems as soon as possible
+
 import numpy as np
+
+
 u = np.array([1, 3, 5, 7])
 v = np.array([2, 4, 6, 8])
 
