@@ -3,7 +3,7 @@ import pandas as pd
 import bench
 
 
-data = pd.read_csv("./data_000637.txt")
+data = pd.read_csv("./data/data_000637.txt")
 orbit_bx_num = 0
 
 
