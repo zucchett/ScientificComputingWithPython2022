@@ -40,7 +40,6 @@ def exercise2():
 def exercise3():
     a = np.random.uniform(low=0, high=3, size=(10, 6))
     print(a)
-    # TODO
     a[a < 0.3] = 0
     print(a)
 
