@@ -16,5 +16,13 @@ The corresponding positions in miles are: 0, 198, 303, 736, 871, 1175, 1475, 154
 """
 import numpy as np
 # evenly spaced:
-print(np.array([0, 198, 303, 736, 871, 1175, 1475, 1544, 1913, 2448])) # same as "range": start, end (exclusive), step
+#cities = np.array(["Chicago", "Springfield", "Saint-Louis", "Tulsa", "Oklahoma City","Amarillo", "Santa Fe", "Albuquerque", "Flagstaff", "Los Angeles"])
+miles = np.array([0, 198, 303, 736, 871, 1175, 1475, 1544, 1913, 2448])
 
+dist_miles = np.abs(miles - miles[:, np.newaxis])
+
+# print("Distance in miles: \n", dist_miles)
+print(miles[:, np.newaxis])
+
+dist_km = dist_miles * 1.60934
+print("\nDistance in km: \n", dist_km.round())

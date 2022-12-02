@@ -14,7 +14,7 @@ Use `np.linspace` to create an array of 100 numbers between 0and 2\pi (inclusive
   **可选**：制作一个显示sin和cos函数的图，并指出它们接近的地方。
 """
 import numpy as np
-# import matplot.pyplot as plt
+import matplot.pyplot as plt
 
 # np.linspace(tart, stop, num=50, endpoint=True, retstep=False, dtype=None)
 tri = np.linspace(0, 2 / np.pi, num=100, endpoint=True)
@@ -25,20 +25,16 @@ tt = tri[::10]
 
 print(tri_ten)
 
-
 #Reverse the array using the slice notation
 res = tri[::-1]
 print(res)
 
 #Extract elements where the absolute difference between the `sin` and `cos` functions evaluated for that element is < 0.1
-ex_elements  = []
-for x in np.nditer(tri):
-    sin_result = np.sin(x)
-    cos_result = np.cos(x)
-    dif_abs= np.abs(sin_result - cos_result)
-    if dif_abs < 0.1:
-        ex_elements.append(x)
-print(ex_elements, end=", ")
-# plt.plot(x, dif_abs)
-# plt.show()
+mask = (abs(np.sin(tri) - np.cos(tri) < 0.1))
+tri[mask]
+
 #Optional**: make a plot showing the sin and cos functions and indicate where they are close
+sin = np.sin(tri)
+cos = np.cos(tri)
+plt.plot(tri, sin, tri, cos)
+plt.title("plot of the sin and cos")

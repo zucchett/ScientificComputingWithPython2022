@@ -14,7 +14,7 @@ amount of time.
 概率。我们的目标是找到许多随机行走者在给定时间后与原点的典型距离。
 的典型距离。
 *提示*：创建一个二维数组，每一行代表一个步行者，每一列代表一个时间步骤。
-  *取1000个步行者，让它们步行200步
+  * 取1000个步行者，让它们步行200步
   * 使用`randint`创建一个大小为$walkers /times steps$的二维数组，值为-1或1
   * 计算每个步行者的步行距离（例如，通过对每一行的元素求和）。
   * 取先前获得的数组的平方（从元素上看）。
@@ -22,12 +22,17 @@ amount of time.
   **可选**：绘制平均距离（$sqrt(distance^2)$）与时间（步长）的关系图
 """
 import numpy as np
-walkers = np.random.randint(-1, 1, size=(10, 2))
-row_sum = np.sum(walkers, axis=0)
-squ_ary = np.square(row_sum)
-column_mean = np.mean(walkers, axis=0)
-print(f"2D array of size walkers * steps\n{walkers}\n"
-      f"the walking distances for each walker by summing the elements in each row\n{row_sum}\n"
-      f"the square of the previously-obtained array\n{squ_ary}\n"
-      f"the mean of the squared distances at each step\n{column_mean}\n"
-      )
+
+walkers = np.random.randint(0, 2, size=(10, 2))
+walkers = walkers * 2 - 1
+# dataset = np.asarray(walkers)
+# dataset = dataset * 2 -1
+print(walkers)
+# row_sum = np.sum(walkers, axis=0)
+# squ_ary = np.square(row_sum)
+# column_mean = np.mean(walkers, axis=0)
+# print(f"2D array of size walkers * steps\n{walkers}\n"
+#       f"the walking distances for each walker by summing the elements in each row\n{row_sum}\n"
+#       f"the square of the previously-obtained array\n{squ_ary}\n"
+#       f"the mean of the squared distances at each step\n{column_mean}\n"
+#       )

@@ -10,6 +10,16 @@ es06&es07 理解
 
 es08:walkers = np.random.randint(-1, 1, size=(10, 2)) 只取得1和-1
 """
+# ex_elements  = []
+# for x in np.nditer(tri):
+#     sin_result = np.sin(x)
+#     cos_result = np.cos(x)
+#     dif_abs= np.abs(sin_result - cos_result)
+#     if dif_abs < 0.1:
+#         ex_elements.append(x)
+# print(ex_elements, end=", ")
+# plt.plot(x, dif_abs)
+# plt.show()
 
 # x = np.empty([10,6], dtype = float)
 

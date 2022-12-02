@@ -10,16 +10,19 @@ each line corresponds to a credit card number, which consists of 16 characters (
 each character is written using a 6 bit binary representation (including the whitespace)
 the final 4 bits of each line are a padding used to determine the end of the line, and can be ignored
 Hint: convert the binary numbers to the decimal representation first, and then use the chr() function to convert the latter to a char
-4. 读取信用卡号码
-
-从这个地址获取名为credit_card.dat的二进制文件。
-
-https://www.dropbox.com/s/8m0syw2tkul3dap/credit_card.dat
-并将数据转换成真正的信用卡号码，要知道。
-
-每一行对应一个信用卡号码，由16个字符组成（这些字符是0-9范围内的数字），分为4个区块，每个区块之间有一个空白区
-每个字符用6位二进制表示（包括空白处）。
-每行的最后4位是用于确定该行结束的填充，可以忽略不计。
-提示：首先将二进制数字转换为十进制表示，然后使用chr()函数将后者转换为一个字符
-
 """
+import pandas as pd
+file_name = 'credit_card.dat'
+credit_cards = []
+with open(file_name, mode='r') as f:
+    for line in f:
+        n = 6
+        bin_chars = [line[i:i + n] for i in range(0, len(line) - 5, n)]
+
+        card_number = ""
+        for char in bin_chars:
+            card_number += chr(int(char, 2))
+
+        credit_cards.append(card_number)
+
+print(credit_cards)

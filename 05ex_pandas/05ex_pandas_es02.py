@@ -4,3 +4,9 @@ Hint: check when the BX counter reaches the maximum value before being reset to 
 2. 估计一个ORBIT中BX的数量（数值x）。
 提示：检查BX计数器何时达到最大值才被重置为0。
 """
+import pandas as pd
+
+N = 1000000
+df = pd.read_csv('data/data_000637.txt', nrows=N)
+max_bx = df['BX_counter'].max() + 1
+print("Estimation: ", max_bx)
