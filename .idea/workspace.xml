@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1777133a-83df-45ce-b767-5276c7ea2714" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07ex_visualization/07ex_visualization_es01.py" beforeDir="false" afterPath="$PROJECT_DIR$/07ex_visualization/07ex_visualization_es01.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,9 +82,6 @@
       <module name="ScientificComputingWithPython2022" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/07ex_visualization" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -125,9 +123,6 @@
       <module name="ScientificComputingWithPython2022" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/07ex_visualization" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -190,8 +185,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.07ex_visualization_es01" />
-        <item itemvalue="Python.07ex_visualization_es04" />
         <item itemvalue="Python.07ex_visualization_es03" />
+        <item itemvalue="Python.07ex_visualization_es04" />
         <item itemvalue="Python.07ex_visualization_es02" />
         <item itemvalue="Python.06ex_OSEMN_es04" />
       </list>
