@@ -44,19 +44,42 @@ def exercise3():
     a[a < 0.3] = 0
     print(a)
 
+import matplotlib.pyplot as plt
 
 @bench.benchmark("Exercise #4")
 def exercise4():
     a1 = np.linspace(0, 2 * math.pi, 100, endpoint=True)
+    print("100 values from 0 to 2*pi:")
     print(a1)
-    print(a1[::10])
+    print("\n")
+
+    print("Every 10th element:")
+    print(a1[9::10])
+    print("\n")
+
+    print("Reverse original array:")
     print(a1[::-1])
+    print("\n")
 
-    # TODO: Check the result
-    f1 = lambda x: np.abs(np.sin(x) - np.cos(x)) < 0.1
-    print(a1[f1(a1)])
+    # Find places where sin and cos get close to each other
+    diffs = np.abs(np.sin(a1) - np.cos(a1))
+    annot_x = a1[np.where(diffs < 0.1)]
+    annot_y = np.sin(annot_x)
 
-    # TODO: plot
+    # Plot sin anc cos functions
+    plt.plot(a1, np.sin(a1), color='r', label="sin")
+    plt.plot(a1, np.cos(a1), color='g', label="cos")
+
+    # Annotate near points
+    for loc in zip(annot_x, annot_y):
+        plt.annotate('Close sin/cos values', xy=(loc[0], loc[1]),  xycoords='data',
+            xytext=(0.8, 0.95), textcoords='axes fraction',
+            arrowprops=dict(facecolor='black', shrink=0.005),
+            horizontalalignment='right', verticalalignment='top',
+        )
+
+    plt.legend()
+    plt.show()
 
 
 @bench.benchmark("Exercise #5")
