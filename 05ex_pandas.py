@@ -20,7 +20,7 @@ def exercise2():
 def exercise3():
     first_orbit = data.iloc[0]["ORBIT_CNT"]
     data["TIME_NANOSEC"] = (
-        ((data["ORBIT_CNT"] - first_orbit) * orbit_bx_num * 25)
+        ((data["ORBIT_CNT"] - first_orbit) * ((orbit_bx_num + 1) * 25))
         + (data["BX_COUNTER"] * 25)
         + (data["TDC_MEAS"] * 25 / 33)
     )
