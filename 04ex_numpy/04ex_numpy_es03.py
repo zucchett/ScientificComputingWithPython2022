@@ -10,8 +10,9 @@
 import numpy as np
 
 u = np.random.uniform(low=0, high=3, size=(10,6))
+mask = u > 0.3
 print('A flat distributed Matrix before Matrix Masking : \n', u)
 print('\n ------------------------------------------- \n')
-print('A flat distributed Matrix after Matrix Masking : \n',np.where(u < 0.3, 0, u))
+print('A flat distributed Matrix after Matrix Masking : \n', u*mask)
 
 # -------------------------------------- Code End---------------------------------------
