@@ -30,7 +30,10 @@ def exercise2():
     o2 = [[i * j for j in v] for i in u]
     print(o2)
 
-    # TODO: broadcasting
+    print("Broadcasting operations:")
+    uu = np.tile(u, (u.size,1)).T
+    o3 = uu * v
+    print(o3)
 
 
 @bench.benchmark("Exercise #3")
