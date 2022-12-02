@@ -14,6 +14,7 @@ mask = (j<.1)
 print("These are extracted elements:\n", x[mask])
 
 
-plt.scatter(x = x, y= sin, marker= "o")
-plt.scatter(x = x, y= cos, marker= "*")
+plt.scatter(x = x, y= sin, marker= "o", label = "Sin")
+plt.scatter(x = x, y= cos, marker= "*", label = "Cos")
+plt.legend()
 plt.show()
