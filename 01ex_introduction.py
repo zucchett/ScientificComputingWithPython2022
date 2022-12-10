@@ -1,6 +1,6 @@
 
 
-print("**********EXERCISE 1***************")
+print("**********EXERCISE 1**************")
 
 for num in range(1, 100):
     if num % 3 == 0 and num % 5 == 0:
