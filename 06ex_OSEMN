@@ -1,0 +1,216 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "0a963278",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 1 - Text files\n",
+    "import pandas as pd\n",
+    "import numpy as np\n",
+    "import random\n",
+    "randomlist = []\n",
+    "for i in range(0, 30):\n",
+    "    numbers = random.randint(0, 20)\n",
+    "    randomlist.append(numbers)\n",
+    "with open('data_int.txt', 'w') as file:\n",
+    "    file.write('\\n'.join(str(number) for number in randomlist))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "247dfbed",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!cat data_int.txt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "280b5e01",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "float_matrix = np.random.rand(5, 5)\n",
+    "float2 = np.matrix(float_matrix)\n",
+    "with open('data_float.txt', 'w') as file:\n",
+    "    for row in float2:\n",
+    "        np.savetxt(file, row)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "827924fe",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "!cat data_float.txt"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "a2c9a090",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import csv\n",
+    "\n",
+    "with open('data_float.txt', 'r') as file:\n",
+    "    stripped = (line.strip() for line in file)\n",
+    "    lines = (line.split(\",\") for line in stripped if line)\n",
+    "    with open('data_float.csv', 'w') as out_file:\n",
+    "        writer = csv.writer(out_file)\n",
+    "        writer.writerow(('title', 'intro'))\n",
+    "        writer.writerows(lines)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "67cbf051",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 2 - JSON files\n",
+    "import json\n",
+    "data = json.load(open('user_data.json'))\n",
+    "output_dict = [x for x in data if x['CreditCardType'] == 'American Express']  # filter the data\n",
+    "output_json = json.dumps(output_dict)\n",
+    "print(output_json)\n",
+    "df = pd.DataFrame(eval(output_json))\n",
+    "df.to_csv('user_data.csv', index=False,header=True)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "752675cd",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercises 3 - CSV files with Pandas\n",
+    "import pandas as pd\n",
+    "df = pd.read_csv(\"mushrooms_categorized.csv\")\n",
+    "class_grouped = df.groupby('class') \n",
+    "print(class_grouped.mean())\n",
+    "class_grouped.mean().reset_index().to_json('mushrooms_categorized.json')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "f5f3739b",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 4 - Reading the credit card numbers\n",
+    "file = \"credit_card.dat\"\n",
+    "print(\"Credit card numbers: \\n\")\n",
+    "with open(file, 'r') as file:\n",
+    "    for line in file:\n",
+    "        print(''.join([chr(int(line[i:i+6],2)) for i in range(0, len(line), 6)]))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "32529a98",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# Exercise 5 - Write data to a binary file\n",
+    "import pandas as pd\n",
+    "import struct\n",
+    "data = pd.read_csv('data_000637.txt', nrows = 10)\n",
+    "print(data)\n",
+    "out_file_name = 'binary_file.dat'\n",
+    "with open(out_file_name, 'wb') as binary_file:\n",
+    "    for line in data.values: \n",
+    "        word = (line[5] << 0 ) \n",
+    "        word += (line[4] << 5 ) \n",
+    "        word += (line[3] << 17) \n",
+    "        word += (line[2] << 49) \n",
+    "        word += (line[1] << 58)\n",
+    "        word += (line[0] << 62)\n",
+    "        \n",
+    "        binary_file.write(struct.pack('<q', word))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "d7946d5c",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "data1 = {}\n",
+    "columns = ['HEAD', 'FPGA', 'CHANNEL', 'ORBIT_CNT', 'BX_CNT', 'TDC_MEAS']\n",
+    "df = pd.DataFrame({}, columns=columns)\n",
+    "\n",
+    "with open('binary_file.dat', 'rb') as file:\n",
+    "    file_content = file.read()\n",
+    "    word_counter = 0\n",
+    "    word_size = 8  \n",
+    "    for i in range(0, len(file_content), word_size):\n",
+    "        word_counter += 1\n",
+    "        if word_counter > 10: break\n",
+    "        word = struct.unpack('<q', file_content[i : i + word_size])[0] \n",
+    "        head     = (word >> 62) & 0x3\n",
+    "        fpga     = (word >> 58) & 0xF\n",
+    "        tdc_chan = (word >> 49) & 0x1FF\n",
+    "        orb_cnt  = (word >> 17) & 0xFFFFFFFF\n",
+    "        bx       = (word >> 5 ) & 0xFFF\n",
+    "        tdc_meas = (word >> 0 ) & 0x1F\n",
+    "        entry = {'HEAD' : head, 'FPGA' : fpga, 'CHANNEL' : tdc_chan, 'ORBIT_CNT' : orb_cnt, 'BX_CNT' : bx, 'TDC_MEAS' : tdc_meas}\n",
+    "        df = df.append(entry, ignore_index=True)\n",
+    "print(df)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ff4dd9a8",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os\n",
+    "file_path = r'data_000637.txt'\n",
+    "\n",
+    "sz = os.path.getsize(file_path)\n",
+    "print(f'The {file_path} size is', sz, 'bytes')\n",
+    "file_path1 = r'binary_file.dat'\n",
+    "sz = os.path.getsize(file_path1)\n",
+    "print(f'The {file_path1} size is', sz, 'bytes')\n",
+    "print(f'The difference is', ((os.path.getsize(file_path))-(os.path.getsize(file_path1))), 'bytes')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
