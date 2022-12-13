@@ -1,0 +1,9 @@
+def Hello_world(arg):
+    def wrapper(x):
+        print("Hello World")
+        arg(x)  
+    return wrapper
+@Hello_world
+def squre(x):
+    print(x*x)
+squre(int(input("enter number: ")))

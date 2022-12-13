@@ -1,0 +1,10 @@
+def fibonachi(a, b, n):
+    if(n >= 20):
+        return
+    c = a + b
+    print(c)
+    a = b
+    b = c
+    n= n+1
+    fibonachi(a, b, n)
+fibonachi(0, 1, 0)

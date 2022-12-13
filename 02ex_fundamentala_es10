@@ -1,0 +1,22 @@
+class polygon:
+    def __init__(a, len):
+        a.len = len
+    def perimeter(a):
+        print(len(a.len) * a.len[0])
+    
+    def getOrderedSides(a, increasing = True):
+        tp = tuple(sorted(a.len))
+        return tp
+d = []
+while True:
+    s = int(input(' enter parametres: '))
+    if s ==0:
+        break
+    else:
+        d.append(s)
+d = tuple(d)
+
+tp = polygon(d)
+print('the perimeter is: ')
+tp.perimeter()
+print( 'the sort is',tp.getOrderedSides())

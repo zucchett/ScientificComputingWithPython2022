@@ -1,0 +1,11 @@
+def f(alist):
+    x = 5
+    slist = []
+    for item in range(x):
+        slist.append(item)
+    return slist
+
+alist = [1, 2, 3]
+ans = f(alist)
+print(ans)
+print(alist )

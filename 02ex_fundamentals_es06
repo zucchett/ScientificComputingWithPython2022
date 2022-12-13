@@ -1,0 +1,20 @@
+from re import X
+
+
+def square(number):
+    x = number**2
+    return x
+
+def cube(number):
+    x = number**3
+    return x
+
+def sixthPower(number):
+    a = square(number)
+    b = cube(a)
+    return b
+
+number = int(input("enter number: "))
+print("the square is: ",square(number))
+print("the cube is: ",cube(number))
+print("the sixPower is: ",sixthPower(number))
