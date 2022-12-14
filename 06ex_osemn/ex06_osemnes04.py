@@ -1,7 +1,7 @@
 from itertools import islice
-with open ('data/credit_card.dat', mode = 'r') as file:
+with open ('../data/credit_card.dat', mode = 'r') as file:
     data = file.readlines()
-creditcards = open('data/credit_cards.txt', 'a+')
+creditcards = open('../data/credit_cards.txt', 'a+')
 def get_char(n, d):
     return chr(int(d[6*n:6*(n+1)], 2))
 for d in data:

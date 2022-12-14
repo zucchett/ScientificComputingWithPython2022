@@ -1,0 +1,24 @@
+This is the filtered data:
+       ID               JobTitle  ...           CreditCard    CreditCardType
+1      2    Investment  Advisor  ...  7083-8766-0251-2345  American Express
+11    12         Retail Trainee  ...  3657-0088-0820-5247  American Express
+27    28        Project Manager  ...  6718-4818-8011-6024  American Express
+38    39            Stockbroker  ...  5438-0816-4166-4847  American Express
+56    57         Budget Analyst  ...  8130-3425-7573-7745  American Express
+61    62           CNC Operator  ...  4156-0107-7210-2630  American Express
+67    68        Project Manager  ...  7152-3247-6053-2233  American Express
+73    74                Dentist  ...  0208-1753-3870-8002  American Express
+80    81          HR Specialist  ...  4256-7201-6717-4322  American Express
+91    92    Staffing Consultant  ...  3851-1403-1734-6321  American Express
+96    97            Stockbroker  ...  3702-3440-2472-5424  American Express
+115  116    Staffing Consultant  ...  3738-0882-0066-6683  American Express
+147  148           CNC Operator  ...  4224-1226-3557-3448  American Express
+149  150             Fabricator  ...  8203-6875-5225-0341  American Express
+150  151     Restaurant Manager  ...  7212-0155-5014-8471  American Express
+153  154                Bellman  ...  4170-5186-6887-6558  American Express
+168  169        Assistant Buyer  ...  0832-3357-6010-6550  American Express
+175  176  Healthcare Specialist  ...  5177-4868-4623-0384  American Express
+181  182             Pharmacist  ...  0264-4020-5106-5576  American Express
+198  199    Investment  Advisor  ...  3166-6287-6242-7207  American Express
+
+[20 rows x 6 columns]

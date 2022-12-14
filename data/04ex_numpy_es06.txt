@@ -1,0 +1,29 @@
+These are distances:
+                Chicago  Springfield  ...  Flagstaff  Los Angeles
+Chicago              0          198  ...       1913         2448
+Springfield        198            0  ...       1715         2250
+Saint-Louis        303          105  ...       1610         2145
+Tulsa              736          538  ...       1177         1712
+Oklahoma City      871          673  ...       1042         1577
+Amarillo          1175          977  ...        738         1273
+Santa Fe          1475         1277  ...        438          973
+Albuquerque       1544         1346  ...        369          904
+Flagstaff         1913         1715  ...          0          535
+Los Angeles       2448         2250  ...        535            0
+
+[10 rows x 10 columns]
+
+This is distances in Km:
+                Chicago  Springfield  ...  Flagstaff  Los Angeles
+Chicago            0.0        316.8  ...     3060.8       3916.8
+Springfield      316.8          0.0  ...     2744.0       3600.0
+Saint-Louis      484.8        168.0  ...     2576.0       3432.0
+Tulsa           1177.6        860.8  ...     1883.2       2739.2
+Oklahoma City   1393.6       1076.8  ...     1667.2       2523.2
+Amarillo        1880.0       1563.2  ...     1180.8       2036.8
+Santa Fe        2360.0       2043.2  ...      700.8       1556.8
+Albuquerque     2470.4       2153.6  ...      590.4       1446.4
+Flagstaff       3060.8       2744.0  ...        0.0        856.0
+Los Angeles     3916.8       3600.0  ...      856.0          0.0
+
+[10 rows x 10 columns]

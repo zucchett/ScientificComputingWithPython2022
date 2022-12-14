@@ -1,8 +1,8 @@
 import pandas as pd
 import struct
 
-data = pd.read_csv("data/data_000637.txt")
-output = open("data/data_000637.dat", "wb")
+data = pd.read_csv("../data/data_000637.txt")
+output = open("../data/data_000637.dat", "wb")
 data = data[0:10]
 for i, r in data.iterrows():
     shifted_data = r["TDC_MEAS"]
@@ -12,7 +12,5 @@ for i, r in data.iterrows():
     shifted_data += r["FPGA"] << 58
     shifted_data += r["HEAD"] << 62
     output.write(struct.pack("<q", shifted_data))
-# The size of the binary file is too much less than the text file
-# 10M data/data_000637.dat
-# 32M data/data_000637.txt
+print( " The size of the binary file is too much less than the text file, # 10M data/data_000637.dat,# 32M data/data_000637.txt")
 
