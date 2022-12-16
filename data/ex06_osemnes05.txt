@@ -1,0 +1,1 @@
+ The size of the binary file is too much less than the text file, # 10M data/data_000637.dat,# 32M data/data_000637.txt
